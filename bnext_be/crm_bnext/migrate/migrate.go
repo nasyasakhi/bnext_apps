@@ -18,6 +18,8 @@ func main() {
 		&models.Role{},
 		&models.UserAuth{},
 		&models.UserProfile{},
+		&models.Product{}, 
+		&models.Voucher{}, 
 		&models.Category{},
 		&models.Ads{},
 	)

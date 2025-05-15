@@ -1,7 +1,7 @@
-import 'package:bnext/core/domain/domain.dart';
+import 'package:bnext_fe/core/domain/domain.dart';
 import 'package:dio/dio.dart';
 
-import '../../../config/di/di.dart';
+// import '../../../config/di/di.dart';
 import '../../../feature/shared/domain/domain.dart';
 import '../../../feature/shared/domain/usecase/get_token.dart';
 import '../../../feature/shared/domain/usecase/logout_use_case.dart';

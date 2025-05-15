@@ -27,7 +27,7 @@ class AuthInterceptor extends Interceptor {
 
   @override
   Future<void> onError(
-    DioException err,
+DioException err,
     ErrorInterceptorHandler handler,
   ) async {
     if (err.response?.statusCode == 401) {

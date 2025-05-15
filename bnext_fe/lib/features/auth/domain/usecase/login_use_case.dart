@@ -1,6 +1,6 @@
 import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/core/domain/domain.dart';
 
-import '../../../../core/core.dart';
 import '../../../shared/domain/entities/token_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';

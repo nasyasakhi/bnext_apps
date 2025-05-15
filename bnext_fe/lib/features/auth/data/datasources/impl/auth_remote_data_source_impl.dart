@@ -1,4 +1,5 @@
-import '../../../../../core/data/util/util.dart';
+import 'package:bnext_fe/core/data/util/data_source_util.dart';
+
 import '../auth_remote_data_source.dart';
 import '../../../params/register_params.dart';
 import '../../../params/verify_otp_params.dart';

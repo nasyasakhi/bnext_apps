@@ -1,8 +1,8 @@
 import 'package:badges/badges.dart' as badge;
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../config/config.dart';
-import '../../../core/core.dart';
 import '../../libraries.dart';
 
 class NotificationBadge extends StatelessWidget {

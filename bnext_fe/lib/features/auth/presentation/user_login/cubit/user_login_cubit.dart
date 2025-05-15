@@ -3,7 +3,6 @@ import '../../../../../core/data/error/error_object.dart';
 import '../../../domain/domain.dart';
 import '../../../params/login_params.dart';
 import '../../../../shared/domain/entities/token_entity.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'user_login_state.dart';

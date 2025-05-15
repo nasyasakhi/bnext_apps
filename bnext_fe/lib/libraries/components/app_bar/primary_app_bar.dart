@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart' show Sizes;
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../../config/config.dart';
-import '../../../core/core.dart';
 import '../../libraries.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {

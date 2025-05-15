@@ -1,5 +1,4 @@
-
-import 'package:bnext/feature/shared/data/data.dart';
+import 'package:bnext_fe/features/shared/data/data.dart';
 
 abstract class UserLocalDataSource {
   Future<TokenObject?> getToken();

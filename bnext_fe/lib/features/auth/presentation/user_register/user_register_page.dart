@@ -1,4 +1,7 @@
 import 'package:bnext/config/local/box_keys.dart';
+import 'package:bnext_fe/config/local/box_keys.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:hive/hive.dart';
 
 import '../../params/register_params.dart';
@@ -6,8 +9,6 @@ import 'cubit/user_register_cubit.dart';
 import 'cubit/user_register_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../../../config/config.dart';
 import 'package:auto_route/auto_route.dart';

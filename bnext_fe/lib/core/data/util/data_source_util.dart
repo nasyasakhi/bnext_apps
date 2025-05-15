@@ -1,9 +1,9 @@
 import 'dart:io';
 
+import 'package:bnext_fe/features/shared/data/data.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 
-import '../../../feature/shared/data/models/error_model.dart';
 import '../error/error.dart';
 
 abstract class DataSourceUtil {

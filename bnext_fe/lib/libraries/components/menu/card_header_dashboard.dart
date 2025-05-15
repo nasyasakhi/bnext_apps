@@ -1,11 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import '../../libraries.dart';
 
 import '../../../config/config.dart';
-import '../../../core/core.dart';
 
 class CardHeaderDashboard extends StatelessWidget {
   final String name;

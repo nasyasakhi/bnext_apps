@@ -1,8 +1,8 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart' show Sizes;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../config/config.dart';
-import '../../../core/core.dart';
 import '../../libraries.dart';
 
 class FilterButtonWidget extends StatelessWidget {

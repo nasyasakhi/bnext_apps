@@ -10,8 +10,8 @@ import 'package:auto_route/auto_route.dart';
 import '../../../../libraries/libraries.dart';
 import '../../../../config/theme/app_colors.dart';
 import '../../../../config/router/app_router.dart';
-import '../../../shared/domain/usecase/logout_use_case.dart';
-import '../../../shared/presentation/profile/cubit/cubit.dart';
+import '../../../../feature/shared/domain/usecase/logout_use_case.dart';
+import '../../../../feature/shared/presentation/profile/cubit/cubit.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {

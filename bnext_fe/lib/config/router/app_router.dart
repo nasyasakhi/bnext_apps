@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/config.dart';
 import 'package:bnext/config/router/guards/splash_guard.dart';
 import 'package:bnext/feature/shared/presentation/pages/pages.dart';
+import 'package:bnext_fe/config/di/di.dart';
+import 'package:bnext_fe/config/router/guards/onboarding_guard.dart';
+import 'package:bnext_fe/config/router/guards/splash_guard.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bnext/config/router/app_router.dart';
-import 'package:bnext/config/local/box_keys.dart';
+import 'package:bnext_fe/config/local/box_keys.dart';
+import 'package:bnext_fe/config/router/app_router.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 class OnboardingGuards extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
-    final box = Hive.box(BoxKeys.setting);
+    final box = Hive.box(BoxKeys().setting);
     final hasSeenOnboarding = box.get('hasSeenOnboarding', defaultValue: false);
 
     print('cek onboarding $hasSeenOnboarding');

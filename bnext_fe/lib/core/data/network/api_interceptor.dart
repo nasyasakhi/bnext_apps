@@ -1,11 +1,11 @@
+import 'package:bnext_fe/config/config.dart';
 import 'package:bnext_fe/core/domain/domain.dart';
+import 'package:bnext_fe/features/shared/domain/entities/entities.dart';
+import 'package:bnext_fe/features/shared/domain/usecase/get_token.dart';
+import 'package:bnext_fe/features/shared/domain/usecase/logout_use_case.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:dio/dio.dart';
 
-// import '../../../config/di/di.dart';
-import '../../../feature/shared/domain/domain.dart';
-import '../../../feature/shared/domain/usecase/get_token.dart';
-import '../../../feature/shared/domain/usecase/logout_use_case.dart';
-import '../../../feature/shared/presentation/profile/profile.dart';
 
 class AuthInterceptor extends Interceptor {
   @override

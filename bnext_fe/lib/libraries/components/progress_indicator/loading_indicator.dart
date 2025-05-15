@@ -1,7 +1,6 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import '../wrapper/custom_sliver_wrapper.dart';
-
-import '../../../core/core.dart';
 
 
 class AdaptiveLoadingIndicator extends StatelessWidget {

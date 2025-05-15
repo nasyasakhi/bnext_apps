@@ -1,7 +1,7 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../config/config.dart';
-import '../../../core/core.dart';
 
 class SnackbarHelper {
   static void showInformation(

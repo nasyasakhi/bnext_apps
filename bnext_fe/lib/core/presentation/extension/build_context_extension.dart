@@ -1,6 +1,5 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:flutter/material.dart';
-
-import '../../core.dart';
 
 extension XTextTheme on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;

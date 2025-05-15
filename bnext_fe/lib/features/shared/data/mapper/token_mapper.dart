@@ -1,5 +1,5 @@
-import 'package:bnext/feature/shared/data/object/object.dart';
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/features/shared/data/data.dart';
+import 'package:bnext_fe/features/shared/domain/entities/entities.dart';
 
 extension TokenObjectExtension on TokenObject {
   TokenEntity toEntity() => TokenEntity(

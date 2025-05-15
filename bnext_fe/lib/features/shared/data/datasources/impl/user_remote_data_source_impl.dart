@@ -1,7 +1,6 @@
-import 'package:bnext/core/core.dart';
-import 'package:bnext/feature/shared/data/datasources/datasources.dart';
-import 'package:bnext/feature/shared/data/models/models.dart';
-import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext_fe/core/data/util/data_source_util.dart';
+import 'package:bnext_fe/features/shared/data/data.dart';
+import 'package:bnext_fe/libraries/common/constants/endpoints.dart' show Endpoints;
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 

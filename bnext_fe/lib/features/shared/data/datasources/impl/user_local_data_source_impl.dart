@@ -1,7 +1,6 @@
-import 'package:bnext/core/core.dart';
-import 'package:bnext/feature/shared/data/datasources/datasources.dart';
-import 'package:bnext/feature/shared/data/object/object.dart';
-import 'package:bnext/config/local/box_keys.dart';
+import 'package:bnext_fe/config/local/box_keys.dart' show BoxKeys;
+import 'package:bnext_fe/core/data/util/data_source_util.dart';
+import 'package:bnext_fe/features/shared/data/data.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 

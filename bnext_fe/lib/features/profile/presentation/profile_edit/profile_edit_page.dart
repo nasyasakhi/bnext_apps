@@ -1,13 +1,13 @@
-import 'package:bnext/feature/shared/domain/domain.dart';
-import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/build_context_extension.dart';
+import 'package:bnext_fe/features/shared/domain/entities/user_entity.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import '../../../../libraries/libraries.dart';
 import '../../../../config/theme/app_colors.dart';
-import '../../../../libraries/components/button/primary_button.dart';
 
 @RoutePage()
 class ProfileEditPage extends StatefulWidget {

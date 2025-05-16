@@ -1,4 +1,4 @@
-import 'package:bnext/core/core.dart';
+import 'package:bnext_fe/core/data/error/failure.dart';
 import 'package:dartz/dartz.dart';
 
 import '../entities/entities.dart';

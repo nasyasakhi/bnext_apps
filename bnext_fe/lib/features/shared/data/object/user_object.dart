@@ -1,4 +1,4 @@
-import 'package:bnext/feature/shared/data/object/user_profile_object.dart';
+import 'package:bnext_fe/features/shared/data/object/user_profile_object.dart';
 import 'package:hive/hive.dart';
 import 'dart:convert';
 

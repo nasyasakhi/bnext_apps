@@ -1,6 +1,5 @@
-import 'package:bnext/feature/shared/domain/entities/user_profile_entity.dart';
+import 'package:bnext_fe/features/shared/domain/entities/user_profile_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:convert';
 
 part 'user_entity.freezed.dart';
 

@@ -1,5 +1,5 @@
-import 'package:bnext/core/presentation/presentation.dart';
-import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext_fe/core/presentation/presentation.dart';
+import 'package:bnext_fe/libraries/libraries.dart';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';

@@ -1,10 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bnext/config/di/di.dart';
-import 'package:bnext/config/router/app_router.dart';
-import 'package:bnext/config/theme/theme.dart';
-import 'package:bnext/core/core.dart';
-import 'package:bnext/feature/shared/domain/usecase/get_token.dart';
-import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext_fe/config/di/di.dart';
+import 'package:bnext_fe/config/router/app_router.dart';
+import 'package:bnext_fe/config/theme/theme.dart';
+import 'package:bnext_fe/core/core.dart';
+import 'package:bnext_fe/core/domain/usecase.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/build_context_extension.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
+import 'package:bnext_fe/features/shared/domain/usecase/get_token.dart';
+import 'package:bnext_fe/libraries/libraries.dart';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';

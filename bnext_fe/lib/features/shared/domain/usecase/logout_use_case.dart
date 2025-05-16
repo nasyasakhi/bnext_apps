@@ -1,10 +1,10 @@
 
-import 'package:bnext/feature/shared/domain/repositories/repositories.dart';
+import 'package:bnext_fe/core/data/error/failure.dart';
+import 'package:bnext_fe/core/domain/usecase.dart';
+import 'package:bnext_fe/features/shared/domain/repositories/user_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/core.dart';
-import '../domain.dart';
 
 @lazySingleton
 class LogoutUseCase implements UseCase<void, NoParams> {

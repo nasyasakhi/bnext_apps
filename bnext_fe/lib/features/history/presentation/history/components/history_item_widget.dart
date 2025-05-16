@@ -1,8 +1,8 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../../../../config/theme/app_colors.dart';
-import '../../../../../core/core.dart';
-
 import '../../../../../libraries/common/constants/app_resources.dart';
 import '../../../../../libraries/custome_line/custome_line_widget.dart';
 

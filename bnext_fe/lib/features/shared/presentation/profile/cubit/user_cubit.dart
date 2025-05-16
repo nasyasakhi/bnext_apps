@@ -1,5 +1,5 @@
-import 'package:bnext/core/core.dart';
-import 'package:bnext/feature/shared/domain/usecase/usecase.dart';
+import 'package:bnext_fe/core/domain/usecase.dart';
+import 'package:bnext_fe/features/shared/domain/usecase/usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

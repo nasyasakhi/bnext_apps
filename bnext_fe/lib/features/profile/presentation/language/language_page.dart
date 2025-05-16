@@ -1,6 +1,7 @@
-import '../../../../libraries/components/button/secondary_button.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/build_context_extension.dart';
+
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import '../../../../libraries/libraries.dart';

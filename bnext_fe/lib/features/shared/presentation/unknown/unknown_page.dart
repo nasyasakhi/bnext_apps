@@ -1,5 +1,5 @@
-import 'package:bnext/config/theme/theme.dart';
-import 'package:bnext/core/presentation/presentation.dart';
+import 'package:bnext_fe/config/theme/theme.dart';
+import 'package:bnext_fe/core/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../libraries/libraries.dart';

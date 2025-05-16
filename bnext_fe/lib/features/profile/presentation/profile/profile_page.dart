@@ -1,17 +1,16 @@
-import 'package:bnext/feature/auth/presentation/user_login/cubit/user_login_cubit.dart';
-import 'package:bnext/feature/shared/domain/domain.dart';
-import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
+
+import 'package:bnext_fe/core/domain/usecase.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/build_context_extension.dart';
+import 'package:bnext_fe/features/shared/domain/entities/user_entity.dart';
+import 'package:bnext_fe/features/shared/domain/usecase/logout_use_case.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import '../../../../config/config.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../config/router/app_router.dart';
-import '../../../../feature/shared/domain/usecase/logout_use_case.dart';
-import '../../../../feature/shared/presentation/profile/cubit/cubit.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {

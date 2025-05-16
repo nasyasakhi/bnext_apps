@@ -1,6 +1,7 @@
-import '../../../libraries/components/button/secondary_button.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
+
 import 'package:gap/gap.dart';
-import '../../../core/core.dart';
 import '../../../config/config.dart';
 import 'package:flutter/material.dart';
 import '../../../libraries/libraries.dart';
@@ -40,7 +41,7 @@ class PreloginPage extends StatelessWidget {
               Text(
                 'Siap Menjelajah Dunia Menghubungkan Masa Depan, Hari Ini Tanpa Batas Dengan Menikmati Fitur Canggih Nggak Harus Mahal!',
                 style: context.bodySmall
-                    ?.toColor(AppColors.white.withOpacity(0.8)),
+                    ?.toColor(AppColors.white.withValues(alpha: 0.8)),
                 textAlign: TextAlign.center,
               ),
               const Spacer(),

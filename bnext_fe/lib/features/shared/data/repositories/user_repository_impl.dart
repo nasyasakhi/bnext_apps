@@ -1,14 +1,14 @@
-import 'package:bnext/core/core.dart';
-import 'package:bnext/feature/shared/data/mapper/token_mapper.dart';
-import 'package:bnext/feature/shared/data/mapper/user_mapper.dart';
-import 'package:bnext/feature/shared/domain/repositories/repositories.dart';
+import 'package:bnext_fe/core/data/error/failure.dart';
+import 'package:bnext_fe/core/data/util/repository_util.dart';
+import 'package:bnext_fe/features/shared/data/mapper/token_mapper.dart';
+import 'package:bnext_fe/features/shared/data/mapper/user_mapper.dart';
+import 'package:bnext_fe/features/shared/domain/repositories/user_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/domain.dart';
 
 import '../datasources/datasources.dart';
-import '../mapper/mapper.dart';
 
 @LazySingleton(as: UserRepository)
 class UserRepositoryImpl extends RepositoryUtil implements UserRepository {

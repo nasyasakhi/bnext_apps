@@ -12,37 +12,37 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../feature/auth/data/datasources/auth_remote_data_source.dart'
+import 'package:bnext_fe/features/auth/data/datasources/auth_remote_data_source.dart'
     as _i794;
-import '../../feature/auth/data/datasources/impl/auth_remote_data_source_impl.dart'
+import 'package:bnext_fe/features/auth/data/datasources/impl/auth_remote_data_source_impl.dart'
     as _i647;
-import '../../feature/auth/data/repositories/auth_repository_impl.dart'
+import 'package:bnext_fe/features/auth/data/repositories/auth_repository_impl.dart'
     as _i263;
-import '../../feature/auth/domain/domain.dart' as _i640;
-import '../../feature/auth/domain/usecase/login_use_case.dart' as _i805;
-import '../../feature/auth/domain/usecase/register_use_case.dart' as _i717;
-import '../../feature/auth/domain/usecase/sendotp_use_case.dart' as _i480;
-import '../../feature/auth/domain/usecase/verifyotp_use_case.dart' as _i740;
-import '../../feature/auth/presentation/otp/cubit/otp_cubit.dart' as _i214;
-import '../../feature/auth/presentation/user_login/cubit/user_login_cubit.dart'
+import 'package:bnext_fe/features/auth/domain/domain.dart' as _i640;
+import 'package:bnext_fe/features/auth/domain/usecase/login_use_case.dart' as _i805;
+import 'package:bnext_fe/features/auth/domain/usecase/register_use_case.dart' as _i717;
+import 'package:bnext_fe/features/auth/domain/usecase/sendotp_use_case.dart' as _i480;
+import 'package:bnext_fe/features/auth/domain/usecase/verifyotp_use_case.dart' as _i740;
+import 'package:bnext_fe/features/auth/presentation/otp/cubit/otp_cubit.dart' as _i214;
+import 'package:bnext_fe/features/auth/presentation/user_login/cubit/user_login_cubit.dart'
     as _i886;
-import '../../feature/auth/presentation/user_register/cubit/user_register_cubit.dart'
+import 'package:bnext_fe/features/auth/presentation/user_register/cubit/user_register_cubit.dart'
     as _i958;
-import '../../feature/shared/data/datasources/datasources.dart' as _i634;
-import '../../feature/shared/data/datasources/impl/user_local_data_source_impl.dart'
+import 'package:bnext_fe/features/shared/data/datasources/datasources.dart' as _i634;
+import 'package:bnext_fe/features/shared/data/datasources/impl/user_local_data_source_impl.dart'
     as _i893;
-import '../../feature/shared/data/datasources/impl/user_remote_data_source_impl.dart'
+import 'package:bnext_fe/features/shared/data/datasources/impl/user_remote_data_source_impl.dart'
     as _i458;
-import '../../feature/shared/data/repositories/user_repository_impl.dart'
+import 'package:bnext_fe/features/shared/data/repositories/user_repository_impl.dart'
     as _i178;
-import '../../feature/shared/domain/repositories/repositories.dart' as _i486;
-import '../../feature/shared/domain/usecase/get_token.dart' as _i202;
-import '../../feature/shared/domain/usecase/get_user.dart' as _i635;
-import '../../feature/shared/domain/usecase/logout_use_case.dart' as _i687;
-import '../../feature/shared/domain/usecase/save_token.dart' as _i485;
-import '../../feature/shared/domain/usecase/save_user.dart' as _i191;
-import '../../feature/shared/domain/usecase/usecase.dart' as _i523;
-import '../../feature/shared/presentation/profile/cubit/user_cubit.dart'
+import 'package:bnext_fe/features/shared/domain/repositories/repositories.dart' as _i486;
+import 'package:bnext_fe/features/shared/domain/usecase/get_token.dart' as _i202;
+import 'package:bnext_fe/features/shared/domain/usecase/get_user.dart' as _i635;
+import 'package:bnext_fe/features/shared/domain/usecase/logout_use_case.dart' as _i687;
+import 'package:bnext_fe/features/shared/domain/usecase/save_token.dart' as _i485;
+import 'package:bnext_fe/features/shared/domain/usecase/save_user.dart' as _i191;
+import 'package:bnext_fe/features/shared/domain/usecase/usecase.dart' as _i523;
+import 'package:bnext_fe/features/shared/presentation/profile/cubit/user_cubit.dart'
     as _i99;
 import '../local/hive_service.dart' as _i388;
 import '../router/app_router.dart' as _i81;

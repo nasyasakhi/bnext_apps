@@ -1,3 +1,5 @@
+import 'package:bnext_fe/features/shared/data/mapper/user_profile_mapper.dart';
+
 import '../../domain/entities/entities.dart';
 import '../data.dart';
 

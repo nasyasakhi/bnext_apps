@@ -1,10 +1,10 @@
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/build_context_extension.dart';
 import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import '../../../../../config/theme/theme.dart';
 import '../../../../../libraries/libraries.dart';
-import '../../../../../config/router/app_router.dart';
 
 @RoutePage()
 class ProductOngkirPage extends StatelessWidget {

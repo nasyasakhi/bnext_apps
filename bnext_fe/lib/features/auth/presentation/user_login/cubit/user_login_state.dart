@@ -1,8 +1,7 @@
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/features/shared/domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/data/error/error_object.dart';
-import '../../../../shared/domain/entities/token_entity.dart';
 
 part 'user_login_state.freezed.dart';
 @freezed

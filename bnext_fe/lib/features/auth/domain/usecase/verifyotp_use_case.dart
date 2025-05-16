@@ -1,4 +1,4 @@
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/features/shared/domain/domain.dart';
 import 'package:bnext_fe/core/data/data.dart';
 import 'package:bnext_fe/core/domain/domain.dart';
 

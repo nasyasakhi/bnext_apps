@@ -1,9 +1,8 @@
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/features/shared/domain/domain.dart';
 
 import '../../params/login_params.dart';
 import '../../params/register_params.dart';
 import '../../params/verify_otp_params.dart';
-import '../../../shared/domain/entities/token_entity.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/data/error/failure.dart';

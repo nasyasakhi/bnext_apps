@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bnext/feature/shared/presentation/profile/profile.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/profile.dart';
 import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import '../../params/login_params.dart';

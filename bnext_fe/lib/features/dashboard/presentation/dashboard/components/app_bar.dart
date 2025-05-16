@@ -1,9 +1,10 @@
 import 'package:badges/badges.dart' as badge;
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../config/config.dart';
-import '../../../../../core/core.dart';
 import '../../../../../libraries/libraries.dart';
 
 class DashboardAppBar extends StatefulWidget {
@@ -32,8 +33,8 @@ class _DashboardAppBarState extends State<DashboardAppBar> {
     return AnimatedBuilder(
       animation: widget.opacityAnimationController,
       builder: (context, child) => AppBar(
-        backgroundColor: Colors.transparent.withOpacity(
-          widget.isAnimateBackground ? widget.opacityTween.value : 1,
+        backgroundColor: Colors.transparent.withValues(
+          alpha: widget.isAnimateBackground ? widget.opacityTween.value : 1,
         ),
         titleSpacing: 20,
         title: Row(

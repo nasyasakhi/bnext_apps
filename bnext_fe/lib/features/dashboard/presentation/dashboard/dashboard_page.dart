@@ -1,8 +1,9 @@
-import 'package:bnext/feature/shared/domain/entities/entities.dart';
-import 'package:bnext/feature/shared/presentation/profile/cubit/cubit.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
+import 'package:bnext_fe/features/shared/domain/entities/entities.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/cubit/cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import '../../../../config/config.dart';
 import 'package:auto_route/auto_route.dart';

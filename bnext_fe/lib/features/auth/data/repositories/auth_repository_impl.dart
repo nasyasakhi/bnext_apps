@@ -1,14 +1,12 @@
-import 'package:bnext/config/local/box_keys.dart';
-import 'package:bnext/feature/shared/data/mapper/user_mapper.dart';
-import 'package:bnext/feature/shared/data/repositories/user_repository_impl.dart';
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/config/local/box_keys.dart';
+import 'package:bnext_fe/core/data/util/repository_util.dart';
+import 'package:bnext_fe/features/shared/data/mapper/user_mapper.dart';
+import 'package:bnext_fe/features/shared/domain/domain.dart';
 import 'package:hive/hive.dart';
 
-import '../../../../core/data/util/util.dart';
 import '../../../shared/data/datasources/datasources.dart';
 import '../../params/register_params.dart';
 import '../../params/verify_otp_params.dart';
-import '../../../shared/domain/entities/token_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

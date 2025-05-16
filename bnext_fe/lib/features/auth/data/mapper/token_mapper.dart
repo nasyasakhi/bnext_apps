@@ -1,4 +1,4 @@
-import 'package:bnext/feature/shared/data/object/token_object.dart';
+import 'package:bnext_fe/features/shared/data/object/token_object.dart';
 
 import '../../../shared/domain/entities/token_entity.dart';
 import '../models/token_model.dart';

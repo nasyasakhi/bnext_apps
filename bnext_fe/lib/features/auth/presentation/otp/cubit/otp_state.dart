@@ -1,4 +1,4 @@
-import 'package:bnext/feature/shared/domain/domain.dart';
+import 'package:bnext_fe/features/shared/domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/data/error/error_object.dart';

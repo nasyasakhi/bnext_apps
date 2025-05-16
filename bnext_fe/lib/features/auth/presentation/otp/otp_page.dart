@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bnext/feature/shared/presentation/profile/profile.dart';
+import 'package:bnext_fe/features/shared/presentation/profile/profile.dart';
 import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:bnext_fe/core/presentation/extension/extension.dart';
 
@@ -7,7 +7,6 @@ import '../../params/verify_otp_params.dart';
 import 'cubit/otp_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import '../../../../config/config.dart';
 import 'package:auto_route/auto_route.dart';

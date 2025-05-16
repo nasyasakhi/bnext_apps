@@ -1,8 +1,7 @@
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
+import 'package:bnext_fe/core/presentation/constants/sizes.dart';
+import 'package:bnext_fe/core/presentation/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'banner_widget.dart';
 
 class MiniSliderWidget extends StatefulWidget {

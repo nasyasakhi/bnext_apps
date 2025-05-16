@@ -1,4 +1,3 @@
-import 'package:bnext/config/local/box_keys.dart';
 import 'package:bnext_fe/config/local/box_keys.dart';
 import 'package:bnext_fe/core/presentation/constants/sizes.dart';
 import 'package:bnext_fe/core/presentation/extension/extension.dart';
@@ -12,7 +11,6 @@ import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
 import '../../../../config/config.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/common/constants/validators.dart';
 import '../../../../libraries/libraries.dart';
 
 @RoutePage()

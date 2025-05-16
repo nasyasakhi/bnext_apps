@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bnext_fe/config/local/box_keys.dart';
+
 import 'package:bnext_fe/config/router/app_router.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';

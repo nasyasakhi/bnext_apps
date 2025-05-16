@@ -1,36 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bnext/config/config.dart';
-import 'package:bnext/config/router/guards/splash_guard.dart';
-import 'package:bnext/feature/shared/presentation/pages/pages.dart';
 import 'package:bnext_fe/config/di/di.dart';
 import 'package:bnext_fe/config/router/guards/onboarding_guard.dart';
 import 'package:bnext_fe/config/router/guards/splash_guard.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
-import 'package:bnext/feature/profile/presentation/presentation.dart';
-import 'package:bnext/feature/shared/presentation/main/main_page.dart';
-import 'package:bnext/feature/dashboard/presentation/presentation.dart';
-
-import 'package:bnext/feature/video_apps/presentation/presentation.dart';
-import 'package:bnext/feature/auth/presentation/otp/otp_page.dart';
-import 'package:bnext/feature/promo/presentation/presentation.dart';
-import 'package:bnext/feature/pre_login/presentation/pre_login_page.dart';
-import 'package:bnext/feature/partnership/presentation/presentation.dart';
-import 'package:bnext/feature/reward/presentation/reward/reward_page.dart';
-import 'package:bnext/feature/history/presentation/history/history_page.dart';
-import 'package:bnext/feature/bnext_product/ott_product/presentation/presentation.dart';
-import 'package:bnext/feature/shared/presentation/pages/onboarding_page.dart';
-import 'package:bnext/feature/auth/presentation/user_login/user_login_page.dart';
-import 'package:bnext/feature/bnext_product/internet_product/presentation/presentation.dart';
-import 'package:bnext/feature/auth/presentation/user_register/user_register_page.dart';
-import 'package:bnext/feature/dashboard/presentation/dashboard/dashboard_page.dart';
-import 'package:bnext/feature/reward/presentation/reward_detail/reward_detail_page.dart';
-import 'package:bnext/feature/bnext_product/bnext_product/presentation/presentation.dart';
-import 'package:bnext/feature/history/presentation/history/history%20detail/history_detail_page.dart';
-import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_product_co.dart/payment_method_page.dart';
-import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_product_co.dart/bnext_product_co.dart.dart';
-import 'package:bnext/config/router/guards/onboarding_guard.dart';
 
 part 'app_router.gr.dart';
 

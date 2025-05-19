@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../../config/config.dart';
@@ -80,6 +79,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
           const Gap(Sizes.p16),
         ),
       bottom: bottom,
+
     );
   }
 }

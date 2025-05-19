@@ -1,43 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:bnext_fe/core/redirect_to_whatsapp.dart';
+import 'package:bnext_fe/feature/chat/presentation/chat/components/chat_components.dart';
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+class WhatsappRedirectPage extends StatefulWidget {
+  const WhatsappRedirectPage({super.key});
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<WhatsappRedirectPage> createState() => _WhatsappRedirectPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _WhatsappRedirectPageState extends State<WhatsappRedirectPage> {
   @override
   void initState() {
     super.initState();
-    redirectToWhatsApp(context); // langsung panggil redirect logic
+    final service = WhatsappServiceImpl(context);
+    service.redirectToWhatsApp();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF0E0722),
+    return const Scaffold(
+      backgroundColor: Color(0xFF0E0722), // Ganti ke warna const kamu yaa
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/whatsapp_logo.png',
-              width: 120,
-              height: 120,
-              fit: BoxFit.contain,
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Mengarahkan ke Whatsapp....',
-              style: TextStyle(
-                color: naturalColorTwo,
-                fontSize: 14,
-              ),
-            ),
-          ],
-        ),
+        child: WhatsappLogoAndText(),
       ),
     );
   }

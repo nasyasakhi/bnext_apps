@@ -79,7 +79,6 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
           const Gap(Sizes.p16),
         ),
       bottom: bottom,
-
     );
   }
 }

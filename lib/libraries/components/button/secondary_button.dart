@@ -60,20 +60,21 @@ class SecondaryButton extends StatelessWidget {
           child: Padding(
             padding: padding,
             child: isLoading
-            ? SizedBox(
-                height: Sizes.p20,
-                width: Sizes.p20,
-                child: AdaptiveLoadingIndicator(
-                  color: foregroundColor.withAlpha(125),
-                ),
-              )
-            : child != null
-              ? child!
-              : Text(
-                text ?? '',
-                textAlign: TextAlign.center,
-                style: context.titleSmall?.semiBold.toColor(foregroundColor),
-              ),
+                ? SizedBox(
+                    height: Sizes.p20,
+                    width: Sizes.p20,
+                    child: AdaptiveLoadingIndicator(
+                      color: foregroundColor.withAlpha(125),
+                    ),
+                  )
+                : child != null
+                    ? child!
+                    : Text(
+                        text ?? '',
+                        textAlign: TextAlign.center,
+                        style: context.titleSmall?.semiBold
+                            .toColor(foregroundColor),
+                      ),
           ),
         ),
       ),

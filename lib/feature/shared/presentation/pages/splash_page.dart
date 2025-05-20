@@ -9,11 +9,9 @@ import 'package:bnext/libraries/libraries.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../libraries/common/constants/constants.dart';
-import '../../domain/entities/entities.dart';
-import '../../domain/usecase/usecase.dart';
+import 'package:bnext/feature/shared/domain/entities/entities.dart';
 
-import '../profile/cubit/user_cubit.dart';
+import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {

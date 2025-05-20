@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../core/core.dart';
-import 'app_colors.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/config/theme/app_colors.dart';
 
 class AppTheme {
   ThemeData get lightTheme {
     final theme = ThemeData(
       fontFamily: 'Poppins',
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: AppColors.accentMain,  
+        backgroundColor: AppColors.accentMain,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(35),
         ),

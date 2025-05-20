@@ -2,7 +2,6 @@ import 'package:bnext/config/theme/theme.dart';
 import 'package:bnext/core/presentation/presentation.dart';
 import 'package:bnext/libraries/libraries.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
 class EmptyStateScreen extends StatelessWidget {

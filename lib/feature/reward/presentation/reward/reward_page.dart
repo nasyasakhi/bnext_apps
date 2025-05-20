@@ -1,12 +1,11 @@
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../config/router/app_router.dart';
-import '../../../../libraries/components/button/primary_button.dart';
-import '../../../../libraries/components/card_widget/product_card.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/config/theme/app_colors.dart';
+import 'package:bnext/config/router/app_router.dart';
+import 'package:bnext/libraries/components/card_widget/product_card.dart';
 
 @RoutePage()
 class RewardPage extends StatefulWidget {
@@ -91,22 +90,30 @@ class _RewardPageState extends State<RewardPage> {
                     title: 'Lorem epsum',
                     description: '200 Poin',
                     description2: '3000 Voucher Tersedia',
-                    onTap: () {context.router.push(const RewardDetailRoute());}),
+                    onTap: () {
+                      context.router.push(const RewardDetailRoute());
+                    }),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
                     description2: '3000 Voucher Tersedia',
-                          onTap: () {context.router.push(const RewardDetailRoute());}),
+                    onTap: () {
+                      context.router.push(const RewardDetailRoute());
+                    }),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
                     description2: '3000 Voucher Tersedia',
-                          onTap: () {context.router.push(const RewardDetailRoute());}),
+                    onTap: () {
+                      context.router.push(const RewardDetailRoute());
+                    }),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
                     description2: '3000 Voucher Tersedia',
-                          onTap: () {context.router.push(const RewardDetailRoute());}),
+                    onTap: () {
+                      context.router.push(const RewardDetailRoute());
+                    }),
               ],
             ),
           ],

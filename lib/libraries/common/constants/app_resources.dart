@@ -1,3 +1,5 @@
+// file buat naro semua link asset, biar gampang dipanggil di berbagai file lainnya. jadi kalo ada perubahan nama file,
+// tinggal ubah disini aja ga perlu ubah di file lain
 class AppImages {
   static const String itsIcon = 'assets/images/its_icon.png';
   static const String photoProfile = 'assets/images/photo_profile.png';

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../config/config.dart';
-import '../../../core/core.dart';
-import '../../libraries.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PrimaryAppBar({

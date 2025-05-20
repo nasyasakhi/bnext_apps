@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'config/config.dart';
-import 'config/router/app_route_observer.dart';
-import 'libraries/common/helper/helper.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/config/router/app_route_observer.dart';
+import 'package:bnext/libraries/common/helper/helper.dart';
 
 class BnextApp extends StatelessWidget {
   BnextApp({super.key});

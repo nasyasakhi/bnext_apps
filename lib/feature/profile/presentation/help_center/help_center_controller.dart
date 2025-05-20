@@ -1,9 +1,11 @@
 import 'dart:convert';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class HelpCenterController {
-  static const String _apiKey = 'ISI_API_KEY_GEMINI_KAMU_DI_SINI';
-  static const String _geminiUrl =
+  static final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
+  static final String _geminiUrl =
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$_apiKey';
 
   Future<String> getBotResponse(String userMessage) async {

@@ -1,16 +1,12 @@
-import 'dart:async';
-import 'package:bnext/feature/shared/domain/entities/entities.dart';
 import 'package:bnext/config/local/box_keys.dart';
 import 'package:gap/gap.dart';
 import 'package:hive/hive.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../config/theme/theme.dart';
-import '../../../../libraries/libraries.dart';
+import 'package:bnext/config/theme/theme.dart';
+import 'package:bnext/libraries/libraries.dart';
 import 'package:bnext/config/config.dart';
-import '../../domain/usecase/get_token.dart';
-import '../profile/cubit/cubit.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

@@ -45,17 +45,17 @@ class PrimaryButton extends StatelessWidget {
       top: isSafeArea,
       bottom: isSafeArea,
       child: SizedBox(
-        height: height,
+        height: height ?? 50,
         width: width,
         child: GestureDetector(
           onTap: isDisabledMessage != null
-              ? () {
-                  SnackbarHelper.showError(
-                    context,
-                    isDisabledMessage ?? 'Terjadi kesalahan, perikasa kembali',
-                  );
-                }
-              : null,
+            ? () {
+              SnackbarHelper.showError(
+                context,
+                isDisabledMessage ?? 'Terjadi kesalahan, perikasa kembali',
+              );
+            }
+          : null,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -67,33 +67,31 @@ class PrimaryButton extends StatelessWidget {
             child: Padding(
               padding: padding,
               child: isLoading
-                  ? const SizedBox(
-                      height: Sizes.p20,
-                      width: Sizes.p20,
-                      child: AdaptiveLoadingIndicator(
-                        color: AppColors.neutral10,
-                      ),
-                    )
-                  : icon != null
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(icon ?? '', height: heightIcon ?? 20),
-                            const Gap(Sizes.p8),
-                            Text(
-                              text,
-                              textAlign: TextAlign.center,
-                              style: context.titleSmall?.semiBold
-                                  .toColor(textColor ?? AppColors.white),
-                            ),
-                          ],
-                        )
-                      : Text(
-                          text,
-                          textAlign: TextAlign.center,
-                          style: context.titleSmall?.semiBold
-                              .toColor(textColor ?? AppColors.white),
-                        ),
+              ? const SizedBox(
+                height: Sizes.p20,
+                width: Sizes.p20,
+                child: AdaptiveLoadingIndicator(
+                  color: AppColors.neutral10,
+                ),
+              )
+              :icon != null
+              ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(icon ?? '', height: heightIcon ?? 20),
+                  const Gap(Sizes.p8),
+                  Text(
+                    text,
+                    textAlign: TextAlign.center,
+                    style: context.titleSmall?.semiBold.toColor(textColor ?? AppColors.white),
+                  ),
+                ],
+              )
+              : Text(
+                text,
+                textAlign: TextAlign.center,
+                style: context.titleSmall?.semiBold.toColor(textColor ?? AppColors.white),
+              ),
             ),
           ),
         ),

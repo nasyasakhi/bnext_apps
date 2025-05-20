@@ -1,1 +1,1 @@
-export 'user_register_page.dart';
+export 'register/user_register_page.dart';

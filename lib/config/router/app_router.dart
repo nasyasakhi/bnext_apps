@@ -20,7 +20,7 @@ import 'package:bnext/feature/bnext_product/ott_product/presentation/presentatio
 import 'package:bnext/feature/shared/presentation/pages/onboarding_page.dart';
 import 'package:bnext/feature/auth/presentation/user_login/user_login_page.dart';
 import 'package:bnext/feature/bnext_product/internet_product/presentation/presentation.dart';
-import 'package:bnext/feature/auth/presentation/user_register/user_register_page.dart';
+import 'package:bnext/feature/auth/presentation/user_register/register/user_register_page.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/dashboard_page.dart';
 import 'package:bnext/feature/reward/presentation/reward_detail/reward_detail_page.dart';
 import 'package:bnext/feature/bnext_product/bnext_product/presentation/presentation.dart';
@@ -64,7 +64,6 @@ class AppRouter extends _$AppRouter {
           path: '/otp/:email',
         ),
         CustomRoute(
-          transitionsBuilder: TransitionsBuilders.slideLeft,
           page: UserLoginRoute.page,
           path: '/user-login',
         ),
@@ -72,10 +71,9 @@ class AppRouter extends _$AppRouter {
             initial: true,
             path: '/home',
             page: MainRoute.page,
-            transitionsBuilder: TransitionsBuilders.slideLeft,
-            guards: [
-              locator<SplashGuard>(),
-            ],
+            // guards: [
+            //   locator<SplashGuard>(),
+            // ],
             children: [
               AutoRoute(
                 page: DashboardRoute.page,

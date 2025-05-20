@@ -77,14 +77,11 @@ class AppColors {
   static const warningFocused = Color(0xFFFFF3CD);
 
   static const infoMain = Color(0xFF022071); // Info Main
-  static const infoSurface =
-      Color(0xFFE4E8F4); // Warna permukaan yang lebih lembut
+  static const infoSurface =Color(0xFFE4E8F4); // Warna permukaan yang lebih lembut
   static const infoBorder = Color(0xFFBAC4DB); // Warna border yang lebih lembut
   static const infoHover = Color(0xFF011C63); // Lebih gelap dari infoMain
-  static const infoPressed =
-      Color(0xFF01154C); // Warna lebih gelap untuk efek ditekan
-  static const infoFocused =
-      Color(0xFFC9D3F2); // Warna lebih terang untuk efek fokus
+  static const infoPressed =Color(0xFF01154C); // Warna lebih gelap untuk efek ditekan
+  static const infoFocused = Color(0xFFC9D3F2); // Warna lebih terang untuk efek fokus
 
   static const successMain = Color(0xFF51D868);
   static const successSurface = Color(0xFFEDFFF2);

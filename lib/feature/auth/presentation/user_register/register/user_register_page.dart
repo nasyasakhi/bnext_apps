@@ -1,17 +1,18 @@
 import 'package:bnext/config/local/box_keys.dart';
+import 'package:bnext/feature/auth/presentation/user_register/register/components/header_section.dart';
 import 'package:hive/hive.dart';
 
-import '../../params/register_params.dart';
-import 'cubit/user_register_cubit.dart';
-import 'cubit/user_register_state.dart';
+import '../../../params/register_params.dart';
+import '../cubit/user_register_cubit.dart';
+import '../cubit/user_register_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import '../../../../../core/core.dart';
 import 'package:flutter/material.dart';
-import '../../../../config/config.dart';
+import '../../../../../config/config.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/common/constants/validators.dart';
-import '../../../../libraries/libraries.dart';
+import '../../../../../libraries/common/constants/validators.dart';
+import '../../../../../libraries/libraries.dart';
 
 @RoutePage()
 class UserRegisterPage extends StatefulWidget {
@@ -80,7 +81,7 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
                       padding:
                           const EdgeInsets.symmetric(horizontal: Sizes.p28),
                       children: [
-                        _header(context),
+                        HeaderSection(context: context),
                         _mainSection(context),
                         _bottomSection(context, state),
                       ],
@@ -92,24 +93,6 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
           },
         ),
       ),
-    );
-  }
-
-  Widget _header(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          AppImages.bnextLogo,
-          height: 100,
-        ),
-        const Gap(Sizes.p20),
-        Text(
-          'Selamat Datang di BNext',
-          style: context.titleMedium?.bold.toColor(AppColors.white),
-          textAlign: TextAlign.center,
-        ),
-        const Gap(Sizes.p40),
-      ],
     );
   }
 
@@ -246,16 +229,18 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
                   : null,
         ),
         const Gap(Sizes.p12),
-        // RichText(
-        //     textAlign: TextAlign.start,
-        //     text: TextSpan(
-        //         text: 'Belum punya akun? ',
-        //         style: context.bodySmall,
-        //         children: [
-        //           TextSpan(
-        //               text: 'Daftar',
-        //               style: context.bodySmall?.toColor(AppColors.primaryMain)),
-        //         ])),
+        RichText(
+          textAlign: TextAlign.start,
+          text: TextSpan(
+            text: 'Belum punya akun? ',
+            style: context.bodySmall,
+            children: [
+              TextSpan(
+                text: 'Daftar',
+                style: context.bodySmall?.toColor(AppColors.primaryMain)),
+            ]
+          )
+        ),
         const Gap(Sizes.p16),
       ],
     );

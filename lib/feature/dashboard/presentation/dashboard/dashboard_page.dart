@@ -214,7 +214,7 @@ class _DashboardPageState extends State<DashboardPage>
         children: [
           GestureDetector(
             onTap: () {
-              context.router.push(const ProfileEditRoute());
+              context.router.push(const ProfileRoute());
             },
             child: Container(
               width: 50,

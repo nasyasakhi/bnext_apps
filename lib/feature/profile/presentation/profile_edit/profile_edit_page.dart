@@ -1,13 +1,16 @@
+import 'package:bnext/config/theme/app_colors.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/core/presentation/constants/sizes.dart';
 import 'package:bnext/feature/shared/domain/domain.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
+import 'package:bnext/libraries/common/constants/app_resources.dart';
+import 'package:bnext/libraries/components/button/primary_button.dart';
+import 'package:bnext/libraries/components/text_field/custom_text_field.dart';
+import 'package:bnext/libraries/components/wrapper/custom_wrapper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../libraries/components/button/primary_button.dart';
 
 @RoutePage()
 class ProfileEditPage extends StatefulWidget {
@@ -282,6 +285,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 60.0),
       child: PrimaryButton(
+        height: 50,
         text: 'Simpan',
         width: double.infinity,
         onPressed: () {

@@ -69,7 +69,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title != null
           ? Text(
               title ?? '',
-              style: const TextStyle().extraBold.toSize(16).toColor(
+              style: const TextStyle().semiBold.toSize(16).toColor(
                     isLightTheme ? AppColors.white : AppColors.white,
                   ),
             )

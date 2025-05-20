@@ -12,22 +12,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 100), () {
-      if (mounted) _navigateToLandingPage(context);
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Future.delayed(const Duration(seconds: 5), () {
+  //     if (mounted) {
+  //      _navigateToLandingPage(context);
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: Center(
-        child: Image.asset(
-          AppImages.bnextLogo,
-          width: MediaQuery.of(context).size.width * 0.8,
-        ),
+        child: Text('data'),
+        // child: Image.asset(
+        //   AppImages.bnextLogo,
+        //   width: MediaQuery.of(context).size.width * 0.8,
+        // ),
       ),
     );
   }

@@ -12,7 +12,7 @@ import 'package:bnext/feature/dashboard/presentation/presentation.dart';
 import 'package:bnext/feature/video_apps/presentation/presentation.dart';
 import 'package:bnext/feature/auth/presentation/otp/otp_page.dart';
 import 'package:bnext/feature/promo/presentation/presentation.dart';
-import 'package:bnext/feature/pre_login/presentation/pre_login_page.dart';
+import 'package:bnext/feature/pre_login/presentation/pre_login/pre_login_page.dart';
 import 'package:bnext/feature/partnership/presentation/presentation.dart';
 import 'package:bnext/feature/reward/presentation/reward/reward_page.dart';
 import 'package:bnext/feature/history/presentation/history/history_page.dart';

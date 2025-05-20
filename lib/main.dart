@@ -47,7 +47,6 @@ import 'package:bnext/config/config.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // Load .env config
   await dotenv.load(fileName: ".env");
 

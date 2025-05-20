@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:bnext/config/local/hive_service.dart';
-import 'config/bloc/observer.dart';
-import 'config/config.dart';
+import 'package:bnext/config/di/setup_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'app.dart';
+import 'config/bloc/observer.dart';
+import 'config/config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +16,7 @@ void main() async {
   // const HiveService().init();
   initLocale();
   runApp(BnextApp());
+  setupInjection();
 }
 
 Future<void> initFirebase(String env) async {

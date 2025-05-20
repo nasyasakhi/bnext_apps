@@ -1,18 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/local/box_keys.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:hive/hive.dart';
 
+import '../../../../config/config.dart';
+import '../../../../core/core.dart';
+import '../../../../libraries/libraries.dart';
 import '../../params/register_params.dart';
 import 'cubit/user_register_cubit.dart';
 import 'cubit/user_register_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import '../../../../config/config.dart';
-import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/common/constants/validators.dart';
-import '../../../../libraries/libraries.dart';
 
 @RoutePage()
 class UserRegisterPage extends StatefulWidget {
@@ -121,7 +119,7 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
         CustomTextFormField(
           label: 'Nama Pengguna',
           isRequiredLabel: true,
-          hint: '@nama_pengguna',
+          hint: 'nama_pengguna',
           textController: _usernamecontroller,
           validator: (value) {
             return value!.length < 4 ? "Enter min. 4 characters" : null;

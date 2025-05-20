@@ -1,9 +1,8 @@
-import '../../../../core/core.dart';
-import '../../params/register_params.dart';
-import '../../../shared/domain/entities/token_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import '../../params/login_params.dart';
+
+import '../../../../core/core.dart';
+import '../../params/register_params.dart';
 import '../domain.dart';
 
 @lazySingleton

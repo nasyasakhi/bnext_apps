@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../../config/config.dart';
-import '../../../../../core/core.dart';
 import '../../../../../libraries/common/constants/app_resources.dart';
-
 class BannerWidget extends StatelessWidget {
-  const BannerWidget({super.key, this.image, this.onTap});
+  const BannerWidget({super.key, this.imageUrl, this.onTap});
 
-  final String? image;
+  final String? imageUrl;
   final VoidCallback? onTap;
 
   @override
@@ -20,21 +17,19 @@ class BannerWidget extends StatelessWidget {
         width: double.infinity,
         height: 104,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: AppColors.primary3,
-            image: DecorationImage(
-              image: AssetImage(image ?? AppImages.dummyBanner),
-              fit: BoxFit.cover,
-            )),
-        child: image == null
-            ? null
-            : Center(
-                child: SvgPicture.asset(
-                  AppIcons.imagePlaceholder,
-                  height: Sizes.p32,
-                  width: Sizes.p36,
+          borderRadius: BorderRadius.circular(16),
+          color: AppColors.primary3,
+          image: imageUrl != null
+              ? DecorationImage(
+                  image: NetworkImage(imageUrl!),
+                  fit: BoxFit.cover,
+                )
+              : DecorationImage(
+                  image: AssetImage(AppImages.dummyBanner),
+                  fit: BoxFit.cover,
                 ),
-              ),
+        ),
+  
       ),
     );
   }

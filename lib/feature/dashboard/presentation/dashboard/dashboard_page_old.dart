@@ -82,7 +82,6 @@ class _DashboardPageOldState extends State<DashboardPageOld>
               BannerWidget(),
               BannerWidget(),
               BannerWidget(),
-              BannerWidget(),
               ],
             ),
           ),

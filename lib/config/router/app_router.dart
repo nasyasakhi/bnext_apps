@@ -69,13 +69,13 @@ class AppRouter extends _$AppRouter {
           path: '/user-login',
         ),
         CustomRoute(
-            initial: true,
             path: '/home',
             page: MainRoute.page,
+            initial: true,
             transitionsBuilder: TransitionsBuilders.slideLeft,
-            guards: [
-              locator<SplashGuard>(),
-            ],
+            // guards: [
+            //   locator<SplashGuard>(),
+            // ],
             children: [
               AutoRoute(
                 page: DashboardRoute.page,

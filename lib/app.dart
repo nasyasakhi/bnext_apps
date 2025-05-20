@@ -8,7 +8,7 @@ import 'config/router/app_route_observer.dart';
 import 'libraries/common/helper/helper.dart';
 
 class BnextApp extends StatelessWidget {
-  BnextApp({super.key});
+  BnextApp();
 
   AppTheme get _theme => AppTheme();
   final router = AppRouter();
@@ -30,6 +30,7 @@ class BnextApp extends StatelessWidget {
           statusBarIconBrightness: Brightness.dark,
         ),
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           // supportedLocales: const [
           //   Locale('id'),
           //   Locale('en'),
@@ -45,6 +46,7 @@ class BnextApp extends StatelessWidget {
           routerDelegate: router.delegate(
             navigatorObservers: () => [AppRouteObserver()],
           ),
+
           theme: _theme.lightTheme,
           // routerConfig: router.config(),
           builder: (context, child) {

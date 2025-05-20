@@ -1,20 +1,22 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bnext/feature/shared/domain/entities/entities.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/cubit.dart';
+import 'package:bnext/libraries/components/slider/slider_partnership.dart';
+import 'package:bnext/libraries/components/slider/slider_product.dart';
+import 'package:bnext/libraries/components/slider/slider_widget_slider.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
-import 'package:flutter/material.dart';
+
 import '../../../../config/config.dart';
-import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
+import '../../../../core/core.dart';
 import '../../../../libraries/components/navigator/navigator_widget.dart';
+import '../../../../libraries/libraries.dart';
 import 'components/app_bar.dart';
-import 'components/product_card.dart';
-import 'components/banner_widget.dart';
-import 'components/video_app_iitem.dart';
-import 'components/mini_slider_widget.dart';
-import 'components/video_slider_widget.dart';
 import 'components/potrait_slider_widget.dart';
+import 'components/product_card.dart';
+import 'components/video_app_iitem.dart';
+import 'components/video_slider_widget.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget {
@@ -30,7 +32,8 @@ class _DashboardPageState extends State<DashboardPage>
 
   late AnimationController _opacityAnimationController;
   late Animation<double> _opacityTween;
-  // late TextEditingController textEditingController;
+
+  List sliders = [];
 
   @override
   void initState() {
@@ -42,7 +45,12 @@ class _DashboardPageState extends State<DashboardPage>
     );
     _opacityTween =
         Tween<double>(begin: 0, end: 1).animate(_opacityAnimationController);
+
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,68 +77,18 @@ class _DashboardPageState extends State<DashboardPage>
     );
   }
 
-  Widget _mainSection() {
-    return CustomScrollViewWrapper(
-        physic: const AlwaysScrollableScrollPhysics(),
-        slivers: [
-          const SliverGap(Sizes.p12),
-          SliverToBoxAdapter(
-            child: _buildUserProfile(),
-          ),
-          const SliverGap(Sizes.p12),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(left: Sizes.p20),
-              child: SliderWidget(isAutoPlay: true, carouselData: [
-                BannerWidget(
-                  onTap: () {
-                    context.router.push(const PromoRoute());
-                  },
-                ),
-                BannerWidget(
-                  onTap: () {
-                    context.router.push(const PromoRoute());
-                  },
-                ),
-                BannerWidget(
-                  onTap: () {
-                    context.router.push(const PromoRoute());
-                  },
-                ),
-                BannerWidget(
-                  onTap: () {
-                    context.router.push(const PromoRoute());
-                  },
-                ),
-              ]),
+    Widget _mainSection() {
+      return CustomScrollViewWrapper(
+          physic: const AlwaysScrollableScrollPhysics(),
+          slivers: [
+            const SliverGap(Sizes.p12),
+            SliverToBoxAdapter(
+              child: _buildUserProfile(),
             ),
-          ),
-          const SliverGap(Sizes.p12),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(left: Sizes.p20),
-              child: MiniSliderWidget(
-                tittle: 'Partnership Features',
-                carouselData: [
-                  BannerWidget(
-                    onTap: () {
-                      context.router.push(const PartnershipRoute());
-                    },
-                  ),
-                  BannerWidget(
-                    onTap: () {
-                      context.router.push(const PartnershipRoute());
-                    },
-                  ),
-                  BannerWidget(
-                    onTap: () {
-                      context.router.push(const PartnershipRoute());
-                    },
-                  )
-                ],
-              ),
-            ),
-          ),
+            const SliverGap(Sizes.p12),
+            const ReusableSliderWidget(category: 'slider'),
+           const SliverGap(Sizes.p12),
+           const ReusableSliderPartnership(category: 'partnership'),
           const SliverGap(Sizes.p12),
           SliverToBoxAdapter(
             child: Padding(
@@ -290,9 +248,9 @@ class _DashboardPageState extends State<DashboardPage>
   }
 
   Widget _buildSpecialPackage() {
-    return Column(
+    return const Column(
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 28.0, right: 20),
           child: NavigatorWidget(
             description:
@@ -300,30 +258,9 @@ class _DashboardPageState extends State<DashboardPage>
             tittle: 'Want to Buy BNEXT Special Package',
           ),
         ),
-        const Gap(Sizes.p16),
-        Padding(
-          padding: const EdgeInsets.only(left: Sizes.p20),
-          child: SliderWidget(
-            isAutoPlay: true,
-            carouselData: [
-              BannerWidget(
-                onTap: () {
-                  context.router.push(const PromoRoute());
-                },
-              ),
-              BannerWidget(
-                onTap: () {
-                  context.router.push(const PromoRoute());
-                },
-              ),
-              BannerWidget(
-                onTap: () {
-                  context.router.push(const PromoRoute());
-                },
-              ),
-            ],
-          ),
-        ),
+        Gap(Sizes.p16),
+        SliderProductWidget(category: 'product'),
+
       ],
     );
   }

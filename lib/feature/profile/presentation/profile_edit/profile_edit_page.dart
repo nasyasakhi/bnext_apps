@@ -1,6 +1,5 @@
 import 'package:bnext/config/theme/app_colors.dart';
 import 'package:bnext/core/core.dart';
-import 'package:bnext/core/presentation/constants/sizes.dart';
 import 'package:bnext/feature/shared/domain/domain.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:bnext/libraries/common/constants/app_resources.dart';
@@ -127,7 +126,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(Sizes.p2),
                   decoration: const BoxDecoration(
                     color: AppColors.primaryMain,
                     shape: BoxShape.circle,

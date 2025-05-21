@@ -1,10 +1,12 @@
+import 'package:bnext/config/config.dart';
+import 'package:bnext/config/theme/app_colors.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/common/constants/app_resources.dart';
+import 'package:bnext/libraries/components/app_bar/primary_app_bar.dart';
+import 'package:bnext/libraries/components/wrapper/custom_wrapper.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../config/router/app_router.dart';
 
 @RoutePage()
 class SettingsAppPage extends StatefulWidget {
@@ -38,7 +40,12 @@ class _SettingsAppPageState extends State<SettingsAppPage> {
 
   Widget _buildMenuItems() {
     final menuItems = [
-      {'icon': AppIcons.settingsIcon, 'title': 'Pengaturan Akun'},
+      {
+        'icon': AppIcons.settingsIcon, 
+        'title': 'Pengaturan Akun', 
+        'isDirectButton': true, 
+      },
+
       {'icon': AppIcons.notifIcon, 'title': 'Nyalakan Notifikasi'},
       {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
       {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
@@ -48,10 +55,10 @@ class _SettingsAppPageState extends State<SettingsAppPage> {
     ];
 
     return Column(
-      children: menuItems
-          .map((item) =>
-              _buildMenuItem(item['icon'] as String, item['title'] as String))
-          .toList(),
+      children: menuItems.map((item) =>_buildMenuItem(
+        item['icon'] as String, 
+        item['title'] as String,)
+      ).toList(),
     );
   }
 
@@ -93,8 +100,6 @@ class _SettingsAppPageState extends State<SettingsAppPage> {
                       isNotificationEnabled = value;
                     });
                   },
-                  // focusColor: AppColors.black,
-
                   focusColor: AppColors.primary3,
                   activeTrackColor: AppColors.primary3,
                   activeColor: AppColors.white,
@@ -103,23 +108,6 @@ class _SettingsAppPageState extends State<SettingsAppPage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildLogoutButton(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50.0),
-      child: SecondaryButton(
-        width: double.infinity,
-        text: 'Logout',
-        onPressed: () {
-          context.router.replace(const PreloginRoute());
-        },
-        backgroundColor: AppColors.backGroundSecondary,
-        borderColor: AppColors.white,
-
-        borderWidth: 1,
       ),
     );
   }

@@ -2,10 +2,11 @@ import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'config/config.dart';
-import 'config/router/app_route_observer.dart';
-import 'libraries/common/helper/helper.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/config/router/app_route_observer.dart';
+import 'package:bnext/libraries/common/helper/helper.dart';
 
 class BnextApp extends StatelessWidget {
   BnextApp({super.key});
@@ -30,17 +31,8 @@ class BnextApp extends StatelessWidget {
           statusBarIconBrightness: Brightness.dark,
         ),
         child: MaterialApp.router(
-          // supportedLocales: const [
-          //   Locale('id'),
-          //   Locale('en'),
-          // ],
-          localizationsDelegates: const [
-            // GlobalMaterialLocalizations.delegate,
-            // GlobalCupertinoLocalizations.delegate,
-            // GlobalWidgetsLocalizations.delegate,
-            // MonthYearPickerLocalizations.delegate,
-          ],
-          // locale: const Locale('id'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           routeInformationParser: router.defaultRouteParser(),
           routerDelegate: router.delegate(
             navigatorObservers: () => [AppRouteObserver()],
@@ -53,8 +45,7 @@ class BnextApp extends StatelessWidget {
                   previous.user != null && current.user == null,
               listener: _userStateListener,
               child: MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(textScaler: TextScaler.noScaling),
+                data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
                 child: child!,
               ),
             );

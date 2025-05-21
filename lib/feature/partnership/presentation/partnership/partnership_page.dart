@@ -1,9 +1,13 @@
+import 'package:bnext/feature/partnership/presentation/partnership/components/partnership_button.dart';
+import 'package:bnext/feature/partnership/presentation/partnership/components/partnership_desc.dart';
+import 'package:bnext/feature/partnership/presentation/partnership/components/partnership_theme_and_services.dart';
+import 'package:bnext/feature/partnership/presentation/partnership/components/partnership_title.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
-import '../../../../config/config.dart';
+import 'package:bnext/config/config.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 @RoutePage()
 class PartnershipPage extends StatelessWidget {
@@ -20,7 +24,7 @@ class PartnershipPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: Sizes.p20),
               child: Container(
                 height: 150,
                 width: double.infinity,
@@ -30,92 +34,13 @@ class PartnershipPage extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 24, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Promo Lorem Ipsum 1',
-                    style: context.titleMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Gap(Sizes.p8),
-                  Text(
-                    'Lorem lorem lorem',
-                    style: context.labelMedium?.copyWith(
-                      color: AppColors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const PartnershipTitle(),
             const Gap(Sizes.p24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Deskripsi',
-                    style: context.titleLarge?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const Gap(Sizes.p12),
-                  Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
-                    style: context.bodySmall?.copyWith(
-                      color: AppColors.white,
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const PartnershipDescription(),
             const Gap(Sizes.p32),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Syarat Dan Ketentuan',
-                    style: context.titleLarge?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const Gap(Sizes.p12),
-                  Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
-                    style: context.bodySmall?.copyWith(
-                      color: AppColors.white,
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const PartnershipThemeAndServices(),
             const Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: PrimaryButton(
-                  text: 'Tukarkan Sekarang',
-                  onPressed: () {
-                    context.router.maybePop();
-                  },
-                ),
-              ),
-            ),
+            const PartnershipButton(),
           ],
         ),
       ),

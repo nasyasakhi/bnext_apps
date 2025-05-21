@@ -3,20 +3,17 @@ import 'package:equatable/equatable.dart';
 class VerifyOtpParams extends Equatable {
   const VerifyOtpParams({
     required this.email,
-    this.otp,
+    required this.otp,
   });
 
-  final String? email;
-  final int? otp;
+  final String email;
+  final String otp;
 
   @override
-  List<Object?> get props => [
-        email,
-        otp,
-      ];
+  List<Object?> get props => [email, otp];
 
   Map<String, dynamic> toJson() => {
         "email": email,
-        if (otp != null) "otp": otp,
+        "otp": otp,
       };
 }

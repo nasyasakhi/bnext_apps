@@ -1,15 +1,17 @@
 import '../../domain/entities/product_entity.dart';
 
+//Model hasil dari API, bisa diconvert ke Entity (toEntity()).
+
 class ProductModel extends ProductEntity {
   ProductModel({
-    required int id,
+    required int ID,
     required String name,
     required String description,
     required String price,
     required String stock,
     required List<String> images,
   }) : super(
-          id: id,
+          ID: ID,
           name: name,
           description: description,
           price: price,
@@ -19,7 +21,7 @@ class ProductModel extends ProductEntity {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      id: json['ID'] ?? 0,
+      ID: json['ID'] ?? 0,
       name: json['name'] ?? '',
       description: json['description'] ?? '',
       price: json['price'] ?? '',
@@ -27,4 +29,16 @@ class ProductModel extends ProductEntity {
       images: List<String>.from(json['images'] ?? []),
     );
   }
+    // ✅ Tambahkan ini
+  factory ProductModel.fromEntity(ProductEntity entity) {
+    return ProductModel(
+      ID: entity.ID,
+      name: entity.name,
+      description: entity.description,
+      price: entity.price,
+      stock: entity.stock,
+      images: entity.images,
+    );
+  }
 }
+

@@ -1,14 +1,20 @@
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
-import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../../config/theme/theme.dart';
-import '../../../../../libraries/libraries.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
 import '../../../../../config/router/app_router.dart';
+import '../../../../../config/theme/theme.dart';
+import '../../../../../core/core.dart';
+import '../../../../../libraries/libraries.dart';
 
 @RoutePage()
 class BnextProductOrderPage extends StatefulWidget {
-  const BnextProductOrderPage({super.key});
+  final ProductModel product;
+
+
+  const BnextProductOrderPage({super.key, required this.product});
+
 
   @override
   State<BnextProductOrderPage> createState() => _BnextProductOrderPageState();
@@ -42,19 +48,28 @@ class _BnextProductOrderPageState extends State<BnextProductOrderPage> {
         child: CustomColumn(
           children: [
             Container(
+              
               height: MediaQuery.of(context).size.height * 0.35,
               width: double.infinity,
               color: Colors.grey[300],
-              child: const ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
+              child: Image.network(
+              widget.product.images.isNotEmpty
+                  ? 'http://172.16.4.105:4000/${widget.product.images.first}'
+                  : 'https://via.placeholder.com/150',
+              fit: BoxFit.cover,
+            )
+              // const ClipRRect(
+                
+              //   borderRadius: BorderRadius.only(
+              //     bottomLeft: Radius.circular(20),
+              //     bottomRight: Radius.circular(20),
+              //   ),
+              // ),
             ),
             const Gap(Sizes.p8),
             Expanded(
               child: Container(
+                
                 padding: const EdgeInsets.all(24.0),
                 width: double.infinity,
                 decoration: const BoxDecoration(
@@ -71,20 +86,21 @@ class _BnextProductOrderPageState extends State<BnextProductOrderPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Nama Produk',
-                          style: context.bodyLarge?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                          Text(
+                            widget.product.name,
+                            style: context.bodyLarge?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Rp 10.000',
-                          style: context.bodyLarge?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+
+                          Text(
+                            'Rp ${widget.product.price}',
+                            style: context.bodyLarge?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
                       ],
                     ),
                     const Gap(Sizes.p28),

@@ -1,21 +1,17 @@
 import 'package:bnext/config/local/box_keys.dart';
 import 'package:bnext/feature/shared/data/mapper/user_mapper.dart';
-import 'package:bnext/feature/shared/data/repositories/user_repository_impl.dart';
 import 'package:bnext/feature/shared/domain/domain.dart';
-import 'package:hive/hive.dart';
-
-import '../../../../core/data/util/util.dart';
-import '../../../shared/data/datasources/datasources.dart';
-import '../../params/register_params.dart';
-import '../../params/verify_otp_params.dart';
-import '../../../shared/domain/entities/token_entity.dart';
 import 'package:dartz/dartz.dart';
+import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/data/error/failure.dart';
+import '../../../../core/data/util/util.dart';
+import '../../../shared/data/datasources/datasources.dart';
 import '../../domain/domain.dart';
 import '../../params/login_params.dart';
-
+import '../../params/register_params.dart';
+import '../../params/verify_otp_params.dart';
 import '../datasources/auth_remote_data_source.dart';
 import '../mapper/mapper.dart';
 
@@ -72,13 +68,13 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
     return catchOrThrow(
       () async {
         final box = Hive.box(BoxKeys.credentialAuth);
-        final username = box.get('username');
+        final email = box.get('email');
         final password = box.get('password');
 
         await _remoteDataSource.verifyOtp(params);
 
         final token = await _remoteDataSource
-            .login(LoginParams(password: password, username: username));
+            .login(LoginParams(password: password, email: email));
         await _userLocalDataSource.saveToken(token.toObject());
 
         final user = await _userRemoteDataSource.getUser();

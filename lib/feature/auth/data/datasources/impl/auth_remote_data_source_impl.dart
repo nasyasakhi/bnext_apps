@@ -1,14 +1,12 @@
-import '../../../../../core/data/util/util.dart';
-import '../auth_remote_data_source.dart';
-import '../../../params/register_params.dart';
-import '../../../params/verify_otp_params.dart';
-import '../../../../../libraries/common/constants/endpoints.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../../core/data/util/util.dart';
 import '../../../params/login_params.dart';
-
+import '../../../params/register_params.dart';
+import '../../../params/verify_otp_params.dart';
 import '../../models/token_model.dart';
+import '../auth_remote_data_source.dart';
 
 @LazySingleton(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl extends DataSourceUtil
@@ -20,23 +18,15 @@ class AuthRemoteDataSourceImpl extends DataSourceUtil
   @override
   Future<TokenModel> login(LoginParams params) {
     return DataSourceUtil.dioCatchOrThrow(() async {
-      final data = {
-        'username': params.username,
-        'password': params.password,
-      };
-
       final response = await _dio.post(
-        Endpoints.login,
-        data: data,
+        'http://172.16.4.105:4000/auth/login', // ganti pakai URL API kamu
+        data: {
+          "email": params.email,
+          "Password": params.password, 
+        },
       );
-
-      // return TokenModel.fromJson(
-      //   response.data['result'] as Map<String, Object?>,
-      // );
-      final json = TokenModel.fromJson(response.data['result']);
-      print('test ${json.toJson()}');
-
-      return json;
+      return response.data;
+      
     });
   }
 
@@ -44,33 +34,52 @@ class AuthRemoteDataSourceImpl extends DataSourceUtil
   Future<Object> register(RegisterParams params) {
     return DataSourceUtil.dioCatchOrThrow(() async {
       final response = await _dio.post(
-        Endpoints.register,
-        data: params.toJson(),
+        'http://172.16.4.105:4000/auth/register', // ganti pakai URL API kamu
+        data: {
+          "username": params.username,
+          "password": params.password,
+          "email": params.email,
+          "phone_number": params.phoneNumber,
+        },
       );
       return response.data;
+      
     });
   }
 
-  @override
-  Future<Object> sendOtp(VerifyOtpParams params) {
-    return DataSourceUtil.dioCatchOrThrow(
-      () async {
-        final response =
-            await _dio.post(Endpoints.sendOtp, data: {'email': params.email});
 
-        return response.data;
-      },
+@override
+Future<Object> sendOtp(VerifyOtpParams params) {
+  
+  return DataSourceUtil.dioCatchOrThrow(() async {
+    print('[Flutter] Sending OTP to: ${params.email}'); // Tambahkan log ini
+    final response = await _dio.post(
+      'http://172.16.4.105:4000/auth/send-otp',
+      data: {'email': params.email},
     );
-  }
+    print('[Flutter] Response: ${response.data}');
+    return response.data;
+  });
+}
+
+
 
   @override
   Future<Object> verifyOtp(VerifyOtpParams params) {
-    return DataSourceUtil.dioCatchOrThrow(
-      () async {
-        final response =
-            await _dio.post(Endpoints.verifOtp, data: params.toJson());
-        return response.data;
-      },
-    );
+  return DataSourceUtil.dioCatchOrThrow(() async {
+      print('[Flutter] Sending OTP to: ${params.email}'); // Tambahkan log ini
+      print('[Flutter] Sending OTP to: ${params.otp}'); // Tambahkan log ini
+      final response = await _dio.post(
+        'http://172.16.4.105:4000/auth/verify-otp',
+        data: {
+          'email': params.email,
+          'code': params.otp,
+        },
+      );
+      print('[Flutter] Response: ${response.data}');
+      print('[API] Response: ${response.data}');
+
+      return response.data;
+    });
   }
 }

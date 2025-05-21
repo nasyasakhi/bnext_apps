@@ -29,7 +29,7 @@ class _OtpPageState extends State<OtpPage> {
   final TextEditingController _pinController = TextEditingController();
   final _pinErrorController = StreamController<ErrorAnimationType>();
   late Timer _timer;
-  int _start = 30;
+  int _start = 300;
   bool _canResend = false;
 
   @override
@@ -41,14 +41,16 @@ class _OtpPageState extends State<OtpPage> {
   @override
   void dispose() {
     _pinErrorController.close();
-    // _pinController.dispose();
+    _pinController.dispose();
     _timer.cancel();
+    _pinErrorController.add(ErrorAnimationType.shake); // panggil saat OTP salah
+
 
     super.dispose();
   }
 
   void startTimer() {
-    _start = 30;
+    _start = 300;
     setState(() {
       _canResend = false;
     });
@@ -78,7 +80,7 @@ class _OtpPageState extends State<OtpPage> {
           listener: (context, state) {
             state.maybeWhen(
               orElse: () {},
-              succesResend: () =>
+              successSendOtp: () =>
                   SnackbarHelper.showSuccess(context, 'Success Resend Otp'),
               success: (user) async {
                 await context.read<UserCubit>().saveUser(user: user);
@@ -114,23 +116,28 @@ class _OtpPageState extends State<OtpPage> {
       ),
     );
   }
-
   Widget _bottomSection(BuildContext context, OtpState state) {
-    return Column(children: [
-      const Gap(Sizes.p40),
-      PrimaryButton(
-        text: 'Selanjutnya',
-        width: MediaQuery.of(context).size.width * 0.7,
-        onPressed: () {
-          _navigateHome(context);
-        },
-        isLoading: state.isLoading,
-      ),
-      const Gap(Sizes.p32),
-      // Text('Kirim kode lagi setelah 5 menit',
-      //     style: context.titleSmall?.toColor(AppColors.white)),
-    ]);
+    return Column(
+      children: [
+        const Gap(Sizes.p40),
+        PrimaryButton(
+          text: 'Selanjutnya',
+          width: MediaQuery.of(context).size.width * 0.7,
+          isLoading: state.isLoading,
+          onPressed: () {
+            context.read<OtpCubit>().verifyOtp(
+                  VerifyOtpParams(
+                    email: widget.email, // Pastikan 'widget.email' tersedia
+                    otp: _pinController.text, // Pastikan controller ini ada
+                  ),
+                );
+          },
+        ),
+        const Gap(Sizes.p32),
+      ],
+    );
   }
+
 
   List<Widget> _mainSection(BuildContext context, OtpState state) {
     return [
@@ -175,7 +182,7 @@ class _OtpPageState extends State<OtpPage> {
                     onPressed: () {
                       context
                           .read<OtpCubit>()
-                          .sendOtp(VerifyOtpParams(email: widget.email))
+                          .sendOtp(VerifyOtpParams(email: widget.email, otp: ''))
                           .then((value) => startTimer());
                     },
                     child: Text(
@@ -228,10 +235,11 @@ class _OtpPageState extends State<OtpPage> {
     }
 
     context.read<OtpCubit>().verifyOtp(
-          VerifyOtpParams(
-            email: widget.email,
-            otp: int.parse(otpText),
-          ),
-        );
+      VerifyOtpParams(
+        email: widget.email,
+        otp: otpText, // kirim sebagai String
+      ),
+    );
+
   }
 }

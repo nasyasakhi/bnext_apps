@@ -28,11 +28,11 @@ class RegisterParams extends Equatable {
       ];
 
   Map<String, dynamic> toJson() => {
-        "confirm_password": confirmPassword,
+        "username": username,
         "email": email,
         "password": password,
+        "confirm_password": confirmPassword,
         "phone_number": phoneNumber,
         "refferal": refferal,
-        "username": username,
       };
 }

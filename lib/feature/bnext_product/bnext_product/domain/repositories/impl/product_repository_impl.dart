@@ -3,6 +3,10 @@ import 'package:bnext/feature/bnext_product/bnext_product/data/datasources/produ
 import 'package:bnext/feature/bnext_product/bnext_product/domain/entities/product_entity.dart';
 import 'package:bnext/feature/bnext_product/bnext_product/domain/repositories/product_repository.dart';
 
+//Implementasi dari interface di atas, biasanya pakai datasource dari folder data.
+
+
+
 class ProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDatasource remoteDatasource;
 

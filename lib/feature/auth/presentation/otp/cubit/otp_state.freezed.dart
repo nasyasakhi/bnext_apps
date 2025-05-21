@@ -21,7 +21,7 @@ mixin _$OtpState {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$OtpState {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$OtpState {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) =>
@@ -49,7 +49,7 @@ mixin _$OtpState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ mixin _$OtpState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +67,7 @@ mixin _$OtpState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) =>
@@ -132,7 +132,7 @@ class _$InitialImpl extends _Initial {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) {
     return initial();
@@ -144,7 +144,7 @@ class _$InitialImpl extends _Initial {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) {
     return initial?.call();
@@ -156,7 +156,7 @@ class _$InitialImpl extends _Initial {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) {
@@ -172,7 +172,7 @@ class _$InitialImpl extends _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) {
     return initial(this);
@@ -184,7 +184,7 @@ class _$InitialImpl extends _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) {
     return initial?.call(this);
@@ -196,7 +196,7 @@ class _$InitialImpl extends _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
@@ -280,7 +280,7 @@ class _$LoadingImpl extends _Loading {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) {
     return loading(isResend);
@@ -292,7 +292,7 @@ class _$LoadingImpl extends _Loading {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) {
     return loading?.call(isResend);
@@ -304,7 +304,7 @@ class _$LoadingImpl extends _Loading {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ class _$LoadingImpl extends _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) {
     return loading(this);
@@ -332,7 +332,7 @@ class _$LoadingImpl extends _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) {
     return loading?.call(this);
@@ -344,7 +344,7 @@ class _$LoadingImpl extends _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
@@ -442,7 +442,7 @@ class _$successImpl extends _success {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) {
     return success(user);
@@ -454,7 +454,7 @@ class _$successImpl extends _success {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) {
     return success?.call(user);
@@ -466,7 +466,7 @@ class _$successImpl extends _success {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) {
@@ -482,7 +482,7 @@ class _$successImpl extends _success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) {
     return success(this);
@@ -494,7 +494,7 @@ class _$successImpl extends _success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) {
     return success?.call(this);
@@ -506,7 +506,7 @@ class _$successImpl extends _success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
@@ -550,7 +550,7 @@ class _$successResendImpl extends _successResend {
 
   @override
   String toString() {
-    return 'OtpState.succesResend()';
+    return 'OtpState.successSendOtp()';
   }
 
   @override
@@ -568,10 +568,10 @@ class _$successResendImpl extends _successResend {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) {
-    return succesResend();
+    return successSendOtp();
   }
 
   @override
@@ -580,10 +580,10 @@ class _$successResendImpl extends _successResend {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) {
-    return succesResend?.call();
+    return successSendOtp?.call();
   }
 
   @override
@@ -592,12 +592,12 @@ class _$successResendImpl extends _successResend {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) {
-    if (succesResend != null) {
-      return succesResend();
+    if (successSendOtp != null) {
+      return successSendOtp();
     }
     return orElse();
   }
@@ -608,10 +608,10 @@ class _$successResendImpl extends _successResend {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) {
-    return succesResend(this);
+    return successSendOtp(this);
   }
 
   @override
@@ -620,10 +620,10 @@ class _$successResendImpl extends _successResend {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) {
-    return succesResend?.call(this);
+    return successSendOtp?.call(this);
   }
 
   @override
@@ -632,12 +632,12 @@ class _$successResendImpl extends _successResend {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
-    if (succesResend != null) {
-      return succesResend(this);
+    if (successSendOtp != null) {
+      return successSendOtp(this);
     }
     return orElse();
   }
@@ -725,7 +725,7 @@ class _$errorImpl extends _error {
     required TResult Function() initial,
     required TResult Function(bool? isResend) loading,
     required TResult Function(UserEntity user) success,
-    required TResult Function() succesResend,
+    required TResult Function() successSendOtp,
     required TResult Function(ErrorObject error) error,
   }) {
     return error(this.error);
@@ -737,7 +737,7 @@ class _$errorImpl extends _error {
     TResult? Function()? initial,
     TResult? Function(bool? isResend)? loading,
     TResult? Function(UserEntity user)? success,
-    TResult? Function()? succesResend,
+    TResult? Function()? successSendOtp,
     TResult? Function(ErrorObject error)? error,
   }) {
     return error?.call(this.error);
@@ -749,7 +749,7 @@ class _$errorImpl extends _error {
     TResult Function()? initial,
     TResult Function(bool? isResend)? loading,
     TResult Function(UserEntity user)? success,
-    TResult Function()? succesResend,
+    TResult Function()? successSendOtp,
     TResult Function(ErrorObject error)? error,
     required TResult orElse(),
   }) {
@@ -765,7 +765,7 @@ class _$errorImpl extends _error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_success value) success,
-    required TResult Function(_successResend value) succesResend,
+    required TResult Function(_successResend value) successSendOtp,
     required TResult Function(_error value) error,
   }) {
     return error(this);
@@ -777,7 +777,7 @@ class _$errorImpl extends _error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? succesResend,
+    TResult? Function(_successResend value)? successSendOtp,
     TResult? Function(_error value)? error,
   }) {
     return error?.call(this);
@@ -789,7 +789,7 @@ class _$errorImpl extends _error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_success value)? success,
-    TResult Function(_successResend value)? succesResend,
+    TResult Function(_successResend value)? successSendOtp,
     TResult Function(_error value)? error,
     required TResult orElse(),
   }) {

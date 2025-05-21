@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import '../models/product_model.dart';
 
+
+//ini isinya logic ambil data ke api
 abstract class ProductRemoteDatasource {
   Future<List<ProductModel>> fetchProducts();
 }

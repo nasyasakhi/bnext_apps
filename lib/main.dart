@@ -12,6 +12,7 @@ void main() async {
   await configureDependencies();
   await initFirebase('');
   Bloc.observer = MyBlocObserver();
+  
 
   // const HiveService().init();
   initLocale();

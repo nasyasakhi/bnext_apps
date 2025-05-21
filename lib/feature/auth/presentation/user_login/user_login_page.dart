@@ -158,7 +158,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
   void _navigateToDashboard(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       context.read<UserLoginCubit>().login(LoginParams(
-          username: _usernamecontroller.text,
+          email: _usernamecontroller.text,
           password: _passwordcontroller.text));
     }
   }

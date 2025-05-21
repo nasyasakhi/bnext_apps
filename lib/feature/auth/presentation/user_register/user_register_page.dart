@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/local/box_keys.dart';
+import 'package:bnext/feature/auth/params/verify_otp_params.dart';
+import 'package:bnext/feature/auth/presentation/otp/cubit/otp_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -239,23 +241,18 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
           isLoading: state.isLoading,
           text: 'Buat Akun',
           width: double.infinity,
-          onPressed:
-              _formKey.currentState?.validate() == true && checkBox == true
-                  ? () => _navigateToOtp(context)
-                  : null,
+          onPressed: _formKey.currentState?.validate() == true && checkBox == true
+              ? () {
+                  // Kirim OTP langsung tanpa start timer
+                  context.read<OtpCubit>().sendOtp(
+                    VerifyOtpParams(email: _alamatEmailController.text, otp: ''),
+                  );
+                  // Setelah kirim OTP, navigasi ke halaman OTP (optional)
+                  _navigateToOtp(context);
+                }
+              : null,
         ),
-        const Gap(Sizes.p12),
-        // RichText(
-        //     textAlign: TextAlign.start,
-        //     text: TextSpan(
-        //         text: 'Belum punya akun? ',
-        //         style: context.bodySmall,
-        //         children: [
-        //           TextSpan(
-        //               text: 'Daftar',
-        //               style: context.bodySmall?.toColor(AppColors.primaryMain)),
-        //         ])),
-        const Gap(Sizes.p16),
+
       ],
     );
   }

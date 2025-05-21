@@ -85,32 +85,32 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i634.UserRemoteDataSource>(),
           gh<_i634.UserLocalDataSource>(),
         ));
-    gh.lazySingleton<_i805.LoginUseCase>(
-        () => _i805.LoginUseCase(gh<_i640.AuthRepository>()));
     gh.lazySingleton<_i717.RegisterUseCase>(
         () => _i717.RegisterUseCase(gh<_i640.AuthRepository>()));
+    gh.lazySingleton<_i805.LoginUseCase>(
+        () => _i805.LoginUseCase(gh<_i640.AuthRepository>()));
     gh.lazySingleton<_i480.SendotpUseCase>(
         () => _i480.SendotpUseCase(gh<_i640.AuthRepository>()));
     gh.lazySingleton<_i740.VerifyotpUseCase>(
         () => _i740.VerifyotpUseCase(gh<_i640.AuthRepository>()));
-    gh.lazySingleton<_i202.GetTokenUseCase>(
-        () => _i202.GetTokenUseCase(gh<_i486.UserRepository>()));
-    gh.lazySingleton<_i635.GetUserUseCase>(
-        () => _i635.GetUserUseCase(gh<_i486.UserRepository>()));
-    gh.lazySingleton<_i485.SaveTokenUseCase>(
-        () => _i485.SaveTokenUseCase(gh<_i486.UserRepository>()));
-    gh.lazySingleton<_i191.SaveUserUseCase>(
-        () => _i191.SaveUserUseCase(gh<_i486.UserRepository>()));
     gh.lazySingleton<_i687.LogoutUseCase>(
         () => _i687.LogoutUseCase(gh<_i486.UserRepository>()));
+    gh.lazySingleton<_i202.GetTokenUseCase>(
+        () => _i202.GetTokenUseCase(gh<_i486.UserRepository>()));
+    gh.lazySingleton<_i485.SaveTokenUseCase>(
+        () => _i485.SaveTokenUseCase(gh<_i486.UserRepository>()));
+    gh.lazySingleton<_i635.GetUserUseCase>(
+        () => _i635.GetUserUseCase(gh<_i486.UserRepository>()));
+    gh.lazySingleton<_i191.SaveUserUseCase>(
+        () => _i191.SaveUserUseCase(gh<_i486.UserRepository>()));
     gh.factory<_i886.UserLoginCubit>(
         () => _i886.UserLoginCubit(gh<_i640.LoginUseCase>()));
+    gh.factory<_i958.UserRegisterCubit>(
+        () => _i958.UserRegisterCubit(gh<_i640.RegisterUseCase>()));
     gh.factory<_i214.OtpCubit>(() => _i214.OtpCubit(
           gh<_i740.VerifyotpUseCase>(),
           gh<_i480.SendotpUseCase>(),
         ));
-    gh.factory<_i958.UserRegisterCubit>(
-        () => _i958.UserRegisterCubit(gh<_i640.RegisterUseCase>()));
     gh.lazySingleton<_i99.UserCubit>(() => _i99.UserCubit(
           gh<_i635.GetUserUseCase>(),
           gh<_i523.SaveUserUseCase>(),

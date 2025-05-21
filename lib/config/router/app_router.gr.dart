@@ -22,9 +22,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     BnextProductOrderRoute.name: (routeData) {
+      final args = routeData.argsAs<BnextProductOrderRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const BnextProductOrderPage(),
+        child: BnextProductOrderPage(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
     BnextProductRoute.name: (routeData) {
@@ -238,16 +242,40 @@ class BnextProductCoRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [BnextProductOrderPage]
-class BnextProductOrderRoute extends PageRouteInfo<void> {
-  const BnextProductOrderRoute({List<PageRouteInfo>? children})
-      : super(
+class BnextProductOrderRoute extends PageRouteInfo<BnextProductOrderRouteArgs> {
+  BnextProductOrderRoute({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           BnextProductOrderRoute.name,
+          args: BnextProductOrderRouteArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'BnextProductOrderRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<BnextProductOrderRouteArgs> page =
+      PageInfo<BnextProductOrderRouteArgs>(name);
+}
+
+class BnextProductOrderRouteArgs {
+  const BnextProductOrderRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'BnextProductOrderRouteArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for

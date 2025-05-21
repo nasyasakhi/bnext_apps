@@ -1,3 +1,4 @@
+import 'package:bnext/feature/auth/presentation/otp/cubit/otp_cubit.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,9 @@ class BnextApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => locator<UserCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => locator<OtpCubit>(),
         ),
         // BlocProvider(
         //   create: (context) => SubjectBloc(),

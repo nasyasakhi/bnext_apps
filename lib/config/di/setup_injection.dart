@@ -6,6 +6,8 @@ import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_pro
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+//Tempat dependency injection. Ngatur siapa butuh siapa. Misalnya:
+
 
 final sl = GetIt.instance;
 void setupInjection() {

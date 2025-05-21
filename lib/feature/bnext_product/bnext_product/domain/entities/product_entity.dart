@@ -1,5 +1,8 @@
+//Class inti, bentuk data yang dipakai di seluruh aplikasi.
+
+
 class ProductEntity {
-  final int id;
+  final int ID;
   final String name;
   final String description;
   final String price;
@@ -7,7 +10,7 @@ class ProductEntity {
   final List<String> images;
 
   ProductEntity({
-    required this.id,
+    required this.ID,
     required this.name,
     required this.description,
     required this.price,

@@ -5,6 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'product_state.dart';
 
+//BLoC/Cubit yang urus state dari UI.
+
+
 class ProductCubit extends Cubit<ProductState> {
   final GetProductsUseCase useCase;
 

@@ -75,8 +75,14 @@ class AppIcons {
   static const String checkIcon = 'assets/svg/check.svg';
   static const String folderIcon = 'assets/images/folder_icon.png';
   static const String budgetIcon = 'assets/images/budget_icon.png';
-  static const String personLogisticIcon =
-      'assets/images/person_logistic_icon.png';
+  static const String personLogisticIcon = 'assets/images/person_logistic_icon.png';
   static const String statisticsIcon = 'assets/images/statistics_icon.png';
   static const String locationIcon = 'assets/svg/location.svg';
+}
+
+class GameImages {
+  static const String pubgLogo = 'assets/images/pubg-logo.png';
+  static const String mobileLegendLogo = 'assets/images/mobilelegend-logo.png';
+  static const String freeFireLogo = 'assets/images/freefire-logo.png';
+  static const String robloxLogo = 'assets/images/roblox-logo.png';
 }

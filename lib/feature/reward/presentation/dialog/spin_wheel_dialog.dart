@@ -1,10 +1,10 @@
 import 'package:bnext/feature/reward/presentation/reward/components/fortune_wheel.dart';
-import 'package:bnext/feature/reward/spin_wheel_controller.dart';
+import 'package:bnext/feature/reward/presentation/spin_wheel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:bnext/config/theme/app_colors.dart';
 
 Future<void> showSpinWheelDialog(BuildContext context) async {
-  final controller = SpinWheelController(rewards: [10, 20, 30, 40, 50, 100]);
+  final controller = SpinWheelController (rewards: [10, 20, 30, 40, 50, 100]);
   int? result;
 
   await showDialog(

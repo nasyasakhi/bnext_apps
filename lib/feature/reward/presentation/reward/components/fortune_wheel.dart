@@ -1,4 +1,4 @@
-import 'package:bnext/feature/reward/spin_wheel_controller.dart';
+import 'package:bnext/feature/reward/presentation/spin_wheel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 

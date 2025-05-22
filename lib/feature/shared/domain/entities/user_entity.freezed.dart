@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserEntity {
   int get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   int get userProfileId => throw _privateConstructorUsedError;
   UserProfileEntity? get userProfile => throw _privateConstructorUsedError;
@@ -36,6 +37,7 @@ abstract class $UserEntityCopyWith<$Res> {
   $Res call(
       {int id,
       String username,
+      String email,
       String password,
       int userProfileId,
       UserProfileEntity? userProfile});
@@ -58,6 +60,7 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? email = null,
     Object? password = null,
     Object? userProfileId = null,
     Object? userProfile = freezed,
@@ -70,6 +73,10 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -110,6 +117,7 @@ abstract class _$$UserEntityImplCopyWith<$Res>
   $Res call(
       {int id,
       String username,
+      String email,
       String password,
       int userProfileId,
       UserProfileEntity? userProfile});
@@ -131,6 +139,7 @@ class __$$UserEntityImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? email = null,
     Object? password = null,
     Object? userProfileId = null,
     Object? userProfile = freezed,
@@ -143,6 +152,10 @@ class __$$UserEntityImplCopyWithImpl<$Res>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -166,6 +179,7 @@ class _$UserEntityImpl implements _UserEntity {
   const _$UserEntityImpl(
       {required this.id,
       required this.username,
+      required this.email,
       required this.password,
       required this.userProfileId,
       this.userProfile});
@@ -175,6 +189,8 @@ class _$UserEntityImpl implements _UserEntity {
   @override
   final String username;
   @override
+  final String email;
+  @override
   final String password;
   @override
   final int userProfileId;
@@ -183,7 +199,7 @@ class _$UserEntityImpl implements _UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, username: $username, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
+    return 'UserEntity(id: $id, username: $username, email: $email, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
   }
 
   @override
@@ -194,6 +210,7 @@ class _$UserEntityImpl implements _UserEntity {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.userProfileId, userProfileId) ||
@@ -204,7 +221,7 @@ class _$UserEntityImpl implements _UserEntity {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, username, password, userProfileId, userProfile);
+      runtimeType, id, username, email, password, userProfileId, userProfile);
 
   @JsonKey(ignore: true)
   @override
@@ -217,6 +234,7 @@ abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
       {required final int id,
       required final String username,
+      required final String email,
       required final String password,
       required final int userProfileId,
       final UserProfileEntity? userProfile}) = _$UserEntityImpl;
@@ -225,6 +243,8 @@ abstract class _UserEntity implements UserEntity {
   int get id;
   @override
   String get username;
+  @override
+  String get email;
   @override
   String get password;
   @override

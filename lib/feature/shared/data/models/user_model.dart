@@ -10,6 +10,7 @@ class UserModel with _$UserModel {
   const factory UserModel({
     @JsonKey(name: "ID") required int id,
     @JsonKey(name: "Username") required String username,
+    @JsonKey(name: "Email") required String email,
     @JsonKey(name: "Password") required String password,
     @JsonKey(name: "UserProfileId") required int userProfileId,
     @JsonKey(name: "UserProfile") required UserProfileModel userProfile,

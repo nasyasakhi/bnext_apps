@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../../core/data/error/error_object.dart';
 import '../../../domain/domain.dart';
 import '../../../params/login_params.dart';
-import '../../../../shared/domain/entities/token_entity.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
-
 import 'user_login_state.dart';
 
 @injectable
@@ -15,14 +13,23 @@ class UserLoginCubit extends Cubit<UserLoginState> {
   final LoginUseCase _loginUsecase;
 
   void login(LoginParams params) async {
-    emit(const UserLoginState.loading());
-    final data = await _loginUsecase.call(params);
+  print('[LoginCubit] Sending email to login: ${params.username}');
+  print('[LoginCubit] Sending password to login: ${params.password}');
 
-    emit(data.fold(
-      (l) => UserLoginState.error(ErrorObject.fromFailure(l)),
-      (r) {
-        return UserLoginState.success(r);
-      },
-    ));
-  }
+  emit(const UserLoginState.loading());
+
+  final either = await _loginUsecase.call(params);
+
+  either.fold(
+    (failure) {
+      print('[LoginCubit] Failed to send login: ${failure.message}');
+      emit(UserLoginState.error(ErrorObject.fromFailure(failure)));
+    },
+    (user) {
+      print('[LoginCubit] Login sent successfully!');
+      emit(UserLoginState.success(user));
+    },
+  );
+}
+
 }

@@ -10,7 +10,6 @@ import '../../../../core/data/error/failure.dart';
 
 abstract class AuthRepository {
   Future<Either<Failure, UserEntity>> login(LoginParams params);
-
   Future<Either<Failure, Object>> register(RegisterParams params);
   Future<Either<Failure, UserEntity>> verifyOtp(VerifyOtpParams params);
   Future<Either<Failure, Object>> sendOtp(VerifyOtpParams params);

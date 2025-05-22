@@ -15,20 +15,24 @@ class AuthRemoteDataSourceImpl extends DataSourceUtil
 
   final Dio _dio;
 
-  @override
-  Future<TokenModel> login(LoginParams params) {
-    return DataSourceUtil.dioCatchOrThrow(() async {
-      final response = await _dio.post(
-        'http://172.16.4.105:4000/auth/login', // ganti pakai URL API kamu
-        data: {
-          "email": params.email,
-          "Password": params.password, 
-        },
-      );
-      return response.data;
-      
-    });
-  }
+@override
+Future<TokenModel> login(LoginParams params) {
+  return DataSourceUtil.dioCatchOrThrow(() async {
+    final response = await _dio.post(
+      'http://172.16.4.105:4000/auth/login',
+      data: {
+        "login": params.username,
+        "password": params.password,
+      },
+    );
+
+    // response.data adalah Map<String, dynamic>, kita parsing ke TokenModel
+    final tokenModel = TokenModel.fromJson(response.data);
+
+    return tokenModel;
+  });
+}
+
 
   @override
   Future<Object> register(RegisterParams params) {
@@ -43,6 +47,9 @@ class AuthRemoteDataSourceImpl extends DataSourceUtil
         },
       );
       return response.data;
+
+
+      
       
     });
   }

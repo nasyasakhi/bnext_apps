@@ -11,15 +11,18 @@ class UserObject {
   @HiveField(2)
   String username;
   @HiveField(3)
-  String password;
+  String email;
   @HiveField(4)
-  int userProfileId;
+  String password;
   @HiveField(5)
+  int userProfileId;
+  @HiveField(6)
   UserProfileObject? userProfile;
 
   UserObject({
     required this.id,
     required this.username,
+    required this.email,
     required this.password,
     required this.userProfileId,
     this.userProfile,
@@ -33,6 +36,7 @@ class UserObject {
   factory UserObject.fromJson(Map<String, dynamic> json) => UserObject(
         id: json["ID"],
         username: json["Username"],
+        email: json["Email"],
         password: json["Password"],
         userProfileId: json["UserProfileId"],
         userProfile: UserProfileObject.fromJson(json["UserProfile"]),
@@ -41,6 +45,7 @@ class UserObject {
   Map<String, dynamic> toJson() => {
         "ID": id,
         "Username": username,
+        "Email": email,
         "Password": password,
         "UserProfileId": userProfileId,
         "UserProfile": userProfile?.toJson(),

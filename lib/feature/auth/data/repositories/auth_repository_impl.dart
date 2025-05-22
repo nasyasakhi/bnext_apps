@@ -68,13 +68,13 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
     return catchOrThrow(
       () async {
         final box = Hive.box(BoxKeys.credentialAuth);
-        final email = box.get('email');
+        final username = box.get('username');
         final password = box.get('password');
 
         await _remoteDataSource.verifyOtp(params);
 
         final token = await _remoteDataSource
-            .login(LoginParams(password: password, email: email));
+            .login(LoginParams(password: password, username: username));
         await _userLocalDataSource.saveToken(token.toObject());
 
         final user = await _userRemoteDataSource.getUser();

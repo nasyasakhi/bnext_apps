@@ -24,6 +24,8 @@ mixin _$UserModel {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: "Username")
   String get username => throw _privateConstructorUsedError;
+  @JsonKey(name: "Email")
+  String get email => throw _privateConstructorUsedError;
   @JsonKey(name: "Password")
   String get password => throw _privateConstructorUsedError;
   @JsonKey(name: "UserProfileId")
@@ -45,6 +47,7 @@ abstract class $UserModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "ID") int id,
       @JsonKey(name: "Username") String username,
+      @JsonKey(name: "Email") String email,
       @JsonKey(name: "Password") String password,
       @JsonKey(name: "UserProfileId") int userProfileId,
       @JsonKey(name: "UserProfile") UserProfileModel userProfile});
@@ -67,6 +70,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? email = null,
     Object? password = null,
     Object? userProfileId = null,
     Object? userProfile = null,
@@ -79,6 +83,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -115,6 +123,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "ID") int id,
       @JsonKey(name: "Username") String username,
+      @JsonKey(name: "Email") String email,
       @JsonKey(name: "Password") String password,
       @JsonKey(name: "UserProfileId") int userProfileId,
       @JsonKey(name: "UserProfile") UserProfileModel userProfile});
@@ -136,6 +145,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? email = null,
     Object? password = null,
     Object? userProfileId = null,
     Object? userProfile = null,
@@ -148,6 +158,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -171,6 +185,7 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {@JsonKey(name: "ID") required this.id,
       @JsonKey(name: "Username") required this.username,
+      @JsonKey(name: "Email") required this.email,
       @JsonKey(name: "Password") required this.password,
       @JsonKey(name: "UserProfileId") required this.userProfileId,
       @JsonKey(name: "UserProfile") required this.userProfile});
@@ -185,6 +200,9 @@ class _$UserModelImpl implements _UserModel {
   @JsonKey(name: "Username")
   final String username;
   @override
+  @JsonKey(name: "Email")
+  final String email;
+  @override
   @JsonKey(name: "Password")
   final String password;
   @override
@@ -196,7 +214,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
+    return 'UserModel(id: $id, username: $username, email: $email, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
   }
 
   @override
@@ -207,6 +225,7 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.userProfileId, userProfileId) ||
@@ -218,7 +237,7 @@ class _$UserModelImpl implements _UserModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, username, password, userProfileId, userProfile);
+      runtimeType, id, username, email, password, userProfileId, userProfile);
 
   @JsonKey(ignore: true)
   @override
@@ -238,6 +257,7 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {@JsonKey(name: "ID") required final int id,
       @JsonKey(name: "Username") required final String username,
+      @JsonKey(name: "Email") required final String email,
       @JsonKey(name: "Password") required final String password,
       @JsonKey(name: "UserProfileId") required final int userProfileId,
       @JsonKey(name: "UserProfile")
@@ -252,6 +272,9 @@ abstract class _UserModel implements UserModel {
   @override
   @JsonKey(name: "Username")
   String get username;
+  @override
+  @JsonKey(name: "Email")
+  String get email;
   @override
   @JsonKey(name: "Password")
   String get password;

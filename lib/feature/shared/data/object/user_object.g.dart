@@ -19,25 +19,28 @@ class UserObjectAdapter extends TypeAdapter<UserObject> {
     return UserObject(
       id: fields[1] as int,
       username: fields[2] as String,
-      password: fields[3] as String,
-      userProfileId: fields[4] as int,
-      userProfile: fields[5] as UserProfileObject?,
+      email: fields[3] as String,
+      password: fields[4] as String,
+      userProfileId: fields[5] as int,
+      userProfile: fields[6] as UserProfileObject?,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserObject obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
       ..write(obj.username)
       ..writeByte(3)
-      ..write(obj.password)
+      ..write(obj.email)
       ..writeByte(4)
-      ..write(obj.userProfileId)
+      ..write(obj.password)
       ..writeByte(5)
+      ..write(obj.userProfileId)
+      ..writeByte(6)
       ..write(obj.userProfile);
   }
 

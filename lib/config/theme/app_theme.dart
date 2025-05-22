@@ -161,7 +161,6 @@ class AppTheme {
       elevatedButtonTheme: elevatedButtonTheme,
       bottomNavigationBarTheme: bottomNavigationBarTheme,
       dialogTheme: dialogTheme,
-      tabBarTheme: tabBarTheme,
       dividerColor: AppColors.neutral40,
     );
   }

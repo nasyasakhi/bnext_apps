@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/game_channel_item.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/game_slider_widget.dart';
 import 'package:bnext/feature/shared/domain/entities/entities.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/cubit.dart';
 import 'package:bnext/libraries/components/slider/slider_partnership.dart';
 import 'package:bnext/libraries/components/slider/slider_product.dart';
 import 'package:bnext/libraries/components/slider/slider_widget_slider.dart';
+import 'package:bnext/libraries/components/url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';

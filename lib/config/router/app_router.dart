@@ -11,12 +11,14 @@ import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_pro
 import 'package:bnext/feature/bnext_product/bnext_product/presentation/presentation.dart';
 import 'package:bnext/feature/bnext_product/internet_product/presentation/presentation.dart';
 import 'package:bnext/feature/bnext_product/ott_product/presentation/presentation.dart';
+import 'package:bnext/feature/customer_service/presentation/customer_service/customer_service_page.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/dashboard_page.dart';
 import 'package:bnext/feature/dashboard/presentation/presentation.dart';
 import 'package:bnext/feature/history/presentation/history/history%20detail/history_detail_page.dart';
 import 'package:bnext/feature/history/presentation/history/history_page.dart';
 import 'package:bnext/feature/partnership/presentation/presentation.dart';
 import 'package:bnext/feature/pre_login/presentation/pre_login_page.dart';
+import 'package:bnext/feature/profile/presentation/help_center/help_center_page.dart';
 import 'package:bnext/feature/profile/presentation/presentation.dart';
 import 'package:bnext/feature/promo/presentation/presentation.dart';
 import 'package:bnext/feature/reward/presentation/reward/reward_page.dart';
@@ -86,7 +88,7 @@ class AppRouter extends _$AppRouter {
                 page: RewardRoute.page,
               ),
               AutoRoute(
-                page: ProfileRoute.page,
+                page: CustomerServiceRoute.page,
               ),
             ]),
         CustomRoute(
@@ -163,8 +165,18 @@ class AppRouter extends _$AppRouter {
         ),
         CustomRoute(
           transitionsBuilder: TransitionsBuilders.slideLeft,
+          page: ProfileRoute.page,
+          path: '/profile',
+        ),
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.slideLeft,
           page: SettingsAppRoute.page,
           path: '/profile/settings-app',
+        ),
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          page: HelpCenterRoute.page,
+          path: '/profile/help-center',
         ),
         CustomRoute(
           transitionsBuilder: TransitionsBuilders.slideLeft,
@@ -181,11 +193,11 @@ class AppRouter extends _$AppRouter {
           page: PromoDetailRoute.page,
           path: '/promo/detail',
         ),
-        // CustomRoute(
-        //   transitionsBuilder: TransitionsBuilders.slideLeft,
-        //   page: PartnershipPageRoute.page,
-        //   path: '/partnership',
-        // ),
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          page: PartnershipRoute.page,
+          path: '/partnership',
+        ),
         CustomRoute(
           transitionsBuilder: TransitionsBuilders.slideLeft,
           page: VideoAppsRoute.page,

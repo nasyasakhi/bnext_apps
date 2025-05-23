@@ -215,7 +215,12 @@ class _ProfilePageState extends State<ProfilePage> {
           context.router.push(const PaymentMethodRoute());
         }
       },
-      {'icon': AppIcons.helpdeskIcon, 'title': 'Pusat Bantuan'},
+      {'icon': AppIcons.helpdeskIcon, 
+       'title': 'Pusat Bantuan',
+       'onTap': () {
+          context.router.push(const HelpCenterRoute());
+        }
+       },
       {
         'icon': AppIcons.settingsIcon,
         'title': 'Pengaturan Aplikasi',

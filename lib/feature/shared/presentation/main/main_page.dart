@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
         DashboardRoute(),
         HistoryRoute(),
         RewardRoute(),
-        ProfileRoute(),
+        CustomerServiceRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return Stack(

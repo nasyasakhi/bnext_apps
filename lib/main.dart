@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bnext/config/di/setup_injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/intl.dart';
 
 import 'app.dart';
@@ -9,6 +10,16 @@ import 'config/config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // loading .env config
+  try {
+    await dotenv.load(fileName: ".env");
+    print('.env loaded');
+  } catch (e) {
+    print('error loading .env : $e');
+  }
+  // set ke bahasa indonesia
+  initLocale();
+  
   await configureDependencies();
   await initFirebase('');
   Bloc.observer = MyBlocObserver();

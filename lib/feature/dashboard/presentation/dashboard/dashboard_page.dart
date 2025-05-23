@@ -165,41 +165,41 @@ class _DashboardPageState extends State<DashboardPage>
                     ),
                   ], tittle: 'Video Apps'))),
           const SliverGap(Sizes.p24),
-          // SliverToBoxAdapter(
-          //     child: Padding(
-          //         padding: const EdgeInsets.only(left: Sizes.p20),
-          //         child: GameSliderWidget(carouselData: [
-          //           GameChannelItem(
-          //             asset: GameImages.pubgLogo,
-          //             title: 'PUBG Mobile',
-          //             onTap: () {
-          //               openStore('com.tencent.ig');
-          //             },
-          //           ),
-          //           GameChannelItem(
-          //             asset: GameImages.mobileLegendLogo,
-          //             title: 'Mobile Legends',
-          //             onTap: () {
-          //               openStore('com.mobile.legends');
-          //             },
-          //           ),
-          //           GameChannelItem(
-          //             asset: GameImages.freeFireLogo,
-          //             title: 'Free Fire',
-          //             onTap: () {
-          //               openStore('com.dts.freefireth');
-          //             },
-          //           ),
-          //           GameChannelItem(
-          //             asset: GameImages.robloxLogo,
-          //             title: 'Roblox',
-          //             onTap: () {
-          //               openStore('com.roblox.client');
-          //             },
-          //           ),
+          SliverToBoxAdapter(
+              child: Padding(
+                  padding: const EdgeInsets.only(left: Sizes.p20),
+                  child: GameSliderWidget(carouselData: [
+                    GameChannelItem(
+                      asset: GameImages.pubgLogo,
+                      title: 'PUBG Mobile',
+                      onTap: () {
+                        openStore('com.tencent.ig');
+                      },
+                    ),
+                    GameChannelItem(
+                      asset: GameImages.mobileLegendLogo,
+                      title: 'Mobile Legends',
+                      onTap: () {
+                        openStore('com.mobile.legends');
+                      },
+                    ),
+                    GameChannelItem(
+                      asset: GameImages.freeFireLogo,
+                      title: 'Free Fire',
+                      onTap: () {
+                        openStore('com.dts.freefireth');
+                      },
+                    ),
+                    GameChannelItem(
+                      asset: GameImages.robloxLogo,
+                      title: 'Roblox',
+                      onTap: () {
+                        openStore('com.roblox.client');
+                      },
+                    ),
 
                     
-          //         ], tittle: 'Game Channels'))),
+                  ], tittle: 'Game Channels'))),
         ]);
   }
 
@@ -210,7 +210,7 @@ class _DashboardPageState extends State<DashboardPage>
         children: [
           GestureDetector(
             onTap: () {
-              context.router.push(const ProfileEditRoute());
+              context.router.push(const ProfileRoute());
             },
             child: Container(
               width: 50,

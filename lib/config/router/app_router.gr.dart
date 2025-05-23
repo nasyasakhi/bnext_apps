@@ -84,6 +84,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LanguagePage(),
       );
     },
+    HelpCenterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HelpCenterPage(),
+      );
+    },
     MainRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -246,6 +252,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const VideoAppsPage(),
+      );
+    },
+    CustomerServiceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CustomerServicePage(),
       );
     },
   };
@@ -903,6 +915,34 @@ class VideoAppsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'VideoAppsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CustomerServicePage]
+class CustomerServiceRoute extends PageRouteInfo<void> {
+  const CustomerServiceRoute({List<PageRouteInfo>? children})
+      : super(
+          CustomerServiceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CustomerServiceRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HelpCenterPage]
+class HelpCenterRoute extends PageRouteInfo<void> {
+  const HelpCenterRoute({List<PageRouteInfo>? children})
+      : super(
+          HelpCenterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HelpCenterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -1,7 +1,8 @@
+import 'package:bnext/core/presentation/extension/extension.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
-import '../../../config/theme/theme.dart';
-import '../../../core/presentation/constants/constants.dart';
+import 'package:bnext/config/theme/theme.dart';
+import 'package:bnext/core/presentation/constants/constants.dart';
 
 class ProductCard extends StatelessWidget {
   final String title;
@@ -52,10 +53,7 @@ class ProductCard extends StatelessWidget {
                     title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: Theme.of(context).textTheme.labelLarge
                   ),
                   const Gap(Sizes.p4),
                   Text(description,
@@ -63,10 +61,7 @@ class ProductCard extends StatelessWidget {
                   const Gap(Sizes.p8),
                   Text(
                     description2,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelSmall
-                        ?.copyWith(color: Colors.white),
+                    style: context.labelSmall?.normal
                   ),
                 ],
               ),

@@ -2,19 +2,19 @@ import 'package:bnext/feature/shared/domain/entities/entities.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
-import '../../../../config/config.dart';
+import 'package:bnext/config/config.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../libraries/components/navigator/navigator_widget.dart';
-import 'components/app_bar.dart';
-import 'components/product_card.dart';
-import 'components/banner_widget.dart';
-import 'components/video_app_iitem.dart';
-import 'components/mini_slider_widget.dart';
-import 'components/video_slider_widget.dart';
-import 'components/potrait_slider_widget.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/libraries/components/navigator/navigator_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/app_bar.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/product_card.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/banner_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/video_app_iitem.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/mini_slider_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/video_slider_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/potrait_slider_widget.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget {
@@ -30,7 +30,6 @@ class _DashboardPageState extends State<DashboardPage>
 
   late AnimationController _opacityAnimationController;
   late Animation<double> _opacityTween;
-  // late TextEditingController textEditingController;
 
   @override
   void initState() {
@@ -59,7 +58,6 @@ class _DashboardPageState extends State<DashboardPage>
             DashboardAppBar(
               opacityAnimationController: _opacityAnimationController,
               opacityTween: _opacityTween,
-              // isAnimateBackground: state is! DashboardStateFailure,
               onTapNotification: () {},
             ),
             Expanded(child: _mainSection()),
@@ -110,7 +108,7 @@ class _DashboardPageState extends State<DashboardPage>
             child: Padding(
               padding: const EdgeInsets.only(left: Sizes.p20),
               child: MiniSliderWidget(
-                tittle: 'Partnership Features',
+                tittle: context.appLang.partnershipFeatures,
                 carouselData: [
                   BannerWidget(
                     onTap: () {
@@ -136,7 +134,7 @@ class _DashboardPageState extends State<DashboardPage>
             child: Padding(
               padding: const EdgeInsets.only(left: Sizes.p20),
               child: PotraitSliderWidget(
-                tittle: 'BNEXT Products',
+                tittle: context.appLang.bnextProducts,
                 carouselData: [
                   ProductCard(
                     onTap: () {
@@ -217,14 +215,14 @@ class _DashboardPageState extends State<DashboardPage>
               context.router.push(const ProfileRoute());
             },
             child: Container(
-              width: 50,
-              height: 50,
+              width: 60,
+              height: 60,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 1),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(30),
                 child: Image.asset(
                   AppImages.profileAvatar,
                   fit: BoxFit.cover,
@@ -236,12 +234,9 @@ class _DashboardPageState extends State<DashboardPage>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Hallo',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
+              Text(
+                context.appLang.greeting,
+                style: context.labelMedium?.normal
               ),
               Text(
                 user?.username ?? '',
@@ -270,15 +265,13 @@ class _DashboardPageState extends State<DashboardPage>
                   const Gap(Sizes.p8),
                   const Icon(
                     Icons.circle,
-                    color: Colors.amber,
+                    color: AppColors.neutral10,
                     size: 12,
                   ),
                   const Gap(Sizes.p4),
                   Text(
                     '1.000 Poin',
-                    style: context.bodySmall
-                        ?.toColor(Colors.amber)
-                        .copyWith(fontWeight: FontWeight.w500),
+                    style: context.bodySmall?.white,
                   ),
                 ],
               ),
@@ -292,12 +285,11 @@ class _DashboardPageState extends State<DashboardPage>
   Widget _buildSpecialPackage() {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 28.0, right: 20),
+        Padding(
+          padding: const EdgeInsets.only(left: 28.0, right: 20),
           child: NavigatorWidget(
-            description:
-                'Choose a BNEXT package according to your area & needs',
-            tittle: 'Want to Buy BNEXT Special Package',
+            description: context.appLang.choosePackage,
+            tittle: context.appLang.buyBnext,
           ),
         ),
         const Gap(Sizes.p16),

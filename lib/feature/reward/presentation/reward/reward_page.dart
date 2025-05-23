@@ -1,12 +1,11 @@
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../config/router/app_router.dart';
-import '../../../../libraries/components/button/primary_button.dart';
-import '../../../../libraries/components/card_widget/product_card.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/config/theme/app_colors.dart';
+import 'package:bnext/config/router/app_router.dart';
+import 'package:bnext/libraries/components/card_widget/product_card.dart';
 
 @RoutePage()
 class RewardPage extends StatefulWidget {
@@ -18,14 +17,36 @@ class RewardPage extends StatefulWidget {
 
 class _RewardPageState extends State<RewardPage> {
   bool isPoinTab = true;
-  String _selectedFilter = 'Semua';
-  final List<String> packages = [
-    'Semua',
-    'Paket 1',
-    'Paket 2',
-    'Paket 3',
-    'Paket 4'
-  ];
+  // String _selectedFilter = 'Semua';
+  // final List<String> packages = [
+  //   'Semua',
+  //   'Paket 1',
+  //   'Paket 2',
+  //   'Paket 3',
+  //   'Paket 4'
+  // ];
+  late String _selectedFilter;
+  late List<String> _packages;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final lang = context.appLang;
+      setState(() {
+        _packages = [
+          lang.all,
+          'Paket 1',
+          'Paket 2',
+          'Paket 3',
+          'Paket 4'
+        ];
+        _selectedFilter = lang.all;
+      });
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +67,7 @@ class _RewardPageState extends State<RewardPage> {
                     _buildPointsCard(),
                     const Gap(Sizes.p32),
                     Text(
-                      'Tukarkan Poin Kamu',
+                      context.appLang.redeemYourPoints,
                       style: context.titleMedium?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -58,9 +79,10 @@ class _RewardPageState extends State<RewardPage> {
                     const Gap(Sizes.p32),
                     Row(
                       children: [
-                        Text('1 Voucher',
-                            style:
-                                context.labelLarge?.toWeight(FontWeight.bold)),
+                        Text(
+                          '1 Voucher',
+                          style:context.labelLarge?.semiBold
+                        ),
                         const Gap(Sizes.p12),
                         Expanded(
                           child: Container(
@@ -90,22 +112,22 @@ class _RewardPageState extends State<RewardPage> {
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
-                    description2: '3000 Voucher Tersedia',
+                    description2: '3000 ${context.appLang.availableVouchers}',
                     onTap: () {context.router.push(const RewardDetailRoute());}),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
-                    description2: '3000 Voucher Tersedia',
+                    description2: '3000 ${context.appLang.availableVouchers}',
                           onTap: () {context.router.push(const RewardDetailRoute());}),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
-                    description2: '3000 Voucher Tersedia',
+                    description2: '3000 ${context.appLang.availableVouchers}',
                           onTap: () {context.router.push(const RewardDetailRoute());}),
                 ProductCard(
                     title: 'Lorem epsum',
                     description: '200 Poin',
-                    description2: '3000 Voucher Tersedia',
+                    description2: '3000 ${context.appLang.availableVouchers}',
                           onTap: () {context.router.push(const RewardDetailRoute());}),
               ],
             ),
@@ -150,10 +172,10 @@ class _RewardPageState extends State<RewardPage> {
       height: 32,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: packages.length,
+        itemCount: _packages.length,
         separatorBuilder: (context, index) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
-          final filter = packages[index];
+          final filter = _packages[index];
           final isSelected = _selectedFilter == filter;
 
           return InkWell(
@@ -233,7 +255,7 @@ class _RewardPageState extends State<RewardPage> {
                 ),
                 child: Center(
                   child: Text(
-                    'Voucher Aktif',
+                    context.appLang.activeVouchers,
                     style: context.labelLarge?.copyWith(
                       fontWeight:
                           !isPoinTab ? FontWeight.bold : FontWeight.normal,
@@ -263,7 +285,7 @@ class _RewardPageState extends State<RewardPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Poin Kamu',
+            context.appLang.yourPoints,
             style: context.titleSmall?.copyWith(
               color: Colors.white,
             ),
@@ -280,7 +302,7 @@ class _RewardPageState extends State<RewardPage> {
                 ),
               ),
               Text(
-                'Hangus Pada 31/03/2025',
+                '${context.appLang.expiresOn} 31/03/2025',
                 style: context.labelSmall
                     ?.copyWith(color: AppColors.white, fontSize: 10),
               ),
@@ -291,7 +313,7 @@ class _RewardPageState extends State<RewardPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Keuntungan Member VIP',
+                context.appLang.vipBenefits,
                 style: context.labelLarge?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

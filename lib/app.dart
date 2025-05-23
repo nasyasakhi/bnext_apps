@@ -1,8 +1,9 @@
+import 'package:bnext/core/l10n/app_localizations.dart';
+import 'package:bnext/core/language_cubit/language_cubit.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:bnext/config/config.dart';
 import 'package:bnext/config/router/app_route_observer.dart';
@@ -21,36 +22,45 @@ class BnextApp extends StatelessWidget {
         BlocProvider(
           create: (context) => locator<UserCubit>(),
         ),
-        // BlocProvider(
-        //   create: (context) => SubjectBloc(),
-        // ),
+            BlocProvider(
+          create: (context) => LanguageCubit(), // Tambahkan LanguageCubit
+        ),
       ],
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        child: MaterialApp.router(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          routeInformationParser: router.defaultRouteParser(),
-          routerDelegate: router.delegate(
-            navigatorObservers: () => [AppRouteObserver()],
-          ),
-          theme: _theme.lightTheme,
-          // routerConfig: router.config(),
-          builder: (context, child) {
-            return BlocListener<UserCubit, UserState>(
-              listenWhen: (previous, current) =>
-                  previous.user != null && current.user == null,
-              listener: _userStateListener,
-              child: MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
-                child: child!,
+      child: BlocBuilder<LanguageCubit, LanguageState>(
+        builder: (context, state) {
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            value: const SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: MaterialApp.router(
+              locale: state.maybeMap(
+                loaded: (loaded) => loaded.locale,
+                orElse: () => const Locale('id'), // Default locale
               ),
-            );
-          },
-        ),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              routeInformationParser: router.defaultRouteParser(),
+              routerDelegate: router.delegate(
+                navigatorObservers: () => [AppRouteObserver()],
+              ),
+              theme: _theme.lightTheme,
+              // routerConfig: router.config(),
+              builder: (context, child) {
+                return BlocListener<UserCubit, UserState>(
+                  listenWhen: (previous, current) =>
+                      previous.user != null && current.user == null,
+                  listener: _userStateListener,
+                  child: MediaQuery(
+                    data: MediaQuery.of(context)
+                        .copyWith(textScaler: TextScaler.noScaling),
+                    child: child!,
+                  ),
+                );
+              },
+            ),
+          );
+        },
       ),
     );
   }

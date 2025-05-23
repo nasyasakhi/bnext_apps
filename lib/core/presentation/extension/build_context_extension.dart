@@ -1,6 +1,7 @@
+import 'package:bnext/core/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-import '../../core.dart';
+import 'package:bnext/core/core.dart';
 
 extension XTextTheme on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
@@ -61,4 +62,8 @@ extension XDeviceSize on BuildContext {
   double get blockSizeVertical => Sizes.blockSizeVertical(this);
   double get safeBlockHorizontal => Sizes.safeBlockHorizontal(this);
   double get safeBlockVertical => Sizes.safeBlockVertical(this);
+}
+
+extension AppLanguage on BuildContext {
+  AppLocalizations get appLang => AppLocalizations.of(this)!;
 }

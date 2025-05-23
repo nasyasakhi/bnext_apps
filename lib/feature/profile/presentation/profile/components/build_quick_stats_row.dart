@@ -1,4 +1,5 @@
 import 'package:bnext/core/presentation/constants/sizes.dart';
+import 'package:bnext/core/presentation/extension/build_context_extension.dart';
 import 'package:bnext/feature/profile/presentation/profile/components/state_items.dart';
 import 'package:bnext/libraries/common/constants/app_resources.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,18 @@ class BuildQuickStatsRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
-          StateItems(context: context, icon: AppIcons.walletIcon, label: 'Dompet Saya', value: '0'),
+          StateItems(
+            context: context, icon: AppIcons.walletIcon, 
+            label: context.appLang.myWallet, 
+            value: '0'
+          ),
           const Gap(Sizes.p32),
-          StateItems(context: context, icon: AppIcons.rewardIcon, label: 'Poin Saya', value: '0'),
+          StateItems(
+            context: context, 
+            icon: AppIcons.rewardIcon, 
+            label: context.appLang.myPoints, 
+            value: '0'
+          ),
         ],
       ),
     );

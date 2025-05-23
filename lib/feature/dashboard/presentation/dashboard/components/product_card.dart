@@ -1,7 +1,6 @@
-import '../../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
-import '../../../../../config/theme/theme.dart';
-import '../../../../../libraries/libraries.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -23,10 +22,10 @@ class ProductCard extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Sizes.p16),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.all(Sizes.p16),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,21 +35,20 @@ class ProductCard extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: context.textTheme.labelSmall?.toWeight(FontWeight.w600),
+                style: context.textTheme.labelSmall?.normal,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: const Color(0xFF001F54),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Text('More Info',
-                    style: context.textTheme.labelSmall
-                        ?.toWeight(FontWeight.bold)
-                        .toColor(
-                          AppColors.white,
-                        )
-                        .toSize(9)),
+                child: Text(
+                  context.appLang.moreInfo,
+                  style: context.labelSmall,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ],
           ),

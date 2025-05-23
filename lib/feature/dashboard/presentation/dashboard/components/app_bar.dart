@@ -2,9 +2,9 @@ import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../config/config.dart';
-import '../../../../../core/core.dart';
-import '../../../../../libraries/libraries.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 class DashboardAppBar extends StatefulWidget {
   const DashboardAppBar({
@@ -61,7 +61,7 @@ class _DashboardAppBarState extends State<DashboardAppBar> {
                           color: AppColors.white, size: 24),
                       const Gap(Sizes.p4),
                       Text(
-                        'Search...',
+                        context.appLang.search,
                         style: context.bodySmall
                             ?.toColor(AppColors.white)
                             .copyWith(fontSize: 14),

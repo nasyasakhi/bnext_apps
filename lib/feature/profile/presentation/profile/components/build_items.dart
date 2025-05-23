@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/router/app_router.dart';
+import 'package:bnext/core/presentation/presentation.dart';
 import 'package:bnext/feature/profile/presentation/profile/components/menu_items.dart';
 import 'package:bnext/libraries/common/constants/app_resources.dart';
 import 'package:flutter/material.dart';
@@ -15,30 +16,39 @@ class BuildItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final menuItems = [
-      {'icon': AppIcons.historyTransactionIcon, 'title': 'Riwayat Transaksi'},
+      {
+        'icon': AppIcons.historyTransactionIcon, 
+        'title': context.appLang.transactionHistory
+      },
       {
         'icon': AppIcons.partnershipIcon,
-        'title': 'Join Partnership',
+        'title': context.appLang.joinPartnership,
       },
-      {'icon': AppIcons.promoIcon, 'title': 'Promo'},
+      {
+        'icon': AppIcons.promoIcon, 
+        'title': 'Promo'
+      },
       {
         'icon': AppIcons.paymentIcon,
-        'title': 'Metode Pembayaran',
+        'title': context.appLang.paymentMethods,
         'onTap': () {
           context.router.push(const PaymentMethodRoute());
         }
       },
-      {'icon': AppIcons.helpdeskIcon, 'title': 'Pusat Bantuan'},
+      {
+        'icon': AppIcons.helpdeskIcon, 
+        'title': context.appLang.helpCenter
+      },
       {
         'icon': AppIcons.settingsIcon,
-        'title': 'Pengaturan Aplikasi',
+        'title': context.appLang.appSettings,
         'onTap': () {
           context.router.push(const SettingsAppRoute());
         }
       },
       {
         'icon': AppIcons.languageIcon,
-        'title': 'Bahasa',
+        'title': context.appLang.language,
         'onTap': () {
           context.router.push(const LanguageRoute());
         }

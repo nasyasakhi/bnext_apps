@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:bnext/config/local/hive_service.dart';
-import 'config/bloc/observer.dart';
-import 'config/config.dart';
+import 'package:bnext/config/bloc/observer.dart';
+import 'package:bnext/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'app.dart';
+import 'package:bnext/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -17,31 +17,25 @@ class UserObjectAdapter extends TypeAdapter<UserObject> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return UserObject(
-      id: fields[1] as int,
-      username: fields[2] as String,
-      email: fields[3] as String,
-      password: fields[4] as String,
-      userProfileId: fields[5] as int,
-      userProfile: fields[6] as UserProfileObject?,
+      id: fields[0] as int,
+      username: fields[1] as String,
+      email: fields[2] as String,
+      role: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserObject obj) {
     writer
-      ..writeByte(6)
-      ..writeByte(1)
-      ..write(obj.id)
-      ..writeByte(2)
-      ..write(obj.username)
-      ..writeByte(3)
-      ..write(obj.email)
       ..writeByte(4)
-      ..write(obj.password)
-      ..writeByte(5)
-      ..write(obj.userProfileId)
-      ..writeByte(6)
-      ..write(obj.userProfile);
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.username)
+      ..writeByte(2)
+      ..write(obj.email)
+      ..writeByte(3)
+      ..write(obj.role);
   }
 
   @override

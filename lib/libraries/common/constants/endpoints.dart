@@ -1,6 +1,6 @@
 class Endpoints {
   static const apiLogin = 'http://172.16.4.105:4000/auth';
-  static const apiUser = 'http://38.47.90.76:8203/api';
+  static const apiUser = 'http://172.16.4.105:4000/api';
 
   static const login = '$apiLogin/login';
   static const register = '$apiUser/register';

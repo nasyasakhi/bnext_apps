@@ -7,12 +7,13 @@ extension UserProfileModelExtension on UserProfileModel {
       email: email,
       emailAlias: emailAlias,
       phoneNumber: phoneNumber,
-      isActive: isActive,
-      refferal: refferal,
-      kodeRefferalUser: kodeRefferalUser,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      deletedAt: deletedAt);
+      // isActive: isActive,
+      // refferal: refferal,
+      // kodeRefferalUser: kodeRefferalUser,
+      // createdAt: createdAt,
+      // updatedAt: updatedAt,
+      // deletedAt: deletedAt
+      );
   UserProfileObject toObject() => toEntity().toObject();
 }
 
@@ -22,12 +23,13 @@ extension UserProfileObjectExtension on UserProfileObject {
       email: email,
       emailAlias: emailAlias,
       phoneNumber: phoneNumber,
-      isActive: isActive,
-      refferal: refferal,
-      kodeRefferalUser: kodeRefferalUser,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      deletedAt: deletedAt);
+      // isActive: isActive,
+      // refferal: refferal,
+      // kodeRefferalUser: kodeRefferalUser,
+      // createdAt: createdAt,
+      // updatedAt: updatedAt,
+      // deletedAt: deletedAt
+      );
 }
 
 extension UserProfileEntityExtension on UserProfileEntity {
@@ -36,10 +38,11 @@ extension UserProfileEntityExtension on UserProfileEntity {
       email: email,
       emailAlias: emailAlias,
       phoneNumber: phoneNumber,
-      isActive: isActive,
-      refferal: refferal,
-      kodeRefferalUser: kodeRefferalUser,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      deletedAt: deletedAt);
+      // isActive: isActive,
+      // refferal: refferal,
+      // kodeRefferalUser: kodeRefferalUser,
+      // createdAt: createdAt,
+      // updatedAt: updatedAt,
+      // deletedAt: deletedAt
+      );
 }

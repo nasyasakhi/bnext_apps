@@ -1,3 +1,4 @@
+import 'package:bnext/feature/auth/data/datasources/session_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,10 +12,10 @@ import '../auth_remote_data_source.dart';
 @LazySingleton(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl extends DataSourceUtil
     implements AuthRemoteDataSource {
-  AuthRemoteDataSourceImpl(this._dio);
+  AuthRemoteDataSourceImpl(this._dio, this._sessionManager);
 
   final Dio _dio;
-
+  final SessionManager _sessionManager;  // declare session manager
 @override
 Future<LoginResponse> login(LoginParams params) {
   return DataSourceUtil.dioCatchOrThrow(() async {
@@ -26,11 +27,23 @@ Future<LoginResponse> login(LoginParams params) {
       },
     );
 
-    final loginResponse = LoginResponse.fromJson(response.data);
+    final data = response.data;
+
+    if (data == null || data['user'] == null || data['token'] == null) {
+      throw const FormatException('Missing required fields in login response');
+    }
+
+    final loginResponse = LoginResponse.fromJson(data);
+
+    _sessionManager.saveSession(
+      loginResponse.token,
+      loginResponse.user.id.toString(),
+    );
 
     return loginResponse;
   });
 }
+
 
 
 

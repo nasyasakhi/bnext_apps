@@ -84,7 +84,7 @@ class _ReusableSliderPartnershipState extends State<ReusableSliderPartnership> {
             return BannerWidget(
               imageUrl: fullImageUrl,
               onTap: () {
-                context.router.push( PartnershipPageRoute(
+                context.router.push( PartnershipRoute(
                   imageUrl: fullImageUrl,
                   title: ad['title'] ?? 'Promo',
                   description: ad['description'] ?? 'Promo',

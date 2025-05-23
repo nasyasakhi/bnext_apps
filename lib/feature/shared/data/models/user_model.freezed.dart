@@ -20,18 +20,16 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  @JsonKey(name: "ID")
+  @JsonKey(name: 'ID')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "Username")
+  @JsonKey(name: 'Username')
   String get username => throw _privateConstructorUsedError;
-  @JsonKey(name: "Email")
+  @JsonKey(name: 'email', defaultValue: '')
   String get email => throw _privateConstructorUsedError;
-  @JsonKey(name: "Password")
-  String get password => throw _privateConstructorUsedError;
-  @JsonKey(name: "UserProfileId")
-  int get userProfileId => throw _privateConstructorUsedError;
-  @JsonKey(name: "UserProfile")
-  UserProfileModel get userProfile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'PhoneNumber')
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
+  String get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,14 +43,11 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "ID") int id,
-      @JsonKey(name: "Username") String username,
-      @JsonKey(name: "Email") String email,
-      @JsonKey(name: "Password") String password,
-      @JsonKey(name: "UserProfileId") int userProfileId,
-      @JsonKey(name: "UserProfile") UserProfileModel userProfile});
-
-  $UserProfileModelCopyWith<$Res> get userProfile;
+      {@JsonKey(name: 'ID') int id,
+      @JsonKey(name: 'Username') String username,
+      @JsonKey(name: 'email', defaultValue: '') String email,
+      @JsonKey(name: 'PhoneNumber') String? phoneNumber,
+      @JsonKey(defaultValue: '') String role});
 }
 
 /// @nodoc
@@ -71,9 +66,8 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? id = null,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? userProfileId = null,
-    Object? userProfile = null,
+    Object? phoneNumber = freezed,
+    Object? role = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -88,27 +82,15 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String,
-      userProfileId: null == userProfileId
-          ? _value.userProfileId
-          : userProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      userProfile: null == userProfile
-          ? _value.userProfile
-          : userProfile // ignore: cast_nullable_to_non_nullable
-              as UserProfileModel,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserProfileModelCopyWith<$Res> get userProfile {
-    return $UserProfileModelCopyWith<$Res>(_value.userProfile, (value) {
-      return _then(_value.copyWith(userProfile: value) as $Val);
-    });
   }
 }
 
@@ -121,15 +103,11 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "ID") int id,
-      @JsonKey(name: "Username") String username,
-      @JsonKey(name: "Email") String email,
-      @JsonKey(name: "Password") String password,
-      @JsonKey(name: "UserProfileId") int userProfileId,
-      @JsonKey(name: "UserProfile") UserProfileModel userProfile});
-
-  @override
-  $UserProfileModelCopyWith<$Res> get userProfile;
+      {@JsonKey(name: 'ID') int id,
+      @JsonKey(name: 'Username') String username,
+      @JsonKey(name: 'email', defaultValue: '') String email,
+      @JsonKey(name: 'PhoneNumber') String? phoneNumber,
+      @JsonKey(defaultValue: '') String role});
 }
 
 /// @nodoc
@@ -146,9 +124,8 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? userProfileId = null,
-    Object? userProfile = null,
+    Object? phoneNumber = freezed,
+    Object? role = null,
   }) {
     return _then(_$UserModelImpl(
       id: null == id
@@ -163,18 +140,14 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String,
-      userProfileId: null == userProfileId
-          ? _value.userProfileId
-          : userProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      userProfile: null == userProfile
-          ? _value.userProfile
-          : userProfile // ignore: cast_nullable_to_non_nullable
-              as UserProfileModel,
     ));
   }
 }
@@ -182,39 +155,35 @@ class __$$UserModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
-  const _$UserModelImpl(
-      {@JsonKey(name: "ID") required this.id,
-      @JsonKey(name: "Username") required this.username,
-      @JsonKey(name: "Email") required this.email,
-      @JsonKey(name: "Password") required this.password,
-      @JsonKey(name: "UserProfileId") required this.userProfileId,
-      @JsonKey(name: "UserProfile") required this.userProfile});
+  _$UserModelImpl(
+      {@JsonKey(name: 'ID') required this.id,
+      @JsonKey(name: 'Username') required this.username,
+      @JsonKey(name: 'email', defaultValue: '') required this.email,
+      @JsonKey(name: 'PhoneNumber') this.phoneNumber,
+      @JsonKey(defaultValue: '') required this.role});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
 
   @override
-  @JsonKey(name: "ID")
+  @JsonKey(name: 'ID')
   final int id;
   @override
-  @JsonKey(name: "Username")
+  @JsonKey(name: 'Username')
   final String username;
   @override
-  @JsonKey(name: "Email")
+  @JsonKey(name: 'email', defaultValue: '')
   final String email;
   @override
-  @JsonKey(name: "Password")
-  final String password;
+  @JsonKey(name: 'PhoneNumber')
+  final String? phoneNumber;
   @override
-  @JsonKey(name: "UserProfileId")
-  final int userProfileId;
-  @override
-  @JsonKey(name: "UserProfile")
-  final UserProfileModel userProfile;
+  @JsonKey(defaultValue: '')
+  final String role;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, email: $email, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
+    return 'UserModel(id: $id, username: $username, email: $email, phoneNumber: $phoneNumber, role: $role)';
   }
 
   @override
@@ -226,18 +195,15 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.userProfileId, userProfileId) ||
-                other.userProfileId == userProfileId) &&
-            (identical(other.userProfile, userProfile) ||
-                other.userProfile == userProfile));
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, username, email, password, userProfileId, userProfile);
+  int get hashCode =>
+      Object.hash(runtimeType, id, username, email, phoneNumber, role);
 
   @JsonKey(ignore: true)
   @override
@@ -254,36 +220,31 @@ class _$UserModelImpl implements _UserModel {
 }
 
 abstract class _UserModel implements UserModel {
-  const factory _UserModel(
-      {@JsonKey(name: "ID") required final int id,
-      @JsonKey(name: "Username") required final String username,
-      @JsonKey(name: "Email") required final String email,
-      @JsonKey(name: "Password") required final String password,
-      @JsonKey(name: "UserProfileId") required final int userProfileId,
-      @JsonKey(name: "UserProfile")
-      required final UserProfileModel userProfile}) = _$UserModelImpl;
+  factory _UserModel(
+      {@JsonKey(name: 'ID') required final int id,
+      @JsonKey(name: 'Username') required final String username,
+      @JsonKey(name: 'email', defaultValue: '') required final String email,
+      @JsonKey(name: 'PhoneNumber') final String? phoneNumber,
+      @JsonKey(defaultValue: '') required final String role}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
 
   @override
-  @JsonKey(name: "ID")
+  @JsonKey(name: 'ID')
   int get id;
   @override
-  @JsonKey(name: "Username")
+  @JsonKey(name: 'Username')
   String get username;
   @override
-  @JsonKey(name: "Email")
+  @JsonKey(name: 'email', defaultValue: '')
   String get email;
   @override
-  @JsonKey(name: "Password")
-  String get password;
+  @JsonKey(name: 'PhoneNumber')
+  String? get phoneNumber;
   @override
-  @JsonKey(name: "UserProfileId")
-  int get userProfileId;
-  @override
-  @JsonKey(name: "UserProfile")
-  UserProfileModel get userProfile;
+  @JsonKey(defaultValue: '')
+  String get role;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>

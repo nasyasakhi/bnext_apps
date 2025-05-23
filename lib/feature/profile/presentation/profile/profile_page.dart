@@ -118,10 +118,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Text(
-                user?.userProfile?.email ?? '',
+                user?.email ?? '',
                 style: context.labelMedium?.copyWith(
                   color: AppColors.white,
                 ),
+              ),
+            ]
               ),
               const Gap(Sizes.p16),
               Row(
@@ -143,9 +145,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ],
           ),
-          const Gap(Sizes.p4),
-        ],
-      ),
+         // const Gap(Sizes.p4),
+        
+      
     );
   }
 

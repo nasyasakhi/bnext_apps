@@ -62,8 +62,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   }
 
   void initUser() {
-    emailController.text = user?.userProfile?.email ?? '';
-    phoneController.text = '+62 ${user?.userProfile?.phoneNumber}';
+    emailController.text = user?.email ?? '';
+    phoneController.text = '+62 ';
   }
 
   @override
@@ -147,11 +147,12 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
             ),
           ),
           Text(
-            '@${user?.userProfile?.email}',
-            style: context.labelMedium?.copyWith(
-              color: AppColors.white,
-            ),
+          '@${user?.email ?? ''}',
+          style: context.labelMedium?.copyWith(
+            color: AppColors.white,
           ),
+        ),
+
         ],
       ),
     );

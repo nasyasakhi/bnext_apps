@@ -16,6 +16,7 @@ import '../../feature/auth/data/datasources/auth_remote_data_source.dart'
     as _i794;
 import '../../feature/auth/data/datasources/impl/auth_remote_data_source_impl.dart'
     as _i647;
+import '../../feature/auth/data/datasources/session_manager.dart' as _i128;
 import '../../feature/auth/data/repositories/auth_repository_impl.dart'
     as _i263;
 import '../../feature/auth/domain/domain.dart' as _i640;
@@ -72,16 +73,23 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i677.OnboardingGuards>(() => _i677.OnboardingGuards());
     gh.singleton<_i174.SplashGuard>(() => _i174.SplashGuard());
     gh.lazySingleton<_i361.Dio>(() => coreInjectionModule.dio);
-    gh.lazySingleton<_i794.AuthRemoteDataSource>(
-        () => _i647.AuthRemoteDataSourceImpl(gh<_i361.Dio>()));
-    gh.lazySingleton<_i1022.UserRemoteDataSource>(
-        () => _i458.UserRemoteDataSourceImpl(gh<_i361.Dio>()));
+    gh.lazySingleton<_i128.SessionManager>(() => _i128.SessionManager());
     gh.lazySingleton<_i634.UserLocalDataSource>(
         () => _i893.UserLocalDataSourceImpl());
+    gh.lazySingleton<_i1022.UserRemoteDataSource>(
+        () => _i458.UserRemoteDataSourceImpl(
+              gh<_i361.Dio>(),
+              gh<_i128.SessionManager>(),
+            ));
     gh.lazySingleton<_i486.UserRepository>(() => _i178.UserRepositoryImpl(
           gh<_i634.UserRemoteDataSource>(),
           gh<_i634.UserLocalDataSource>(),
         ));
+    gh.lazySingleton<_i794.AuthRemoteDataSource>(
+        () => _i647.AuthRemoteDataSourceImpl(
+              gh<_i361.Dio>(),
+              gh<_i128.SessionManager>(),
+            ));
     gh.lazySingleton<_i640.AuthRepository>(() => _i263.AuthRepositoryImpl(
           gh<_i794.AuthRemoteDataSource>(),
           gh<_i634.UserRemoteDataSource>(),

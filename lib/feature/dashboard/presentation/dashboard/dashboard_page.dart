@@ -108,7 +108,9 @@ class _DashboardPageState extends State<DashboardPage>
                   ),
                   ProductCard(
                     onTap: () {
-                      context.router.push(const OttProdudctRoute());
+                      //context.router.push(const OttProdudctRoute());
+                       context.router.push(const InternetProductRoute());
+
                     },
                     color: AppColors.primary2,
                     title: 'OTT Channels\nProvider',

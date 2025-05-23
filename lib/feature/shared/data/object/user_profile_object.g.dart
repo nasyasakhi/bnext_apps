@@ -21,19 +21,13 @@ class UserProfileObjectAdapter extends TypeAdapter<UserProfileObject> {
       email: fields[2] as String,
       emailAlias: fields[3] as String,
       phoneNumber: fields[4] as String,
-      isActive: fields[5] as bool,
-      refferal: fields[6] as int,
-      kodeRefferalUser: fields[7] as String,
-      createdAt: fields[8] as DateTime,
-      updatedAt: fields[9] as DateTime,
-      deletedAt: fields[10] as dynamic,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserProfileObject obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(4)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
@@ -41,19 +35,7 @@ class UserProfileObjectAdapter extends TypeAdapter<UserProfileObject> {
       ..writeByte(3)
       ..write(obj.emailAlias)
       ..writeByte(4)
-      ..write(obj.phoneNumber)
-      ..writeByte(5)
-      ..write(obj.isActive)
-      ..writeByte(6)
-      ..write(obj.refferal)
-      ..writeByte(7)
-      ..write(obj.kodeRefferalUser)
-      ..writeByte(8)
-      ..write(obj.createdAt)
-      ..writeByte(9)
-      ..write(obj.updatedAt)
-      ..writeByte(10)
-      ..write(obj.deletedAt);
+      ..write(obj.phoneNumber);
   }
 
   @override

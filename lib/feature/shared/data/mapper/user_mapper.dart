@@ -6,31 +6,34 @@ import '../data.dart';
 
 extension UserModelExtension on UserModel {
   UserEntity toEntity() => UserEntity(
-      id: id,
-      username: AutofillHints.username,
-      email: email,
-      password: password,
-      userProfileId: userProfileId,
-      userProfile: userProfile?.toEntity());
-  UserObject toObject() => toEntity().toObject();
+        id: id,
+        username: username,
+        email: email,
+        role: role,
+      );
+
+  UserObject toObject() => UserObject(
+        id: id,
+        username: username,
+        email: email,
+        role: role,
+      );
 }
 
 extension UserObjectExtension on UserObject {
   UserEntity toEntity() => UserEntity(
-      id: id,
-      username: username,
-      email: email,
-      password: password,
-      userProfileId: userProfileId,
-      userProfile: userProfile?.toEntity());
+        id: id,
+        username: username,
+        email: email,
+        role: role,
+      );
 }
 
 extension UserEntityExtension on UserEntity {
   UserObject toObject() => UserObject(
-      id: id,
-      username: username,
-      email: email,
-      password: password,
-      userProfileId: userProfileId,
-      userProfile: userProfile?.toObject());
+        id: id,
+        username: username,
+        email: email,
+        role: role,
+      );
 }

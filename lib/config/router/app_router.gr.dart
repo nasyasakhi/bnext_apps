@@ -31,16 +31,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    InternetProductOrderRoute.name: (routeData) {
-      final args = routeData.argsAs<InternetProductOrderRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: InternetProductOrderPage(
-          key: args.key,
-          product: args.product,
-        ),
-      );
-    },
     BnextProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -71,7 +61,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HistoryPage(),
       );
     },
-
+    InternetProductOrderRoute.name: (routeData) {
+      final args = routeData.argsAs<InternetProductOrderRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: InternetProductOrderPage(
+          key: args.key,
+          product: args.product,
+        ),
+      );
+    },
     InternetProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -118,13 +117,25 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    OttProdudctRoute.name: (routeData) {
+    OttProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OttProductPage(),
       );
     },
-
+    PartnershipRoute.name: (routeData) {
+      final args = routeData.argsAs<PartnershipRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PartnershipPage(
+          key: args.key,
+          imageUrl: args.imageUrl,
+          title: args.title,
+          description: args.description,
+          terms: args.terms,
+        ),
+      );
+    },
     PaymentMethodRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -190,22 +201,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-
-    PartnershipPageRoute.name: (routeData) {
-      final args = routeData.argsAs<PartnershipPageArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: PartnershipPage(
-          key: args.key,
-          imageUrl: args.imageUrl,
-          title: args.title,
-          description: args.description,
-          terms: args.terms,
-        ),
-      );
-    },
-
-
     RewardDetailRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -373,10 +368,10 @@ class HistoryRoute extends PageRouteInfo<void> {
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
-
 /// generated route for
 /// [InternetProductOrderPage]
-class InternetProductOrderRoute extends PageRouteInfo<InternetProductOrderRouteArgs> {
+class InternetProductOrderRoute
+    extends PageRouteInfo<InternetProductOrderRouteArgs> {
   InternetProductOrderRoute({
     Key? key,
     required ProductModel product,
@@ -507,23 +502,6 @@ class OtpRouteArgs {
 }
 
 /// generated route for
-// /// [OttProductOrderPage]
-// class OttProductOrderRoute extends PageRouteInfo<void> {
-//   const OttProductOrderRoute({List<PageRouteInfo>? children, required ProductModel product})
-//       : super(
-//           OttProductOrderRoute.name,
-//           initialChildren: children,
-//         );
-
-//   static const String name = 'OttProductOrderRoute';
-
-//   static const PageInfo<void> page = PageInfo<void>(name);
-// }
-
-/// 
-/// 
-/// 
-/// generated route for
 /// [OttProductOrderPage]
 class OttProductOrderRoute extends PageRouteInfo<OttProductOrderRouteArgs> {
   OttProductOrderRoute({
@@ -541,8 +519,8 @@ class OttProductOrderRoute extends PageRouteInfo<OttProductOrderRouteArgs> {
 
   static const String name = 'OttProductOrderRoute';
 
-  static const PageInfo<BnextProductOrderRouteArgs> page =
-      PageInfo<BnextProductOrderRouteArgs>(name);
+  static const PageInfo<OttProductOrderRouteArgs> page =
+      PageInfo<OttProductOrderRouteArgs>(name);
 }
 
 class OttProductOrderRouteArgs {
@@ -557,25 +535,76 @@ class OttProductOrderRouteArgs {
 
   @override
   String toString() {
-    return 'OttProductOrderArgs{key: $key, product: $product}';
+    return 'OttProductOrderRouteArgs{key: $key, product: $product}';
   }
 }
 
 /// generated route for
-/// [OttProdudctPage]
-class OttProdudctRoute extends PageRouteInfo<void> {
-  const OttProdudctRoute({List<PageRouteInfo>? children})
+/// [OttProductPage]
+class OttProductRoute extends PageRouteInfo<void> {
+  const OttProductRoute({List<PageRouteInfo>? children})
       : super(
-          OttProdudctRoute.name,
+          OttProductRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'OttProdudctRoute';
+  static const String name = 'OttProductRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
+/// generated route for
+/// [PartnershipPage]
+class PartnershipRoute extends PageRouteInfo<PartnershipRouteArgs> {
+  PartnershipRoute({
+    Key? key,
+    required String imageUrl,
+    required String title,
+    required String description,
+    required String terms,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PartnershipRoute.name,
+          args: PartnershipRouteArgs(
+            key: key,
+            imageUrl: imageUrl,
+            title: title,
+            description: description,
+            terms: terms,
+          ),
+          initialChildren: children,
+        );
 
+  static const String name = 'PartnershipRoute';
+
+  static const PageInfo<PartnershipRouteArgs> page =
+      PageInfo<PartnershipRouteArgs>(name);
+}
+
+class PartnershipRouteArgs {
+  const PartnershipRouteArgs({
+    this.key,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    required this.terms,
+  });
+
+  final Key? key;
+
+  final String imageUrl;
+
+  final String title;
+
+  final String description;
+
+  final String terms;
+
+  @override
+  String toString() {
+    return 'PartnershipRouteArgs{key: $key, imageUrl: $imageUrl, title: $title, description: $description, terms: $terms}';
+  }
+}
 
 /// generated route for
 /// [PaymentMethodPage]
@@ -704,49 +733,6 @@ class PromoDetailRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-// /// [PartnershipPage]
-// class PartnershipRoute extends PageRouteInfo<void> {
-//   const PartnershipRoute({List<PageRouteInfo>? children})
-//       : super(
-//           PartnershipRoute.name,
-//           initialChildren: children,
-//         );
-
-//   static const String name = 'PartnershipRoute';
-
-//   static const PageInfo<void> page = PageInfo<void>(name);
-// }
-
-/// generated route for
-/// [PartnershipPage]
-class PartnershipPageRoute extends PageRouteInfo<PartnershipPageArgs> {
-  PartnershipPageRoute({
-    Key? key,
-    required String imageUrl,
-    required String title,
-    required String description,
-    required String terms,
-    List<PageRouteInfo>? children,
-  }) : super(
-          PartnershipPageRoute.name,
-          args: PartnershipPageArgs(
-            key: key,
-            imageUrl: imageUrl,
-            title: title,
-            description: description,
-            terms: terms,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'PartnershipPage';
-
-
-  static const PageInfo<PartnershipPageArgs> page =
-      PageInfo<PartnershipPageArgs>(name);
-}
-
-/// generated route for
 /// [PromoPage]
 class PromoRoute extends PageRouteInfo<PromoRouteArgs> {
   PromoRoute({
@@ -787,27 +773,6 @@ class PromoRouteArgs {
     return 'PromoRouteArgs{key: $key, imageUrl: $imageUrl, title: $title}';
   }
 }
-class PartnershipPageArgs {
-  const PartnershipPageArgs({
-    this.key,
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.terms,
-  });
-
-  final Key? key;
-  final String imageUrl;
-  final String title;
-  final String description;
-  final String terms;
-
-  @override
-  String toString() {
-    return 'PartnershipPageArgs{key: $key, imageUrl: $imageUrl, title: $title, description: $description, terms: $terms}';
-  }
-}
-
 
 /// generated route for
 /// [RewardDetailPage]

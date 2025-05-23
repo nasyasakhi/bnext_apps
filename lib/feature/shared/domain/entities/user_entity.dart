@@ -9,8 +9,6 @@ class UserEntity with _$UserEntity {
     required int id,
     required String username,
     required String email,
-    required String password,
-    required int userProfileId,
-    UserProfileEntity? userProfile,
+    required String role,
   }) = _UserEntity;
 }

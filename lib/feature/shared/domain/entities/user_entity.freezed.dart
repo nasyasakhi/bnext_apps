@@ -19,9 +19,7 @@ mixin _$UserEntity {
   int get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  int get userProfileId => throw _privateConstructorUsedError;
-  UserProfileEntity? get userProfile => throw _privateConstructorUsedError;
+  String get role => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserEntityCopyWith<UserEntity> get copyWith =>
@@ -34,15 +32,7 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
-  $Res call(
-      {int id,
-      String username,
-      String email,
-      String password,
-      int userProfileId,
-      UserProfileEntity? userProfile});
-
-  $UserProfileEntityCopyWith<$Res>? get userProfile;
+  $Res call({int id, String username, String email, String role});
 }
 
 /// @nodoc
@@ -61,9 +51,7 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
     Object? id = null,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? userProfileId = null,
-    Object? userProfile = freezed,
+    Object? role = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -78,31 +66,11 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String,
-      userProfileId: null == userProfileId
-          ? _value.userProfileId
-          : userProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      userProfile: freezed == userProfile
-          ? _value.userProfile
-          : userProfile // ignore: cast_nullable_to_non_nullable
-              as UserProfileEntity?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserProfileEntityCopyWith<$Res>? get userProfile {
-    if (_value.userProfile == null) {
-      return null;
-    }
-
-    return $UserProfileEntityCopyWith<$Res>(_value.userProfile!, (value) {
-      return _then(_value.copyWith(userProfile: value) as $Val);
-    });
   }
 }
 
@@ -114,16 +82,7 @@ abstract class _$$UserEntityImplCopyWith<$Res>
       __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String username,
-      String email,
-      String password,
-      int userProfileId,
-      UserProfileEntity? userProfile});
-
-  @override
-  $UserProfileEntityCopyWith<$Res>? get userProfile;
+  $Res call({int id, String username, String email, String role});
 }
 
 /// @nodoc
@@ -140,9 +99,7 @@ class __$$UserEntityImplCopyWithImpl<$Res>
     Object? id = null,
     Object? username = null,
     Object? email = null,
-    Object? password = null,
-    Object? userProfileId = null,
-    Object? userProfile = freezed,
+    Object? role = null,
   }) {
     return _then(_$UserEntityImpl(
       id: null == id
@@ -157,18 +114,10 @@ class __$$UserEntityImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String,
-      userProfileId: null == userProfileId
-          ? _value.userProfileId
-          : userProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      userProfile: freezed == userProfile
-          ? _value.userProfile
-          : userProfile // ignore: cast_nullable_to_non_nullable
-              as UserProfileEntity?,
     ));
   }
 }
@@ -180,9 +129,7 @@ class _$UserEntityImpl implements _UserEntity {
       {required this.id,
       required this.username,
       required this.email,
-      required this.password,
-      required this.userProfileId,
-      this.userProfile});
+      required this.role});
 
   @override
   final int id;
@@ -191,15 +138,11 @@ class _$UserEntityImpl implements _UserEntity {
   @override
   final String email;
   @override
-  final String password;
-  @override
-  final int userProfileId;
-  @override
-  final UserProfileEntity? userProfile;
+  final String role;
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, username: $username, email: $email, password: $password, userProfileId: $userProfileId, userProfile: $userProfile)';
+    return 'UserEntity(id: $id, username: $username, email: $email, role: $role)';
   }
 
   @override
@@ -211,17 +154,11 @@ class _$UserEntityImpl implements _UserEntity {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.userProfileId, userProfileId) ||
-                other.userProfileId == userProfileId) &&
-            (identical(other.userProfile, userProfile) ||
-                other.userProfile == userProfile));
+            (identical(other.role, role) || other.role == role));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, username, email, password, userProfileId, userProfile);
+  int get hashCode => Object.hash(runtimeType, id, username, email, role);
 
   @JsonKey(ignore: true)
   @override
@@ -235,9 +172,7 @@ abstract class _UserEntity implements UserEntity {
       {required final int id,
       required final String username,
       required final String email,
-      required final String password,
-      required final int userProfileId,
-      final UserProfileEntity? userProfile}) = _$UserEntityImpl;
+      required final String role}) = _$UserEntityImpl;
 
   @override
   int get id;
@@ -246,11 +181,7 @@ abstract class _UserEntity implements UserEntity {
   @override
   String get email;
   @override
-  String get password;
-  @override
-  int get userProfileId;
-  @override
-  UserProfileEntity? get userProfile;
+  String get role;
   @override
   @JsonKey(ignore: true)
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>

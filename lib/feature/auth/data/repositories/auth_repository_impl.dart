@@ -27,30 +27,40 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
   final AuthRemoteDataSource _remoteDataSource;
   final UserRemoteDataSource _userRemoteDataSource;
   final UserLocalDataSource _userLocalDataSource;
+@override
+Future<Either<Failure, UserEntity>> login(LoginParams params) {
+  return catchOrThrow(
+    () async {
+      final loginResponse = await _remoteDataSource.login(params);
 
-  @override
-  Future<Either<Failure, UserEntity>> login(LoginParams params) {
-    return catchOrThrow(
-      () async {
-        final loginResponse = await _remoteDataSource.login(params);
+      // Cek token valid
+      if (loginResponse.token.isEmpty) {
+        throw Exception("Token from login is empty");
+      }
 
-        // simpan token sebagai TokenObject
-        await _userLocalDataSource.saveToken(
-          TokenObject(
-            token: loginResponse.token,
-            tokenExpiresAt: null, // atau kamu bisa set default misal DateTime.now().add(Duration(days: 30))
-          ),
-        );
+      // Simpan token sebagai TokenObject
+      await _userLocalDataSource.saveToken(
+        TokenObject(
+          token: loginResponse.token,
+          tokenExpiresAt: null, // bisa set expired time kalau perlu
+        ),
+      );
 
-        final user = await _userRemoteDataSource.getUser();
-        await _userLocalDataSource.saveUser(user.toObject());
+      // Ambil user profile
+      final userResponse = await _userRemoteDataSource.getUser();
 
-        return user.toEntity();
-      },
-    );
-  }
+      // Validasi hasil getUser
+      if (userResponse == null) {
+        throw Exception("User profile not found after login");
+      }
 
+      // Simpan user ke Hive
+      await _userLocalDataSource.saveUser(userResponse.toObject());
 
+      return userResponse.toEntity();
+    },
+  );
+}
 
 
   @override

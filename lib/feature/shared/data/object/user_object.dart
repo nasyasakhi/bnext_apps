@@ -6,26 +6,23 @@ part 'user_object.g.dart';
 
 @HiveType(typeId: 1)
 class UserObject {
-  @HiveField(1)
+  @HiveField(0)
   int id;
-  @HiveField(2)
+
+  @HiveField(1)
   String username;
-  @HiveField(3)
+
+  @HiveField(2)
   String email;
-  @HiveField(4)
-  String password;
-  @HiveField(5)
-  int userProfileId;
-  @HiveField(6)
-  UserProfileObject? userProfile;
+
+  @HiveField(3)
+  String role;
 
   UserObject({
     required this.id,
     required this.username,
     required this.email,
-    required this.password,
-    required this.userProfileId,
-    this.userProfile,
+    required this.role,
   });
 
   factory UserObject.fromRawJson(String str) =>
@@ -36,18 +33,14 @@ class UserObject {
   factory UserObject.fromJson(Map<String, dynamic> json) => UserObject(
         id: json["ID"],
         username: json["Username"],
-        email: json["Email"],
-        password: json["Password"],
-        userProfileId: json["UserProfileId"],
-        userProfile: UserProfileObject.fromJson(json["UserProfile"]),
+        email: json["email"],
+        role: json["role"],
       );
 
   Map<String, dynamic> toJson() => {
         "ID": id,
         "Username": username,
-        "Email": email,
-        "Password": password,
-        "UserProfileId": userProfileId,
-        "UserProfile": userProfile?.toJson(),
+        "email": email,
+        "role": role,
       };
 }

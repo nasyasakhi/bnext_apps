@@ -10,11 +10,11 @@ class UserProfileEntity with _$UserProfileEntity {
     required String email,
     required String emailAlias,
     required String phoneNumber,
-    required bool isActive,
-    required int refferal,
-    required String kodeRefferalUser,
-    required DateTime createdAt,
-    required DateTime updatedAt,
-    required dynamic deletedAt,
+    // required bool isActive,
+    // required int refferal,
+    // required String kodeRefferalUser,
+    // required DateTime createdAt,
+    // required DateTime updatedAt,
+    // required dynamic deletedAt,
   }) = _UserProfileEntity;
 }

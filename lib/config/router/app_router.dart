@@ -72,9 +72,9 @@ class AppRouter extends _$AppRouter {
             page: MainRoute.page,
             initial: true,
             transitionsBuilder: TransitionsBuilders.slideLeft,
-            // guards: [
-            //   locator<SplashGuard>(),
-            // ],
+            guards: [
+              locator<SplashGuard>(),
+            ],
             children: [
               AutoRoute(
                 page: DashboardRoute.page,
@@ -94,11 +94,11 @@ class AppRouter extends _$AppRouter {
           transitionsBuilder: TransitionsBuilders.slideLeft,
           path: '/payment-method',
         ),
-        CustomRoute(
-          page: OttProdudctRoute.page,
-          transitionsBuilder: TransitionsBuilders.slideLeft,
-          path: '/bnext/ott',
-        ),
+        // CustomRoute(
+        //   page: OttProdudctRoute.page,
+        //   transitionsBuilder: TransitionsBuilders.slideLeft,
+        //   path: '/bnext/ott',
+        // ),
         CustomRoute(
           page: OttProductOrderRoute.page,
           transitionsBuilder: TransitionsBuilders.slideLeft,
@@ -181,11 +181,11 @@ class AppRouter extends _$AppRouter {
           page: PromoDetailRoute.page,
           path: '/promo/detail',
         ),
-        CustomRoute(
-          transitionsBuilder: TransitionsBuilders.slideLeft,
-          page: PartnershipPageRoute.page,
-          path: '/partnership',
-        ),
+        // CustomRoute(
+        //   transitionsBuilder: TransitionsBuilders.slideLeft,
+        //   page: PartnershipPageRoute.page,
+        //   path: '/partnership',
+        // ),
         CustomRoute(
           transitionsBuilder: TransitionsBuilders.slideLeft,
           page: VideoAppsRoute.page,

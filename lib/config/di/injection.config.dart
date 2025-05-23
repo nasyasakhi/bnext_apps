@@ -33,6 +33,8 @@ import '../../feature/shared/data/datasources/impl/user_local_data_source_impl.d
     as _i893;
 import '../../feature/shared/data/datasources/impl/user_remote_data_source_impl.dart'
     as _i458;
+import '../../feature/shared/data/datasources/user_remote_data_source.dart'
+    as _i1022;
 import '../../feature/shared/data/repositories/user_repository_impl.dart'
     as _i178;
 import '../../feature/shared/domain/repositories/repositories.dart' as _i486;
@@ -72,7 +74,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => coreInjectionModule.dio);
     gh.lazySingleton<_i794.AuthRemoteDataSource>(
         () => _i647.AuthRemoteDataSourceImpl(gh<_i361.Dio>()));
-    gh.lazySingleton<_i634.UserRemoteDataSource>(
+    gh.lazySingleton<_i1022.UserRemoteDataSource>(
         () => _i458.UserRemoteDataSourceImpl(gh<_i361.Dio>()));
     gh.lazySingleton<_i634.UserLocalDataSource>(
         () => _i893.UserLocalDataSourceImpl());

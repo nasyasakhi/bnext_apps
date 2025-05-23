@@ -1,5 +1,6 @@
 import 'package:bnext/config/local/box_keys.dart';
 import 'package:bnext/feature/shared/data/mapper/user_mapper.dart';
+import 'package:bnext/feature/shared/data/object/token_object.dart';
 import 'package:bnext/feature/shared/domain/domain.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
@@ -31,8 +32,15 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
   Future<Either<Failure, UserEntity>> login(LoginParams params) {
     return catchOrThrow(
       () async {
-        final token = await _remoteDataSource.login(params);
-        await _userLocalDataSource.saveToken(token.toObject());
+        final loginResponse = await _remoteDataSource.login(params);
+
+        // simpan token sebagai TokenObject
+        await _userLocalDataSource.saveToken(
+          TokenObject(
+            token: loginResponse.token,
+            tokenExpiresAt: null, // atau kamu bisa set default misal DateTime.now().add(Duration(days: 30))
+          ),
+        );
 
         final user = await _userRemoteDataSource.getUser();
         await _userLocalDataSource.saveUser(user.toObject());
@@ -41,6 +49,9 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
       },
     );
   }
+
+
+
 
   @override
   Future<Either<Failure, Object>> register(RegisterParams params) {
@@ -71,11 +82,13 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
         final username = box.get('username');
         final password = box.get('password');
 
+        // verifikasi OTP, tapi gak expect token
         await _remoteDataSource.verifyOtp(params);
 
-        final token = await _remoteDataSource
+        // baru login untuk dapat token dan user
+        final loginResponse = await _remoteDataSource
             .login(LoginParams(password: password, username: username));
-        await _userLocalDataSource.saveToken(token.toObject());
+        //await _userLocalDataSource.saveToken(loginResponse.token);
 
         final user = await _userRemoteDataSource.getUser();
         await _userLocalDataSource.saveUser(user.toObject());
@@ -84,4 +97,5 @@ class AuthRepositoryImpl extends RepositoryUtil implements AuthRepository {
       },
     );
   }
+
 }

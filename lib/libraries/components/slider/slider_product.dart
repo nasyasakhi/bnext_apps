@@ -78,7 +78,11 @@ class _SliderProductWidgetState extends State<SliderProductWidget> {
           return BannerWidget(
             imageUrl: fullImageUrl,
             onTap: () {
-              context.router.push(const PromoRoute());
+              context.router.push( 
+                PromoRoute(
+                    imageUrl: fullImageUrl,
+                    title: ad['title'] ?? 'Promo',
+                ));
             },
           );
         }).toList(),

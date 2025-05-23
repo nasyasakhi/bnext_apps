@@ -17,8 +17,8 @@ class TokenObjectAdapter extends TypeAdapter<TokenObject> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return TokenObject(
-      accessToken: fields[1] as String,
-      accessTokenExpiresAt: fields[2] as DateTime,
+      token: fields[1] as String,
+      tokenExpiresAt: fields[2] as DateTime?,
     );
   }
 
@@ -27,9 +27,9 @@ class TokenObjectAdapter extends TypeAdapter<TokenObject> {
     writer
       ..writeByte(2)
       ..writeByte(1)
-      ..write(obj.accessToken)
+      ..write(obj.token)
       ..writeByte(2)
-      ..write(obj.accessTokenExpiresAt);
+      ..write(obj.tokenExpiresAt);
   }
 
   @override

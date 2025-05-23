@@ -72,9 +72,9 @@ class AppRouter extends _$AppRouter {
             page: MainRoute.page,
             initial: true,
             transitionsBuilder: TransitionsBuilders.slideLeft,
-            guards: [
-              locator<SplashGuard>(),
-            ],
+            // guards: [
+            //   locator<SplashGuard>(),
+            // ],
             children: [
               AutoRoute(
                 page: DashboardRoute.page,
@@ -183,7 +183,7 @@ class AppRouter extends _$AppRouter {
         ),
         CustomRoute(
           transitionsBuilder: TransitionsBuilders.slideLeft,
-          page: PartnershipRoute.page,
+          page: PartnershipPageRoute.page,
           path: '/partnership',
         ),
         CustomRoute(

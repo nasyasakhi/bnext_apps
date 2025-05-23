@@ -7,13 +7,18 @@ import '../../../../libraries/libraries.dart';
 
 @RoutePage()
 class PartnershipPage extends StatelessWidget {
-  const PartnershipPage({super.key});
+    final String imageUrl;
+    final String title;
+    final String description;
+    final String terms;
+
+  const PartnershipPage({super.key, required this.imageUrl, required this.title, required this.description, required this.terms});
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: const PrimaryAppBar(
-        title: 'Partnership',
+      appBar:  PrimaryAppBar(
+        title: title,
       ),
       body: SafeArea(
         child: Column(
@@ -21,14 +26,12 @@ class PartnershipPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 150,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.grey,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
+              child: Image.network(
+                imageUrl.isNotEmpty
+                    ? imageUrl
+                    : 'https://via.placeholder.com/150',
+                fit: BoxFit.cover,
+              )
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 24, right: 20),
@@ -36,19 +39,19 @@ class PartnershipPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Promo Lorem Ipsum 1',
+                    title,
                     style: context.titleMedium?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Gap(Sizes.p8),
-                  Text(
-                    'Lorem lorem lorem',
-                    style: context.labelMedium?.copyWith(
-                      color: AppColors.white,
-                    ),
-                  ),
+                  // Text(
+                  //   'Lorem lorem lorem',
+                  //   style: context.labelMedium?.copyWith(
+                  //     color: AppColors.white,
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -68,7 +71,7 @@ class PartnershipPage extends StatelessWidget {
                   ),
                   const Gap(Sizes.p12),
                   Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+                    description,
                     style: context.bodySmall?.copyWith(
                       color: AppColors.white,
                       height: 1.5,
@@ -93,7 +96,7 @@ class PartnershipPage extends StatelessWidget {
                   ),
                   const Gap(Sizes.p12),
                   Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+                    terms,
                     style: context.bodySmall?.copyWith(
                       color: AppColors.white,
                       height: 1.5,

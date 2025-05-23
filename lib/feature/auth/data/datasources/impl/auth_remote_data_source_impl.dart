@@ -5,7 +5,7 @@ import '../../../../../core/data/util/util.dart';
 import '../../../params/login_params.dart';
 import '../../../params/register_params.dart';
 import '../../../params/verify_otp_params.dart';
-import '../../models/token_model.dart';
+import '../../models/login_response.dart';
 import '../auth_remote_data_source.dart';
 
 @LazySingleton(as: AuthRemoteDataSource)
@@ -16,7 +16,7 @@ class AuthRemoteDataSourceImpl extends DataSourceUtil
   final Dio _dio;
 
 @override
-Future<TokenModel> login(LoginParams params) {
+Future<LoginResponse> login(LoginParams params) {
   return DataSourceUtil.dioCatchOrThrow(() async {
     final response = await _dio.post(
       'http://172.16.4.105:4000/auth/login',
@@ -26,12 +26,12 @@ Future<TokenModel> login(LoginParams params) {
       },
     );
 
-    // response.data adalah Map<String, dynamic>, kita parsing ke TokenModel
-    final tokenModel = TokenModel.fromJson(response.data);
+    final loginResponse = LoginResponse.fromJson(response.data);
 
-    return tokenModel;
+    return loginResponse;
   });
 }
+
 
 
   @override

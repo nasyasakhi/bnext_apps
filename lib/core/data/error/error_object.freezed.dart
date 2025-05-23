@@ -250,13 +250,14 @@ class __$$ErrorObjectImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectImpl implements _ErrorObject {
+class _$ErrorObjectImpl extends _ErrorObject {
   const _$ErrorObjectImpl(
       {this.errorMessage,
       this.errorObject,
       this.errorCode,
       required this.title,
-      required this.readableMessage});
+      required this.readableMessage})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -444,13 +445,14 @@ class _$ErrorObjectImpl implements _ErrorObject {
   }
 }
 
-abstract class _ErrorObject implements ErrorObject {
+abstract class _ErrorObject extends ErrorObject {
   const factory _ErrorObject(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       required final String title,
       required final String readableMessage}) = _$ErrorObjectImpl;
+  const _ErrorObject._() : super._();
 
   @override
   String? get errorMessage;
@@ -525,15 +527,15 @@ class __$$ErrorObjectAppImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectAppImpl implements ErrorObjectApp {
+class _$ErrorObjectAppImpl extends ErrorObjectApp {
   const _$ErrorObjectAppImpl(
       {this.errorMessage,
       this.errorObject,
       this.errorCode,
       this.title = 'Error Code: INTERNAL_FAILURE',
       this.readableMessage = 'There was an internal error, try again later, '
-          'should the issue persist please reach out to the '
-          'developer at baikboz.site@gmail.com'});
+          'should the issue persist please reach out to the developer at aurell.ghania.ramadhani@gmail.com'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -724,13 +726,14 @@ class _$ErrorObjectAppImpl implements ErrorObjectApp {
   }
 }
 
-abstract class ErrorObjectApp implements ErrorObject {
+abstract class ErrorObjectApp extends ErrorObject {
   const factory ErrorObjectApp(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectAppImpl;
+  const ErrorObjectApp._() : super._();
 
   @override
   String? get errorMessage;
@@ -805,7 +808,7 @@ class __$$ErrorObjectCacheImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectCacheImpl implements ErrorObjectCache {
+class _$ErrorObjectCacheImpl extends ErrorObjectCache {
   const _$ErrorObjectCacheImpl(
       {this.errorMessage,
       this.errorObject,
@@ -813,8 +816,8 @@ class _$ErrorObjectCacheImpl implements ErrorObjectCache {
       this.title = 'Error Code: INTERNAL_CACHE_FAILURE',
       this.readableMessage =
           'There was an internal error on cache, try again later, '
-              'should the issue persist please reach out to the '
-              'developer at baikboz.site@gmail.com'});
+              'should the issue persist please reach out to the developer at aurell.ghania.ramadhani@gmail.com'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -1005,13 +1008,14 @@ class _$ErrorObjectCacheImpl implements ErrorObjectCache {
   }
 }
 
-abstract class ErrorObjectCache implements ErrorObject {
+abstract class ErrorObjectCache extends ErrorObject {
   const factory ErrorObjectCache(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectCacheImpl;
+  const ErrorObjectCache._() : super._();
 
   @override
   String? get errorMessage;
@@ -1086,7 +1090,7 @@ class __$$ErrorObjectDeviceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectDeviceImpl implements ErrorObjectDevice {
+class _$ErrorObjectDeviceImpl extends ErrorObjectDevice {
   const _$ErrorObjectDeviceImpl(
       {this.errorMessage,
       this.errorObject,
@@ -1094,8 +1098,8 @@ class _$ErrorObjectDeviceImpl implements ErrorObjectDevice {
       this.title = 'Error Code: DEVICE_FAILURE',
       this.readableMessage = 'There was an error with the device, '
           'please check your device settings and try again later, '
-          'should the issue persist please reach out to the '
-          'developer at baikboz.site@gmail.com'});
+          'should the issue persist please reach out to the developer at aurell.ghania.ramadhani@gmail.com'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -1286,13 +1290,14 @@ class _$ErrorObjectDeviceImpl implements ErrorObjectDevice {
   }
 }
 
-abstract class ErrorObjectDevice implements ErrorObject {
+abstract class ErrorObjectDevice extends ErrorObject {
   const factory ErrorObjectDevice(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectDeviceImpl;
+  const ErrorObjectDevice._() : super._();
 
   @override
   String? get errorMessage;
@@ -1367,16 +1372,16 @@ class __$$ErrorObjectServerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectServerImpl implements ErrorObjectServer {
+class _$ErrorObjectServerImpl extends ErrorObjectServer {
   const _$ErrorObjectServerImpl(
       {this.errorMessage,
       this.errorObject,
       this.errorCode,
       this.title = 'Error Code: INTERNAL_SERVER_FAILURE',
       this.readableMessage =
-          'It seems that the server is not reachable at the moment, try '
-              'again later, should the issue persist please reach out to the '
-              'developer at baikboz.site@gmail.com'});
+          'It seems that the server is not reachable at the moment, try again later, '
+              'should the issue persist please reach out to the developer at aurell.ghania.ramadhani@gmail.com'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -1567,13 +1572,14 @@ class _$ErrorObjectServerImpl implements ErrorObjectServer {
   }
 }
 
-abstract class ErrorObjectServer implements ErrorObject {
+abstract class ErrorObjectServer extends ErrorObject {
   const factory ErrorObjectServer(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectServerImpl;
+  const ErrorObjectServer._() : super._();
 
   @override
   String? get errorMessage;
@@ -1650,16 +1656,16 @@ class __$$ErrorObjectDataParsingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectDataParsingImpl implements ErrorObjectDataParsing {
+class _$ErrorObjectDataParsingImpl extends ErrorObjectDataParsing {
   const _$ErrorObjectDataParsingImpl(
       {this.errorMessage,
       this.errorObject,
       this.errorCode,
       this.title = 'Error Code: JSON_PARSING_FAILURE',
       this.readableMessage =
-          'It seems that the app needs to be updated to reflect the, '
-              'changed server data structure, if no update is available on the store '
-              'please reach out to the developer at baikboz.site@gmail.com'});
+          'It seems that the app needs to be updated to reflect the changed server data structure, '
+              'if no update is available on the store please reach out to the developer at aurell.ghania.ramadhani@gmail.com'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -1850,13 +1856,14 @@ class _$ErrorObjectDataParsingImpl implements ErrorObjectDataParsing {
   }
 }
 
-abstract class ErrorObjectDataParsing implements ErrorObject {
+abstract class ErrorObjectDataParsing extends ErrorObject {
   const factory ErrorObjectDataParsing(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectDataParsingImpl;
+  const ErrorObjectDataParsing._() : super._();
 
   @override
   String? get errorMessage;
@@ -1933,7 +1940,7 @@ class __$$ErrorObjectNoConnectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorObjectNoConnectionImpl implements ErrorObjectNoConnection {
+class _$ErrorObjectNoConnectionImpl extends ErrorObjectNoConnection {
   const _$ErrorObjectNoConnectionImpl(
       {this.errorMessage,
       this.errorObject,
@@ -1941,7 +1948,8 @@ class _$ErrorObjectNoConnectionImpl implements ErrorObjectNoConnection {
       this.title = 'Error Code: NO_CONNECTIVITY',
       this.readableMessage =
           'It seems that your device is not connected to the network, '
-              'please check your internet connectivity or try again later.'});
+              'please check your internet connectivity or try again later.'})
+      : super._();
 
   @override
   final String? errorMessage;
@@ -2132,13 +2140,14 @@ class _$ErrorObjectNoConnectionImpl implements ErrorObjectNoConnection {
   }
 }
 
-abstract class ErrorObjectNoConnection implements ErrorObject {
+abstract class ErrorObjectNoConnection extends ErrorObject {
   const factory ErrorObjectNoConnection(
       {final String? errorMessage,
       final Object? errorObject,
       final String? errorCode,
       final String title,
       final String readableMessage}) = _$ErrorObjectNoConnectionImpl;
+  const ErrorObjectNoConnection._() : super._();
 
   @override
   String? get errorMessage;

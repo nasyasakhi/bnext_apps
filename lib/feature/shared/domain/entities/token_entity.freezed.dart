@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TokenEntity {
   String get accessToken => throw _privateConstructorUsedError;
-  DateTime get accessTokenExpiresAt => throw _privateConstructorUsedError;
+  DateTime? get accessTokenExpiresAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TokenEntityCopyWith<TokenEntity> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $TokenEntityCopyWith<$Res> {
           TokenEntity value, $Res Function(TokenEntity) then) =
       _$TokenEntityCopyWithImpl<$Res, TokenEntity>;
   @useResult
-  $Res call({String accessToken, DateTime accessTokenExpiresAt});
+  $Res call({String accessToken, DateTime? accessTokenExpiresAt});
 }
 
 /// @nodoc
@@ -47,17 +47,17 @@ class _$TokenEntityCopyWithImpl<$Res, $Val extends TokenEntity>
   @override
   $Res call({
     Object? accessToken = null,
-    Object? accessTokenExpiresAt = null,
+    Object? accessTokenExpiresAt = freezed,
   }) {
     return _then(_value.copyWith(
       accessToken: null == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
-      accessTokenExpiresAt: null == accessTokenExpiresAt
+      accessTokenExpiresAt: freezed == accessTokenExpiresAt
           ? _value.accessTokenExpiresAt
           : accessTokenExpiresAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$TokenEntityImplCopyWith<$Res>
       __$$TokenEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String accessToken, DateTime accessTokenExpiresAt});
+  $Res call({String accessToken, DateTime? accessTokenExpiresAt});
 }
 
 /// @nodoc
@@ -85,17 +85,17 @@ class __$$TokenEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accessToken = null,
-    Object? accessTokenExpiresAt = null,
+    Object? accessTokenExpiresAt = freezed,
   }) {
     return _then(_$TokenEntityImpl(
       accessToken: null == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
-      accessTokenExpiresAt: null == accessTokenExpiresAt
+      accessTokenExpiresAt: freezed == accessTokenExpiresAt
           ? _value.accessTokenExpiresAt
           : accessTokenExpiresAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -104,12 +104,12 @@ class __$$TokenEntityImplCopyWithImpl<$Res>
 
 class _$TokenEntityImpl implements _TokenEntity {
   const _$TokenEntityImpl(
-      {required this.accessToken, required this.accessTokenExpiresAt});
+      {required this.accessToken, this.accessTokenExpiresAt});
 
   @override
   final String accessToken;
   @override
-  final DateTime accessTokenExpiresAt;
+  final DateTime? accessTokenExpiresAt;
 
   @override
   String toString() {
@@ -141,12 +141,12 @@ class _$TokenEntityImpl implements _TokenEntity {
 abstract class _TokenEntity implements TokenEntity {
   const factory _TokenEntity(
       {required final String accessToken,
-      required final DateTime accessTokenExpiresAt}) = _$TokenEntityImpl;
+      final DateTime? accessTokenExpiresAt}) = _$TokenEntityImpl;
 
   @override
   String get accessToken;
   @override
-  DateTime get accessTokenExpiresAt;
+  DateTime? get accessTokenExpiresAt;
   @override
   @JsonKey(ignore: true)
   _$$TokenEntityImplCopyWith<_$TokenEntityImpl> get copyWith =>

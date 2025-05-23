@@ -3,6 +3,7 @@ import 'package:bnext/config/router/app_router.dart';
 import 'package:bnext/core/presentation/constants/sizes.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/components/banner_widget.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/components/mini_slider_widget.dart';
+import 'package:bnext/feature/partnership/presentation/partnership/partnership_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +84,12 @@ class _ReusableSliderPartnershipState extends State<ReusableSliderPartnership> {
             return BannerWidget(
               imageUrl: fullImageUrl,
               onTap: () {
-                context.router.push(const PartnershipRoute());
+                context.router.push( PartnershipPageRoute(
+                  imageUrl: fullImageUrl,
+                  title: ad['title'] ?? 'Promo',
+                  description: ad['description'] ?? 'Promo',
+                  terms: ad['terms'] ?? 'Promo',
+                ) );
               },
             );
           }).toList(),

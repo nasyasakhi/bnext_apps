@@ -1,6 +1,6 @@
 //Class inti, bentuk data yang dipakai di seluruh aplikasi.
 
-
+// product_entity.dart
 class ProductEntity {
   final int ID;
   final String name;
@@ -8,6 +8,7 @@ class ProductEntity {
   final String price;
   final String stock;
   final List<String> images;
+  final String? category; // ✅ Tambahkan ini
 
   ProductEntity({
     required this.ID,
@@ -16,5 +17,6 @@ class ProductEntity {
     required this.price,
     required this.stock,
     required this.images,
+    this.category,
   });
 }

@@ -1,23 +1,24 @@
 import '../../domain/entities/product_entity.dart';
 
-//Model hasil dari API, bisa diconvert ke Entity (toEntity()).
+// Model hasil dari API, bisa diconvert ke Entity (toEntity()).
+class ProductModel {
+  final int ID;
+  final String name;
+  final String description;
+  final String price;
+  final String stock;
+  final List<String> images;
+  final String? category;
 
-class ProductModel extends ProductEntity {
   ProductModel({
-    required int ID,
-    required String name,
-    required String description,
-    required String price,
-    required String stock,
-    required List<String> images,
-  }) : super(
-          ID: ID,
-          name: name,
-          description: description,
-          price: price,
-          stock: stock,
-          images: images,
-        );
+    required this.ID,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.stock,
+    required this.images,
+    this.category,
+  });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
@@ -27,9 +28,10 @@ class ProductModel extends ProductEntity {
       price: json['price'] ?? '',
       stock: json['stock'] ?? '',
       images: List<String>.from(json['images'] ?? []),
+      category: json['category']?['name'],
     );
   }
-    // ✅ Tambahkan ini
+
   factory ProductModel.fromEntity(ProductEntity entity) {
     return ProductModel(
       ID: entity.ID,
@@ -38,7 +40,19 @@ class ProductModel extends ProductEntity {
       price: entity.price,
       stock: entity.stock,
       images: entity.images,
+      category: entity.category,
+    );
+  }
+
+  ProductEntity toEntity() {
+    return ProductEntity(
+      ID: ID,
+      name: name,
+      description: description,
+      price: price,
+      stock: stock,
+      images: images,
+      category: category,
     );
   }
 }
-

@@ -1,3 +1,9 @@
+import 'package:bnext/config/di/setup_injection.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_product/cubit/product_cubit.dart';
+import 'package:bnext/libraries/components/card_widget/product_card_product.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import '../../../../../core/core.dart';
 import 'package:flutter/material.dart';
@@ -7,89 +13,63 @@ import '../../../../../config/router/app_router.dart';
 import '../../../../../libraries/components/card_widget/product_card.dart';
 
 @RoutePage()
-class InternetProductPage extends StatefulWidget {
+class InternetProductPage extends StatelessWidget {
   const InternetProductPage({super.key});
 
   @override
-  State<InternetProductPage> createState() => _InternetProductPageState();
-}
-
-class _InternetProductPageState extends State<InternetProductPage> {
-  @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      appBar: const PrimaryAppBar(
-        enableBackButton: true,
-        title: 'Internet Product',
+    return BlocProvider(
+      create: (_) => sl<ProductCubit>()..getProductsByCategory("internet-provider"),
+      child: CustomScaffold(
+        appBar: const PrimaryAppBar(
+          enableBackButton: true,
+          title: 'Internet Provider',
+        ),
+        body: BlocBuilder<ProductCubit, ProductState>(
+          builder: (context, state) {
+            if (state is ProductLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is ProductLoaded) {
+              final products = state.products;
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.8,
+                  children: products.map((product) {
+                     String trimmedDescription = product.description.length > 20
+                        ? '${product.description.substring(0, 20)}...'
+                        : product.description;
+                    return ProductCardProduct(
+                    title: product.name,
+                    description: 'Rp ${product.price}',
+                    description2: trimmedDescription,
+                    imageUrl: product.images.isNotEmpty
+                        ? 'http://172.16.4.105:4000/${product.images.first}'
+                        : 'https://via.placeholder.com/150', // fallback
+                    onTap: () {
+                      context.router.push(
+                        InternetProductOrderRoute(product: ProductModel.fromEntity(product))
+
+                      );
+                    },
+
+                  );
+
+                  }).toList(),
+                ),
+              );
+            } else if (state is ProductError) {
+              return Center(child: Text(state.message));
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
-      body: SingleChildScrollView(
-          child: CustomColumn(
-              padding: const EdgeInsets.all(16.0),
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-            Text('Internet Provider',
-                style: context.bodyLarge?.toWeight(FontWeight.w600)),
-            const Gap(Sizes.p12),
-            GridView.count(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
-              childAspectRatio: 0.8,
-              children: [
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 10.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-                ProductCard(
-                    title: 'Internet',
-                    description: 'Rp 20.000',
-                    description2: 'lorem ipsum',
-                    onTap: () {
-                      context.router.push(const InternetProductOrderRoute());
-                    }),
-              ],
-            )
-          ])),
     );
   }
 }

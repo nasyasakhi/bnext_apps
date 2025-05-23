@@ -104,12 +104,12 @@ class _BnextProductOrderPageState extends State<BnextProductOrderPage> {
                       ],
                     ),
                     const Gap(Sizes.p28),
-                    const SizedBox(
+                    SizedBox(
                       height: 160, // Ini akan fix 200 tinggi
                       child: SingleChildScrollView(
                         child: Text(
-                          'Lorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet ConsectetuLorem Ipsum Dolor Sit Amet Consectetur.',
-                          style: TextStyle(
+                          widget.product.description,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
                             fontSize: 13,

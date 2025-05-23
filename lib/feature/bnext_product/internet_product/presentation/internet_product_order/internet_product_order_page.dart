@@ -1,20 +1,19 @@
-import 'package:gap/gap.dart';
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../../config/theme/theme.dart';
-import '../../../../../libraries/libraries.dart';
-import '../../../../../config/router/app_router.dart';
-import '../../../../shared/components/payment_item.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
-import '../../../../../libraries/components/button/secondary_button.dart';
+import '../../../../../config/router/app_router.dart';
+import '../../../../../config/theme/theme.dart';
+import '../../../../../core/core.dart';
+import '../../../../../libraries/libraries.dart';
 
 @RoutePage()
 class InternetProductOrderPage extends StatelessWidget {
-  const InternetProductOrderPage({super.key});
+  final ProductModel product;
+
+  const InternetProductOrderPage({super.key, required this.product});
+
 
   void _showVoucherModal(BuildContext context) {
     showModalBottomSheet(
@@ -44,6 +43,12 @@ class InternetProductOrderPage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
+              child: Image.network(
+                product.images.isNotEmpty
+                    ? 'http://172.16.4.105:4000/${product.images.first}'
+                    : 'https://via.placeholder.com/150',
+                fit: BoxFit.cover,
+              )
             ),
             const Gap(Sizes.p16),
             Text('Internet Package',

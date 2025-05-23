@@ -83,8 +83,14 @@ class _ReusableSliderWidgetState extends State<ReusableSliderWidget> {
             return BannerWidget(
               imageUrl: fullImageUrl,
               onTap: () {
-                context.router.push(const PromoRoute());
+                context.router.push(
+                  PromoRoute(
+                    imageUrl: fullImageUrl,
+                    title: ad['title'] ?? 'Promo',
+                  ),
+                );
               },
+
             );
           }).toList(),
         ),

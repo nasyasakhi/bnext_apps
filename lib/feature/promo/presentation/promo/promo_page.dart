@@ -1,17 +1,26 @@
 import 'dart:async';
-import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
-import 'package:flutter/material.dart';
+
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
+import 'package:bnext/config/di/setup_injection.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_product/cubit/product_cubit.dart';
+import 'package:bnext/libraries/components/card_widget/product_card_product.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+
 import '../../../../config/router/app_router.dart';
 import '../../../../config/theme/app_colors.dart';
-import '../../../../libraries/components/card_widget/product_card.dart';
+import '../../../../core/core.dart';
+import '../../../../libraries/libraries.dart';
 
 
 @RoutePage()
 class PromoPage extends StatefulWidget {
-  const PromoPage({super.key});
+    final String imageUrl;
+    final String title;
+
+  const PromoPage({super.key, required this.imageUrl, required this.title});
 
   @override
   State<PromoPage> createState() => _PromoPageState();
@@ -56,9 +65,9 @@ class _PromoPageState extends State<PromoPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: const PrimaryAppBar(
+      appBar: PrimaryAppBar(
         enableBackButton: true,
-        title: 'Promo',
+        title: widget.title,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -103,17 +112,18 @@ class _PromoPageState extends State<PromoPage> {
     );
   }
 
-  Widget _buildPromoHeader() {
-    return Container(
-      width: double.infinity,
-      height: 220,
-      foregroundDecoration: const BoxDecoration(),
-      child: Image.asset(
-        AppImages.dummyBanner,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
+Widget _buildPromoHeader() {
+  return Container(
+    width: double.infinity,
+    height: 220,
+    foregroundDecoration: const BoxDecoration(),
+    child: Image.network(
+      widget.imageUrl,
+      fit: BoxFit.cover,
+    ),
+  );
+}
+
 
   Widget _buildFlashSaleButton() {
     return Center(
@@ -161,33 +171,115 @@ class _PromoPageState extends State<PromoPage> {
       ),
     );
   }
+  
+Widget _buildProductGrid({required bool isDiscounted}) {
+  return BlocProvider(
+    create: (_) => sl<ProductCubit>()..getProducts(),
+    child: BlocBuilder<ProductCubit, ProductState>(
+      builder: (context, state) {
+        if (state is ProductLoading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is ProductLoaded) {
+          final products = state.products;
 
-  Widget _buildProductGrid({required bool isDiscounted}) {
-    return SizedBox(
-      height: 250,
-      child: GridView.builder(
-        scrollDirection: Axis.horizontal,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          childAspectRatio: 1.2,
-        ),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return ProductCard(
-            description2: 'Lorem ipsum dolor sit amet',
-            description: 'Rp 10.000',
-            onTap: () {
-              context.router.push(const PromoDetailRoute());
-            },
-            title: 'Lorem ipsum dolor sit amet',
+          return SizedBox(
+            height: 250,
+            child: GridView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 1.2,
+              ),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return ProductCardProduct(
+                  title: product.name,
+                  description: 'Rp ${product.price}',
+                  description2: product.description,
+                  imageUrl: product.images.isNotEmpty
+                      ? 'http://172.16.4.105:4000/${product.images.first}'
+                      : 'https://via.placeholder.com/150',
+                  onTap: () {
+                    context.router.push(
+                      BnextProductOrderRoute(
+                        product: ProductModel.fromEntity(product),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
           );
-        },
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-      ),
-    );
-  }
+        } else {
+          return const Center(child: Text('Terjadi kesalahan atau tidak ada data.'));
+        }
+      },
+    ),
+  );
+}
+
+
+
+// Widget _buildProductGrid({required bool isDiscounted}) {
+//   return BlocProvider(
+//     create: (_) => sl<ProductCubit>()..getProducts(),
+//     child: CustomScaffold(
+//       appBar: const PrimaryAppBar(
+//         enableBackButton: true,
+//         title: 'Bnext Product',
+//       ),
+//       body: BlocBuilder<ProductCubit, ProductState>(
+//         builder: (context, state) {
+//           if (state is ProductLoading) {
+//             return const Center(child: CircularProgressIndicator());
+//           } else if (state is ProductLoaded) {
+//             final products = state.products;
+
+//             return SizedBox(
+//               height: 280, // tinggi container agar card muat
+//               child: GridView.builder(
+//                 scrollDirection: Axis.horizontal,
+//                 padding: const EdgeInsets.symmetric(horizontal: 24),
+//                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//                   crossAxisCount: 1,
+//                   mainAxisSpacing: 16,
+//                   crossAxisSpacing: 16,
+//                   childAspectRatio: 0.75, // sesuaikan biar card-nya proporsional
+//                 ),
+//                 itemCount: products.length,
+//                 itemBuilder: (context, index) {
+//                   final product = products[index];
+//                   return ProductCardProduct(
+//                     title: product.name,
+//                     description: 'Rp ${product.price}',
+//                     description2: product.description,
+//                     imageUrl: product.images.isNotEmpty
+//                         ? 'http://172.16.4.105:4000/${product.images.first}'
+//                         : 'https://via.placeholder.com/150',
+//                     onTap: () {
+//                       context.router.push(
+//                         BnextProductOrderRoute(
+//                           product: ProductModel.fromEntity(product),
+//                         ),
+//                       );
+//                     },
+//                   );
+//                 },
+//               ),
+//             );
+//           } else {
+//             return const Center(child: Text('Failed to load products'));
+//           }
+//         },
+//       ),
+//     ),
+//   );
+// }
+
 
   Widget _buildDiscountBanner() {
     return Container(

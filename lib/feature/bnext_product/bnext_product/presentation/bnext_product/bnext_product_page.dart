@@ -16,7 +16,8 @@ class BnextProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<ProductCubit>()..getProducts(),
+      create: (_) => sl<ProductCubit>()..getProductsByCategory("bnext-product"),
+
       child: CustomScaffold(
         appBar: const PrimaryAppBar(
           enableBackButton: true,
@@ -38,10 +39,13 @@ class BnextProductPage extends StatelessWidget {
                   crossAxisSpacing: 20,
                   childAspectRatio: 0.8,
                   children: products.map((product) {
+                     String trimmedDescription = product.description.length > 20
+                        ? '${product.description.substring(0, 20)}...'
+                        : product.description;
                     return ProductCardProduct(
                     title: product.name,
                     description: 'Rp ${product.price}',
-                    description2: product.description,
+                    description2: trimmedDescription,
                     imageUrl: product.images.isNotEmpty
                         ? 'http://172.16.4.105:4000/${product.images.first}'
                         : 'https://via.placeholder.com/150', // fallback

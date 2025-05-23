@@ -1,19 +1,18 @@
-import '../../../../../libraries/components/button/secondary_button.dart';
-import 'package:gap/gap.dart';
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../../config/theme/theme.dart';
-import '../../../../../libraries/libraries.dart';
+import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
 import '../../../../../config/router/app_router.dart';
-import '../../../../shared/components/payment_item.dart';
+import '../../../../../config/theme/theme.dart';
+import '../../../../../core/core.dart';
+import '../../../../../libraries/libraries.dart';
 
 @RoutePage()
 class OttProductOrderPage extends StatelessWidget {
-  const OttProductOrderPage({super.key});
+    final ProductModel product;
+
+  const OttProductOrderPage({super.key, required this.product});
 
   void _showVoucherModal(BuildContext context) {
     showModalBottomSheet(
@@ -43,19 +42,25 @@ class OttProductOrderPage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
+              child: Image.network(
+              product.images.isNotEmpty
+                  ? 'http://172.16.4.105:4000/${product.images.first}'
+                  : 'https://via.placeholder.com/150',
+              fit: BoxFit.cover,
+            )
             ),
             const Gap(Sizes.p16),
-            Text('Ott Channel',
+            Text(product.name,
                 style: context.titleSmall?.toWeight(FontWeight.bold)),
             const Gap(Sizes.p4),
-            Text('Lorem Ipsum',
+            Text(product.name,
                 style: context.bodySmall?.toWeight(FontWeight.w500)),
-            const Gap(Sizes.p40),
+             const Gap(Sizes.p40),
             Text('Tentang Aplikasi',
                 style: context.titleSmall?.toWeight(FontWeight.bold)),
             const Gap(Sizes.p4),
             Text(
-                'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+                product.description,
                 style: context.bodySmall?.toWeight(FontWeight.w500)),
             const Gap(Sizes.p40),
             Text('Tentang Aplikasi',

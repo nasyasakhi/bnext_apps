@@ -31,6 +31,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    InternetProductOrderRoute.name: (routeData) {
+      final args = routeData.argsAs<InternetProductOrderRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: InternetProductOrderPage(
+          key: args.key,
+          product: args.product,
+        ),
+      );
+    },
     BnextProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -61,12 +71,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HistoryPage(),
       );
     },
-    InternetProductOrderRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const InternetProductOrderPage(),
-      );
-    },
+
     InternetProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -104,23 +109,22 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     OttProductOrderRoute.name: (routeData) {
+      final args = routeData.argsAs<OttProductOrderRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OttProductOrderPage(),
+        child: OttProductOrderPage(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
     OttProdudctRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OttProdudctPage(),
+        child: const OttProductPage(),
       );
     },
-    PartnershipRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const PartnershipPage(),
-      );
-    },
+
     PaymentMethodRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -176,11 +180,32 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PromoRoute.name: (routeData) {
+      final args = routeData.argsAs<PromoRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PromoPage(),
+        child: PromoPage(
+          key: args.key,
+          imageUrl: args.imageUrl,
+          title: args.title,
+        ),
       );
     },
+
+    PartnershipPageRoute.name: (routeData) {
+      final args = routeData.argsAs<PartnershipPageArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PartnershipPage(
+          key: args.key,
+          imageUrl: args.imageUrl,
+          title: args.title,
+          description: args.description,
+          terms: args.terms,
+        ),
+      );
+    },
+
+
     RewardDetailRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -348,18 +373,43 @@ class HistoryRoute extends PageRouteInfo<void> {
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
+
 /// generated route for
 /// [InternetProductOrderPage]
-class InternetProductOrderRoute extends PageRouteInfo<void> {
-  const InternetProductOrderRoute({List<PageRouteInfo>? children})
-      : super(
+class InternetProductOrderRoute extends PageRouteInfo<InternetProductOrderRouteArgs> {
+  InternetProductOrderRoute({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           InternetProductOrderRoute.name,
+          args: InternetProductOrderRouteArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'InternetProductOrderRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<InternetProductOrderRouteArgs> page =
+      PageInfo<InternetProductOrderRouteArgs>(name);
+}
+
+class InternetProductOrderRouteArgs {
+  const InternetProductOrderRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'InternetProductOrderRouteArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for
@@ -457,17 +507,58 @@ class OtpRouteArgs {
 }
 
 /// generated route for
+// /// [OttProductOrderPage]
+// class OttProductOrderRoute extends PageRouteInfo<void> {
+//   const OttProductOrderRoute({List<PageRouteInfo>? children, required ProductModel product})
+//       : super(
+//           OttProductOrderRoute.name,
+//           initialChildren: children,
+//         );
+
+//   static const String name = 'OttProductOrderRoute';
+
+//   static const PageInfo<void> page = PageInfo<void>(name);
+// }
+
+/// 
+/// 
+/// 
+/// generated route for
 /// [OttProductOrderPage]
-class OttProductOrderRoute extends PageRouteInfo<void> {
-  const OttProductOrderRoute({List<PageRouteInfo>? children})
-      : super(
+class OttProductOrderRoute extends PageRouteInfo<OttProductOrderRouteArgs> {
+  OttProductOrderRoute({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           OttProductOrderRoute.name,
+          args: OttProductOrderRouteArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OttProductOrderRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<BnextProductOrderRouteArgs> page =
+      PageInfo<BnextProductOrderRouteArgs>(name);
+}
+
+class OttProductOrderRouteArgs {
+  const OttProductOrderRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'OttProductOrderArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for
@@ -484,19 +575,7 @@ class OttProdudctRoute extends PageRouteInfo<void> {
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
-/// generated route for
-/// [PartnershipPage]
-class PartnershipRoute extends PageRouteInfo<void> {
-  const PartnershipRoute({List<PageRouteInfo>? children})
-      : super(
-          PartnershipRoute.name,
-          initialChildren: children,
-        );
 
-  static const String name = 'PartnershipRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
 
 /// generated route for
 /// [PaymentMethodPage]
@@ -625,18 +704,110 @@ class PromoDetailRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+// /// [PartnershipPage]
+// class PartnershipRoute extends PageRouteInfo<void> {
+//   const PartnershipRoute({List<PageRouteInfo>? children})
+//       : super(
+//           PartnershipRoute.name,
+//           initialChildren: children,
+//         );
+
+//   static const String name = 'PartnershipRoute';
+
+//   static const PageInfo<void> page = PageInfo<void>(name);
+// }
+
+/// generated route for
+/// [PartnershipPage]
+class PartnershipPageRoute extends PageRouteInfo<PartnershipPageArgs> {
+  PartnershipPageRoute({
+    Key? key,
+    required String imageUrl,
+    required String title,
+    required String description,
+    required String terms,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PartnershipPageRoute.name,
+          args: PartnershipPageArgs(
+            key: key,
+            imageUrl: imageUrl,
+            title: title,
+            description: description,
+            terms: terms,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PartnershipPage';
+
+
+  static const PageInfo<PartnershipPageArgs> page =
+      PageInfo<PartnershipPageArgs>(name);
+}
+
+/// generated route for
 /// [PromoPage]
-class PromoRoute extends PageRouteInfo<void> {
-  const PromoRoute({List<PageRouteInfo>? children})
-      : super(
+class PromoRoute extends PageRouteInfo<PromoRouteArgs> {
+  PromoRoute({
+    Key? key,
+    required String imageUrl,
+    required String title,
+    List<PageRouteInfo>? children,
+  }) : super(
           PromoRoute.name,
+          args: PromoRouteArgs(
+            key: key,
+            imageUrl: imageUrl,
+            title: title,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PromoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PromoRouteArgs> page = PageInfo<PromoRouteArgs>(name);
 }
+
+class PromoRouteArgs {
+  const PromoRouteArgs({
+    this.key,
+    required this.imageUrl,
+    required this.title,
+  });
+
+  final Key? key;
+
+  final String imageUrl;
+
+  final String title;
+
+  @override
+  String toString() {
+    return 'PromoRouteArgs{key: $key, imageUrl: $imageUrl, title: $title}';
+  }
+}
+class PartnershipPageArgs {
+  const PartnershipPageArgs({
+    this.key,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    required this.terms,
+  });
+
+  final Key? key;
+  final String imageUrl;
+  final String title;
+  final String description;
+  final String terms;
+
+  @override
+  String toString() {
+    return 'PartnershipPageArgs{key: $key, imageUrl: $imageUrl, title: $title, description: $description, terms: $terms}';
+  }
+}
+
 
 /// generated route for
 /// [RewardDetailPage]

@@ -8,9 +8,11 @@ extension TokenModelExtension on TokenModel {
         accessToken: accessToken,
         accessTokenExpiresAt: accessTokenExpiresAt,
       );
+
   TokenObject toObject() => TokenObject(
-        accessToken: accessToken,
-        accessTokenExpiresAt: accessTokenExpiresAt,
+        token: accessToken,
+        tokenExpiresAt: accessTokenExpiresAt,
       );
 }
+
 

@@ -1,16 +1,15 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bnext/config/theme/app_colors.dart';
-import 'package:bnext/core/core.dart';
 import 'package:bnext/feature/promo/presentation/promo/components/discount_banner.dart';
 import 'package:bnext/feature/promo/presentation/promo/components/flash_sale_button.dart';
 import 'package:bnext/feature/promo/presentation/promo/components/product_grid.dart';
 import 'package:bnext/feature/promo/presentation/promo/components/promo_header.dart';
-import 'package:bnext/libraries/libraries.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
+import 'package:bnext/config/theme/app_colors.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 @RoutePage()
 class PromoPage extends StatefulWidget {

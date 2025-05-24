@@ -1,6 +1,6 @@
-import 'product_card.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/product_card.dart';
 import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -23,8 +23,10 @@ class _PotraitSliderWidgetState extends State<PotraitSliderWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.tittle,
-            style: context.textTheme.labelLarge?.toWeight(FontWeight.bold)),
+        Text(
+          widget.tittle,
+          style: context.textTheme.titleSmall?.semiBold
+        ),
         const Gap(Sizes.p8),
         CarouselSlider(
           options: CarouselOptions(

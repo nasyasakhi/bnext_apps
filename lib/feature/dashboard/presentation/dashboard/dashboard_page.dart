@@ -11,15 +11,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../config/config.dart';
-import '../../../../core/core.dart';
-import '../../../../libraries/components/navigator/navigator_widget.dart';
-import '../../../../libraries/libraries.dart';
-import 'components/app_bar.dart';
-import 'components/potrait_slider_widget.dart';
-import 'components/product_card.dart';
-import 'components/video_app_iitem.dart';
-import 'components/video_slider_widget.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/components/navigator/navigator_widget.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/app_bar.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/potrait_slider_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/product_card.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/video_app_iitem.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/video_slider_widget.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget {
@@ -47,13 +47,9 @@ class _DashboardPageState extends State<DashboardPage>
       duration: Duration.zero,
     );
     _opacityTween =
-        Tween<double>(begin: 0, end: 1).animate(_opacityAnimationController);
+      Tween<double>(begin: 0, end: 1).animate(_opacityAnimationController);
 
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +66,6 @@ class _DashboardPageState extends State<DashboardPage>
             DashboardAppBar(
               opacityAnimationController: _opacityAnimationController,
               opacityTween: _opacityTween,
-              // isAnimateBackground: state is! DashboardStateFailure,
               onTapNotification: () {},
             ),
             Expanded(child: _mainSection()),
@@ -97,7 +92,7 @@ class _DashboardPageState extends State<DashboardPage>
             child: Padding(
               padding: const EdgeInsets.only(left: Sizes.p20),
               child: PotraitSliderWidget(
-                tittle: 'BNEXT Products',
+                tittle: context.appLang.bnextProducts,
                 carouselData: [
                   ProductCard(
                     onTap: () {
@@ -108,9 +103,7 @@ class _DashboardPageState extends State<DashboardPage>
                   ),
                   ProductCard(
                     onTap: () {
-                      //context.router.push(const OttProdudctRoute());
-                       context.router.push(const InternetProductRoute());
-
+                      context.router.push(const OttProductRoute());
                     },
                     color: AppColors.primary2,
                     title: 'OTT Channels\nProvider',
@@ -234,21 +227,15 @@ class _DashboardPageState extends State<DashboardPage>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Hallo',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
+              Text(
+                context.appLang.greeting,
+                style: context.labelMedium?.normal
               ),
               Text(
-                user?.username ?? '',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                user?.username ?? 'Username',
+                style: context.labelMedium?.semiBold
               ),
+              const Gap(Sizes.p4),
               Row(
                 children: [
                   Container(
@@ -260,23 +247,19 @@ class _DashboardPageState extends State<DashboardPage>
                     ),
                     child: Text(
                       'VIP',
-                      style: context.bodySmall
-                          ?.toColor(Colors.white)
-                          .copyWith(fontWeight: FontWeight.w500),
+                      style: context.bodySmall?.semiBold,
                     ),
                   ),
                   const Gap(Sizes.p8),
                   const Icon(
                     Icons.circle,
-                    color: Colors.amber,
-                    size: 12,
+                    color: AppColors.neutral10,
+                    size: 10,
                   ),
                   const Gap(Sizes.p4),
                   Text(
                     '1.000 Poin',
-                    style: context.bodySmall
-                        ?.toColor(Colors.amber)
-                        .copyWith(fontWeight: FontWeight.w500),
+                    style: context.bodySmall?.white,
                   ),
                 ],
               ),
@@ -288,18 +271,17 @@ class _DashboardPageState extends State<DashboardPage>
   }
 
   Widget _buildSpecialPackage() {
-    return const Column(
+    return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 28.0, right: 20),
+          padding: const EdgeInsets.only(left: 28.0, right: 20),
           child: NavigatorWidget(
-            description:
-                'Choose a BNEXT package according to your area & needs',
-            tittle: 'Want to Buy BNEXT Special Package',
+            description: context.appLang.choosePackage,
+            tittle: context.appLang.buyBnext
           ),
         ),
-        Gap(Sizes.p16),
-        SliderProductWidget(category: 'product'),
+        const Gap(Sizes.p16),
+        const SliderProductWidget(category: 'product'),
 
       ],
     );

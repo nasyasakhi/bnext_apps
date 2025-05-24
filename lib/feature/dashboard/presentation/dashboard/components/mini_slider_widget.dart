@@ -1,9 +1,7 @@
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'banner_widget.dart';
+import 'package:bnext/feature/dashboard/presentation/dashboard/components/banner_widget.dart';
 
 class MiniSliderWidget extends StatefulWidget {
   const MiniSliderWidget(
@@ -24,8 +22,10 @@ class _MiniSliderWidgetState extends State<MiniSliderWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.tittle,
-            style: context.textTheme.labelLarge?.toWeight(FontWeight.bold)),
+        Text(
+          widget.tittle,
+          style: context.textTheme.titleSmall?.semiBold
+        ),
         CarouselSlider(
           options: CarouselOptions(
               height: 94,

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../config/config.dart';
-import '../../../../core/core.dart';
-import '../../../../libraries/libraries.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
+import 'package:bnext/libraries/libraries.dart';
 
 @RoutePage()
 class HistoryPage extends StatefulWidget {
@@ -16,7 +16,12 @@ class HistoryPage extends StatefulWidget {
 
 class _HistoryPageState extends State<HistoryPage> {
   String _selectedFilter = 'Semua';
-  final List<String> _filters = ['Semua', 'Proses', 'Berhasil', 'Gagal'];
+  final List<String> _filters = [
+    'Semua',
+    'Dalam Proses',
+    'Berhasil',
+    'Gagal',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +30,8 @@ class _HistoryPageState extends State<HistoryPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          'Histori Transaksi',
-          style: context.titleMedium?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          context.appLang.transactionHistory,
+          style: context.titleMedium?.semiBold
         ),
         centerTitle: false,
         actions: [
@@ -52,17 +54,17 @@ class _HistoryPageState extends State<HistoryPage> {
               child: ListView(
                 children: [
                   _buildTransactionCard(
-                    status: 'Dalam Proses',
+                    status: context.appLang.inProcess,
                     statusColor: AppColors.primaryMain,
                   ),
                   const Gap(Sizes.p16),
                   _buildTransactionCard(
-                    status: 'Dalam Proses',
+                    status: context.appLang.inProcess,
                     statusColor: AppColors.primaryMain,
                   ),
                   const Gap(Sizes.p16),
                   _buildTransactionCard(
-                    status: 'Selesai',
+                    status: context.appLang.success,
                     statusColor: AppColors.primary2,
                   ),
                   const Gap(Sizes.p16),
@@ -77,7 +79,7 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Widget _buildFilterOptions() {
     return SizedBox(
-      height: 32,
+      height: 35,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: _filters.length,
@@ -94,7 +96,7 @@ class _HistoryPageState extends State<HistoryPage> {
               },
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: Sizes.p24, vertical: Sizes.p10),
                 decoration: BoxDecoration(
                   color:
                       isSelected ? AppColors.primaryMain : Colors.transparent,
@@ -104,12 +106,10 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
                 child: Text(
                   filter,
-                  style: context.labelSmall?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: context.labelSmall?.semiBold,                  
                 ),
-              ));
+              ),
+            );
         },
       ),
     );
@@ -131,11 +131,8 @@ class _HistoryPageState extends State<HistoryPage> {
           ),
         ),
         title: Text(
-          'Transaksi Bpay',
-          style: context.labelLarge?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
+          context.appLang.bpayTransaction,
+          style: context.titleSmall?.semiBold
         ),
         trailing: const Icon(
           Icons.chevron_right,

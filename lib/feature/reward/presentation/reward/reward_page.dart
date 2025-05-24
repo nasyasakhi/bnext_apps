@@ -4,11 +4,11 @@ import 'package:bnext/feature/reward/presentation/reward/components/points_card.
 import 'package:bnext/feature/reward/presentation/reward/components/reward_grid.dart';
 import 'package:bnext/feature/reward/presentation/reward/components/tab_selector.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/config/theme/app_colors.dart';
 
 @RoutePage()
 class RewardPage extends StatefulWidget {
@@ -52,7 +52,7 @@ class _RewardPageState extends State<RewardPage> {
                     const PointsCard(),
                     const Gap(Sizes.p32),
                     Text(
-                      'Tukarkan Poin Kamu',
+                      context.appLang.redeemYourPoints,
                       style: context.titleMedium?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

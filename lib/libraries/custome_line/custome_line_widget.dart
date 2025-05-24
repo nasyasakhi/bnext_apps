@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../config/theme/app_colors.dart';
+import 'package:bnext/config/theme/app_colors.dart';
 
 class CustomeLineWidget extends CustomPainter {
   @override

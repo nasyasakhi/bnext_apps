@@ -21,7 +21,7 @@
     <application
         android:label="Bnext"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/logo_bnext">
         <activity
             android:name=".MainActivity"
             android:exported="true"

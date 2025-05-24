@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../config/config.dart';
-import '../../../core/core.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
 
 
 class NavigatorWidget extends StatelessWidget {
@@ -27,12 +27,10 @@ class NavigatorWidget extends StatelessWidget {
             children: [
               Text(
                 tittle,
-                style: context.titleSmall
-                    ?.toColor(Colors.white)
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: context.titleSmall?.semiBold,
               ),
               const Gap(Sizes.p4),
-              Text(description, style: context.labelSmall?.toSize(isPayment ? 12 : 9)),
+              Text(description, style: context.labelSmall?.normal.toSize(10)),
             ],
           ),
         ),

@@ -16,10 +16,7 @@ class AppBarReward extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       title: Text(
         'Reward',
-        style: context.titleMedium?.copyWith(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: context.titleMedium?.semiBold
       ),
       centerTitle: false,
       actions: [

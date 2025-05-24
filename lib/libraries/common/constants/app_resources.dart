@@ -86,3 +86,10 @@ class GameImages {
   static const String freeFireLogo = 'assets/images/freefire-logo.png';
   static const String robloxLogo = 'assets/images/roblox-logo.png';
 }
+
+class OnboardingImages {
+  static const String onboarding1 = 'assets/images/splashcontent1.png';
+  static const String onboarding2 = 'assets/images/splashcontent2.png';
+  static const String onboarding3 = 'assets/images/splashcontent3.png';
+  static const String onboarding4 = 'assets/images/splashcontent4.png';
+}

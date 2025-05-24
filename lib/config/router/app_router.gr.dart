@@ -37,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BnextProductPage(),
       );
     },
+    CustomerServiceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CustomerServicePage(),
+      );
+    },
     DashboardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -47,6 +53,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DashboardPageOld(),
+      );
+    },
+    HelpCenterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HelpCenterPage(),
       );
     },
     HistoryDetailRoute.name: (routeData) {
@@ -81,12 +93,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LanguagePage(),
-      );
-    },
-    HelpCenterRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HelpCenterPage(),
       );
     },
     MainRoute.name: (routeData) {
@@ -249,12 +255,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const VideoAppsPage(),
       );
     },
-    CustomerServiceRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CustomerServicePage(),
-      );
-    },
   };
 }
 
@@ -325,6 +325,20 @@ class BnextProductRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CustomerServicePage]
+class CustomerServiceRoute extends PageRouteInfo<void> {
+  const CustomerServiceRoute({List<PageRouteInfo>? children})
+      : super(
+          CustomerServiceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CustomerServiceRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DashboardPage]
 class DashboardRoute extends PageRouteInfo<void> {
   const DashboardRoute({List<PageRouteInfo>? children})
@@ -348,6 +362,20 @@ class DashboardRouteOld extends PageRouteInfo<void> {
         );
 
   static const String name = 'DashboardRouteOld';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HelpCenterPage]
+class HelpCenterRoute extends PageRouteInfo<void> {
+  const HelpCenterRoute({List<PageRouteInfo>? children})
+      : super(
+          HelpCenterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HelpCenterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -880,34 +908,6 @@ class VideoAppsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'VideoAppsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [CustomerServicePage]
-class CustomerServiceRoute extends PageRouteInfo<void> {
-  const CustomerServiceRoute({List<PageRouteInfo>? children})
-      : super(
-          CustomerServiceRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CustomerServiceRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [HelpCenterPage]
-class HelpCenterRoute extends PageRouteInfo<void> {
-  const HelpCenterRoute({List<PageRouteInfo>? children})
-      : super(
-          HelpCenterRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HelpCenterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

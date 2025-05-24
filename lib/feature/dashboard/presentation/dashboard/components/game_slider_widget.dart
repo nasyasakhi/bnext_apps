@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import '../../../../../core/core.dart';
+import 'package:bnext/core/core.dart';
 
 class GameSliderWidget extends StatefulWidget {
   const GameSliderWidget(
@@ -24,8 +24,10 @@ class _GameSliderWidgetState extends State<GameSliderWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.tittle,
-            style: context.textTheme.labelLarge?.toWeight(FontWeight.bold)),
+        Text(
+          widget.tittle,
+          style: context.textTheme.titleSmall?.semiBold
+        ),
         const Gap(Sizes.p8),
         CarouselSlider(
           options: CarouselOptions(
@@ -36,7 +38,6 @@ class _GameSliderWidgetState extends State<GameSliderWidget> {
                 });
               },
               viewportFraction: 0.30,
-              // aspectRatio: 16 / 9,
               padEnds: false,
               enableInfiniteScroll: false),
           items: widget.carouselData

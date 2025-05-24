@@ -12,6 +12,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../core/language_cubit/language_cubit.dart' as _i869;
 import '../../feature/auth/data/datasources/auth_remote_data_source.dart'
     as _i794;
 import '../../feature/auth/data/datasources/impl/auth_remote_data_source_impl.dart'
@@ -65,6 +66,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final coreInjectionModule = _$CoreInjectionModule();
+    gh.factory<_i869.LanguageCubit>(() => _i869.LanguageCubit());
     await gh.factoryAsync<_i388.HiveService>(
       () => coreInjectionModule.hiveService,
       preResolve: true,

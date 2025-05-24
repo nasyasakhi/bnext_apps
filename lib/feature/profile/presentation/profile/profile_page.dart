@@ -1,17 +1,14 @@
-import 'package:bnext/feature/auth/presentation/user_login/cubit/user_login_cubit.dart';
 import 'package:bnext/feature/shared/domain/domain.dart';
 import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import '../../../../config/config.dart';
-import '../../../../core/core.dart';
+import 'package:bnext/config/config.dart';
+import 'package:bnext/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../../../libraries/libraries.dart';
-import '../../../../config/theme/app_colors.dart';
-import '../../../../config/router/app_router.dart';
-import '../../../shared/domain/usecase/logout_use_case.dart';
-import '../../../shared/presentation/profile/cubit/cubit.dart';
+import 'package:bnext/libraries/libraries.dart';
+import 'package:bnext/feature/shared/domain/usecase/logout_use_case.dart';
+import 'package:bnext/feature/shared/presentation/profile/cubit/cubit.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -48,6 +45,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      appBar: const PrimaryAppBar(
+        title: 'Profile',
+      ),
       body: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {},
         buildWhen: (previous, current) => current.user != null,
@@ -156,9 +156,17 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
-          _buildStatItem(AppIcons.walletIcon, 'Dompet Saya', '0'),
+          _buildStatItem(
+            AppIcons.walletIcon, 
+            context.appLang.myWallet, 
+            '0'
+          ),
           const Gap(Sizes.p32),
-          _buildStatItem(AppIcons.rewardIcon, 'Poin Saya', '0'),
+          _buildStatItem(
+            AppIcons.rewardIcon, 
+            context.appLang.myPoints, 
+            '0'
+          ),
         ],
       ),
     );
@@ -202,35 +210,38 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildMenuItems() {
     final menuItems = [
-      {'icon': AppIcons.historyTransactionIcon, 'title': 'Riwayat Transaksi'},
+      {
+        'icon': AppIcons.historyTransactionIcon, 
+        'title': context.appLang.transactionHistory,
+      },
       {
         'icon': AppIcons.partnershipIcon,
-        'title': 'Join Partnership',
+        'title': context.appLang.joinPartnership,
       },
       {'icon': AppIcons.promoIcon, 'title': 'Promo'},
       {
         'icon': AppIcons.paymentIcon,
-        'title': 'Metode Pembayaran',
+        'title': context.appLang.paymentMethods,
         'onTap': () {
           context.router.push(const PaymentMethodRoute());
         }
       },
       {'icon': AppIcons.helpdeskIcon, 
-       'title': 'Pusat Bantuan',
+       'title': context.appLang.helpCenter,
        'onTap': () {
           context.router.push(const HelpCenterRoute());
         }
        },
       {
         'icon': AppIcons.settingsIcon,
-        'title': 'Pengaturan Aplikasi',
+        'title': context.appLang.appSettings,
         'onTap': () {
           context.router.push(const SettingsAppRoute());
         }
       },
       {
         'icon': AppIcons.languageIcon,
-        'title': 'Bahasa',
+        'title': context.appLang.language,
         'onTap': () {
           context.router.push(const LanguageRoute());
         }

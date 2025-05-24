@@ -9,11 +9,8 @@ import 'package:bnext/libraries/libraries.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../libraries/common/constants/constants.dart';
-import '../../domain/entities/entities.dart';
-import '../../domain/usecase/usecase.dart';
-
-import '../profile/cubit/user_cubit.dart';
+import 'package:bnext/feature/shared/domain/entities/entities.dart';
+import 'package:bnext/feature/shared/presentation/profile/cubit/user_cubit.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -97,17 +94,10 @@ class SplashPageState extends State<SplashPage> {
                     ),
                   ],
                 ),
-                // Center(
-                //   child: Text(
-                //     '1.0.0',
-                //     style: context.headlineLarge?.extraBold.orange
-                //         .copyWith(fontSize: 10),
-                //   ),
-                // ),
               ],
             ),
           ),
-          const Gap(Sizes.p24),
+          // const Gap(Sizes.p24),
           // Image.asset(
           //   '  AppImages.splashObjBottom,',
           //   height: 184,

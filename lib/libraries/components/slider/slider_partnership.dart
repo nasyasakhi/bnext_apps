@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/router/app_router.dart';
 import 'package:bnext/core/presentation/constants/sizes.dart';
+import 'package:bnext/core/presentation/presentation.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/components/banner_widget.dart';
 import 'package:bnext/feature/dashboard/presentation/dashboard/components/mini_slider_widget.dart';
 import 'package:bnext/feature/partnership/presentation/partnership/partnership_page.dart';
@@ -76,7 +77,7 @@ class _ReusableSliderPartnershipState extends State<ReusableSliderPartnership> {
       child: Padding(
         padding: const EdgeInsets.only(left: Sizes.p20),
         child: MiniSliderWidget(
-          tittle: 'Partnership Features',
+          tittle: context.appLang.partnershipFeatures,
           carouselData: adsList.map((ad) {
             final String imageUrl = ad['image_url'] ?? '';
             final fullImageUrl = 'http://172.16.4.105:4000/$imageUrl';

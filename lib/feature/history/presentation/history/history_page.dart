@@ -158,9 +158,12 @@ class _HistoryPageState extends State<HistoryPage> {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                image: AssetImage('assets/images/smartbox-premium.png'), // pastikan path benar
+                fit: BoxFit.cover,
               ),
+            ),
             ),
             const Gap(Sizes.p16),
             Expanded(

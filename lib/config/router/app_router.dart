@@ -96,11 +96,12 @@ class AppRouter extends _$AppRouter {
           transitionsBuilder: TransitionsBuilders.slideLeft,
           path: '/payment-method',
         ),
-        // CustomRoute(
-        //   page: OttProdudctRoute.page,
-        //   transitionsBuilder: TransitionsBuilders.slideLeft,
-        //   path: '/bnext/ott',
-        // ),
+        CustomRoute(
+          //page: OttProdudctRoute.page,
+          page: OttProductRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          path: '/bnext/ott',
+        ),
         CustomRoute(
           page: OttProductOrderRoute.page,
           transitionsBuilder: TransitionsBuilders.slideLeft,

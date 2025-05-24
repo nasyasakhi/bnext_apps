@@ -117,12 +117,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i191.SaveUserUseCase(gh<_i486.UserRepository>()));
     gh.factory<_i886.UserLoginCubit>(
         () => _i886.UserLoginCubit(gh<_i640.LoginUseCase>()));
-    gh.factory<_i958.UserRegisterCubit>(
-        () => _i958.UserRegisterCubit(gh<_i640.RegisterUseCase>()));
     gh.factory<_i214.OtpCubit>(() => _i214.OtpCubit(
           gh<_i740.VerifyotpUseCase>(),
           gh<_i480.SendotpUseCase>(),
         ));
+    gh.factory<_i958.UserRegisterCubit>(
+        () => _i958.UserRegisterCubit(gh<_i640.RegisterUseCase>()));
     gh.lazySingleton<_i99.UserCubit>(() => _i99.UserCubit(
           gh<_i635.GetUserUseCase>(),
           gh<_i523.SaveUserUseCase>(),

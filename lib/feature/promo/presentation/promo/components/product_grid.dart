@@ -40,10 +40,16 @@ class BuildProductGrid extends StatelessWidget {
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
+                String trimmedDescription = product.description.length > 15
+                        ? '${product.description.substring(0, 15)}...'
+                        : product.description;
+                     String trimmednNme = product.name.length > 15
+                        ? '${product.name.substring(0, 15)}...'
+                        : product.name;
                 return ProductCardProduct(
-                  title: product.name,
+                  title: trimmednNme,
                   description: 'Rp ${product.price}',
-                  description2: product.description,
+                  description2: trimmedDescription,
                   imageUrl: product.images.isNotEmpty
                       ? 'http://172.16.4.105:4000/${product.images.first}'
                       : 'https://via.placeholder.com/150',

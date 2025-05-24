@@ -41,136 +41,125 @@ class _ProfilePageState extends State<ProfilePage> {
     // userCubt = context.read<UserCubit>();
     super.initState();
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomScaffold(
+@override
+Widget build(BuildContext context) {
+  return CustomScaffold(
       appBar: const PrimaryAppBar(
-        title: 'Profile',
+        title: 'Profile Page',
       ),
-      body: BlocConsumer<UserCubit, UserState>(
-        listener: (context, state) {},
-        buildWhen: (previous, current) => current.user != null,
-        builder: (context, state) {
-          final user = state.user;
-          return RefreshIndicator(
-            onRefresh: () async => fetchUser(),
-            child: SingleChildScrollView(
-              child: CustomColumn(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _buildProfileHeader(user),
-                        const Gap(Sizes.p8),
-                        const Divider(
-                          color: AppColors.white,
-                          thickness: 0.5,
-                        ),
-                      ],
-                    ),
+    body: BlocConsumer<UserCubit, UserState>(
+      listener: (context, state) {},
+      buildWhen: (previous, current) => current.user != null,
+      builder: (context, state) {
+        final user = state.user;
+        return RefreshIndicator(
+          onRefresh: () async => fetchUser(),
+          child: SingleChildScrollView(
+            child: CustomColumn(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      _buildProfileHeader(user),
+                      const Gap(Sizes.p8),
+                      const Divider(
+                        color: AppColors.white,
+                        thickness: 0.5,
+                      ),
+                    ],
                   ),
-                  _buildQuickStatsRow(),
-                  const Gap(Sizes.p56),
-                  _buildMenuItems(),
-                  const Gap(Sizes.p56),
-                  _buildLogoutButton(context),
-                  const Gap(Sizes.p32),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildProfileHeader(UserEntity? user) {
-    return GestureDetector(
-      onTap: () {
-        context.router.push(const ProfileEditRoute());
-      },
-      child: Row(
-        children: [
-          Container(
-            width: 110,
-            height: 110,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(AppImages.avatarPlaceholder),
-                fit: BoxFit.cover,
-              ),
+                ),
+                _buildQuickStatsRow(),
+                const Gap(Sizes.p56),
+                _buildMenuItems(),
+                const Gap(Sizes.p56),
+                _buildLogoutButton(context),
+                const Gap(Sizes.p32),
+              ],
             ),
           ),
-          const Gap(Sizes.p32),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                user?.username ?? '',
-                style: context.titleMedium?.copyWith(
-                  color: AppColors.white,
-                  fontWeight: FontWeight.bold,
+        );
+      },
+    ),
+  );
+}
+
+Widget _buildProfileHeader(UserEntity? user) {
+  return GestureDetector(
+    onTap: () => context.router.push(const ProfileEditRoute()),
+    child: Row(
+      children: [
+        Container(
+          width: 110,
+          height: 110,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(AppImages.avatarPlaceholder),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        const Gap(Sizes.p32),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              user?.username ?? '',
+              style: context.titleMedium?.copyWith(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              user?.email ?? '',
+              style: context.labelMedium?.copyWith(
+                color: AppColors.white,
+              ),
+            ),
+            const Gap(Sizes.p16),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  AppIcons.vipIcon,
+                  height: 30,
                 ),
-              ),
-              Text(
-                user?.email ?? '',
-                style: context.labelMedium?.copyWith(
-                  color: AppColors.white,
-                ),
-              ),
-            ]
-              ),
-              const Gap(Sizes.p16),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    AppIcons.vipIcon,
-                    height: 30,
-                  ),
-                  const Gap(Sizes.p8),
-                  Text(
+                const Gap(Sizes.p8),
+                Flexible(
+                  child: Text(
                     'VIP',
                     style: context.labelLarge?.copyWith(
                       color: AppColors.white,
                       fontWeight: FontWeight.bold,
                     ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
-                ],
-              ),
-            ],
-          ),
-         // const Gap(Sizes.p4),
-        
-      
-    );
-  }
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
 
-  Widget _buildQuickStatsRow() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
-        children: [
-          _buildStatItem(
-            AppIcons.walletIcon, 
-            context.appLang.myWallet, 
-            '0'
-          ),
-          const Gap(Sizes.p32),
-          _buildStatItem(
-            AppIcons.rewardIcon, 
-            context.appLang.myPoints, 
-            '0'
-          ),
-        ],
-      ),
-    );
-  }
+Widget _buildQuickStatsRow() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    child: Row(
+      children: [
+        _buildStatItem(AppIcons.walletIcon, 'Dompet Saya', '0'),
+        const Gap(Sizes.p32),
+        _buildStatItem(AppIcons.rewardIcon, 'Poin Saya', '0'),
+      ],
+    ),
+  );
+}
 
   Widget _buildStatItem(String icon, String label, String value) {
     return Expanded(

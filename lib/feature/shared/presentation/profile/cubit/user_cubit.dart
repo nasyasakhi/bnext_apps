@@ -12,6 +12,8 @@ import '../../../domain/usecase/get_user.dart';
 part 'user_state.dart';
 part 'user_cubit.freezed.dart';
 
+
+
 @lazySingleton
 class UserCubit extends Cubit<UserState> {
   UserCubit(
@@ -23,24 +25,25 @@ class UserCubit extends Cubit<UserState> {
   final SaveUserUseCase _saveUserUseCase;
 
   Future<UserEntity?> getUser() async {
-    if (state.user != null) {
-      return state.user;
-    }
-
-    emit(state.copyWith(isLoading: true));
-
-    final either = await _getUserUseCase(NoParams());
-
-    either.fold(
-      (failure) =>
-          emit(state.copyWith(failure: ErrorObject.fromFailure(failure))),
-      (user) => emit(state.copyWith(user: user)),
-    );
-
-    print('cek user ${state.user}');
-
+  if (state.user != null) {
     return state.user;
   }
+  emit(state.copyWith(isLoading: true));
+  final either = await _getUserUseCase(NoParams());
+  either.fold(
+    (failure) {
+      final errorObj = ErrorObject.fromFailure(failure);
+      if (errorObj.readableMessage == "User is not authenticated") {
+        // treat this as "no user" rather than error
+        emit(state.copyWith(user: null, failure: null, isLoading: false));
+      } else {
+        emit(state.copyWith(failure: errorObj, isLoading: false));
+      }
+    },
+    (user) => emit(state.copyWith(user: user, isLoading: false)),
+  );
+  return state.user;
+}
 
   Future<void> saveUser({
     required UserEntity user,
@@ -49,10 +52,8 @@ class UserCubit extends Cubit<UserState> {
     if (isAlsoSaveInStorage) {
       await _saveUserUseCase(user);
     }
-
     emit(state.copyWith(user: user));
   }
-
   Future<void> clearData() async {
     emit(const UserState());
   }

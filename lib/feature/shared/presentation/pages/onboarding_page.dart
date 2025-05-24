@@ -77,9 +77,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: CustomColumn(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
-        children: [
+      appBar: AppBar(
+        actions: [
           Align(
             alignment: Alignment.topRight,
             child: TextButton(
@@ -90,9 +89,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
           ),
-          Gap(Sizes.screenHeight(context) * 0.1),
-          _mainSection(context)
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(Sizes.p20),
+        child: Column(
+          children: [
+            const Gap(Sizes.p20),
+            _mainSection(context),
+          ],
+        ),
       ),
     );
   }
@@ -103,40 +109,37 @@ class _OnboardingPageState extends State<OnboardingPage> {
         Stack(
           children: [
             const SizedBox(height: 40),
-            Expanded(
-              flex: 1,
-              child: SizedBox(
-                width: double.infinity,
-                height: Sizes.screenHeight(context) * 0.6,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: onboarding.length,
-                  onPageChanged: (index) => setState(() => _currentPage = index),
-                  itemBuilder: (context, index) {
-                    final data = onboarding[index];
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          data['image']!,
-                          width: Sizes.screenWidth(context) * 0.8,
-                        ),
-                        const Gap(Sizes.p80),
-                        Text(
-                          data['title']!,
-                          textAlign: TextAlign.center,
-                          style: context.titleMedium?.semiBold,
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          data['desc']!,
-                          textAlign: TextAlign.center,
-                          style: context.bodyMedium,
-                        ),
-                      ],
-                    );
-                  },
-                ),
+            SizedBox(
+              width: double.infinity,
+              height: Sizes.screenHeight(context) * 0.6,
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: onboarding.length,
+                onPageChanged: (index) => setState(() => _currentPage = index),
+                itemBuilder: (context, index) {
+                  final data = onboarding[index];
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        data['image']!,
+                        width: Sizes.screenWidth(context) * 0.8,
+                      ),
+                      const Gap(Sizes.p80),
+                      Text(
+                        data['title']!,
+                        textAlign: TextAlign.center,
+                        style: context.titleMedium?.semiBold,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        data['desc']!,
+                        textAlign: TextAlign.center,
+                        style: context.bodyMedium,
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
             Positioned(

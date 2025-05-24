@@ -9,65 +9,67 @@ import 'otp_state.dart';
 
 @injectable
 class OtpCubit extends Cubit<OtpState> {
-  OtpCubit(this._veifOtpUsecase, this._sendOtpUseCase)
+  OtpCubit(this._verifyOtpUseCase, this._sendOtpUseCase)
       : super(const OtpState.initial());
 
-  final VerifyotpUseCase _veifOtpUsecase;
+  final VerifyotpUseCase _verifyOtpUseCase;
   final SendotpUseCase _sendOtpUseCase;
 
   Future<void> verifyOtp(VerifyOtpParams params) async {
     emit(const OtpState.loading());
 
-    final either = await _veifOtpUsecase.call(params);
+    final either = await _verifyOtpUseCase.call(params);
 
     emit(
       either.fold(
-        (failure) {
-          // Gunakan helper _safeParseFailure agar error parsing aman
-          final safeError = _safeParseFailure(failure);
-          return OtpState.error(safeError);
-        },
-        (result) => OtpState.success(result),
+        (failure) => OtpState.error(_safeParseFailure(failure)),
+        (user) => OtpState.success(user),
       ),
     );
   }
 
   Future<void> sendOtp(VerifyOtpParams params) async {
-    print('[OtpCubit] Sending OTP to email: ${params.email}');
-
+    print('[OtpCubit] Sending OTP to: ${params.email}');
     emit(const OtpState.loading(isResend: true));
 
     final either = await _sendOtpUseCase.call(params);
 
-    either.fold(
-      (failure) {
-        print('[OtpCubit] Failed to send OTP: ${failure.message}');
-        // Pakai helper yang sama untuk parsing error
-        final safeError = _safeParseFailure(failure);
-        emit(OtpState.error(safeError));
-      },
-      (_) {
-        print('[OtpCubit] OTP sent successfully!');
-        emit(const OtpState.successSendOtp());
-      },
+    emit(
+      either.fold(
+        (failure) {
+          print('[OtpCubit] Send OTP failed: ${failure.message}');
+          return OtpState.error(_safeParseFailure(failure));
+        },
+        (_) {
+          print('[OtpCubit] OTP sent successfully');
+          return const OtpState.successSendOtp();
+        },
+      ),
     );
   }
+  
+  String _currentOtp = '';
 
-  /// Helper function to safely parse failure into ErrorObject,
-  /// handling null or wrong types to avoid casting errors.
+  void updateOtp(String otp) {
+    _currentOtp = otp;
+    
+  }
+
+  String get currentOtp => _currentOtp;
+
   ErrorObject _safeParseFailure(dynamic failure) {
-  try {
-    final errorObj = ErrorObject.fromFailure(failure);
-    final safeMessage = errorObj.errorMessage ?? 'Unknown error occurred';
-    return errorObj.copyWith(errorMessage: safeMessage);
-  } catch (e) {
-    return ErrorObject(
-      errorMessage: 'Failed to parse error response',
-      errorCode: '-1',
-      title: 'Error Parsing',
-      readableMessage: 'An unexpected error occurred. Please try again later.',
-    );
+    try {
+      final error = ErrorObject.fromFailure(failure);
+      return error.copyWith(
+        errorMessage: error.errorMessage ?? 'Unknown error occurred',
+      );
+    } catch (_) {
+      return ErrorObject(
+        errorMessage: 'Failed to parse error response',
+        errorCode: '-1',
+        title: 'Error Parsing',
+        readableMessage: 'An unexpected error occurred. Please try again later.',
+      );
+    }
   }
-}
-
 }

@@ -38,13 +38,12 @@ class _SettingsAppPageState extends State<SettingsAppPage> {
 
   Widget _buildMenuItems() {
     final menuItems = [
-      {'icon': AppIcons.settingsIcon, 'title': 'Pengaturan Akun'},
-      {'icon': AppIcons.notifIcon, 'title': 'Nyalakan Notifikasi'},
-      {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
-      {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
-      {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
-      {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
-      {'icon': AppIcons.notifIcon, 'title': 'Lorem Ipsum'},
+    {'icon': AppIcons.settingsIcon, 'title': 'Nyalakan Notifikasi'},
+      {'icon': AppIcons.notifIcon, 'title': 'Mode Gelap'},
+      {'icon': AppIcons.notifIcon, 'title': 'Aktifkan Lokasi'},
+      {'icon': AppIcons.notifIcon, 'title': 'Perbarui Otomatis'},
+      {'icon': AppIcons.notifIcon, 'title': 'Bunyi Notifikasi'},
+      {'icon': AppIcons.notifIcon, 'title': 'Simpan Data Otomatis'},
     ];
 
     return Column(

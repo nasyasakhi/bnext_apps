@@ -1,16 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bnext/config/di/setup_injection.dart';
 import 'package:bnext/feature/bnext_product/bnext_product/data/models/product_model.dart';
 import 'package:bnext/feature/bnext_product/bnext_product/presentation/bnext_product/cubit/product_cubit.dart';
 import 'package:bnext/libraries/components/card_widget/product_card_product.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
-import '../../../../../core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
-import '../../../../../libraries/libraries.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../config/router/app_router.dart';
-import '../../../../../libraries/components/card_widget/product_card.dart';
+import '../../../../../libraries/libraries.dart';
 
 @RoutePage()
 class InternetProductPage extends StatelessWidget {
@@ -19,7 +16,7 @@ class InternetProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<ProductCubit>()..getProductsByCategory("internet-provider"),
+      create: (_) => sl<ProductCubit>()..getProductsByCategory("internet-provider-product"),
       child: CustomScaffold(
         appBar: const PrimaryAppBar(
           enableBackButton: true,
@@ -41,11 +38,14 @@ class InternetProductPage extends StatelessWidget {
                   crossAxisSpacing: 20,
                   childAspectRatio: 0.8,
                   children: products.map((product) {
-                     String trimmedDescription = product.description.length > 20
-                        ? '${product.description.substring(0, 20)}...'
+                    String trimmedDescription = product.description.length > 15
+                        ? '${product.description.substring(0, 15)}...'
                         : product.description;
+                     String trimmednNme = product.name.length > 15
+                        ? '${product.name.substring(0, 15)}...'
+                        : product.name;
                     return ProductCardProduct(
-                    title: product.name,
+                    title: trimmednNme,
                     description: 'Rp ${product.price}',
                     description2: trimmedDescription,
                     imageUrl: product.images.isNotEmpty

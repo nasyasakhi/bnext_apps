@@ -16,7 +16,7 @@ class RewardDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: const PrimaryAppBar(
-        title: 'Detail Hadiah',
+        title: 'Promo Anniversary Bnext',
       ),
       body: SafeArea(
         child: Column(
@@ -27,10 +27,13 @@ class RewardDetailPage extends StatelessWidget {
               child: Container(
                 height: 150,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.grey,
-                  borderRadius: BorderRadius.circular(15),
-                ),
+               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/smartbox1.png'), // pastikan path benar
+                  fit: BoxFit.cover,
+              ),
+            ),
               ),
             ),
             Padding(
@@ -39,7 +42,7 @@ class RewardDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Voucher Lorem Ipsum 1',
+                    'Reward Anniversary Bnext',
                     style: context.titleMedium?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -117,7 +120,7 @@ class RewardDetailPage extends StatelessWidget {
                   ),
                   const Gap(Sizes.p12),
                   Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+                    'Nikmati bonus 200 Poin dan ribuan voucher menarik di promo Anniversary Bnext. Berlaku terbatas, segera manfaatkan kesempatan ini!',
                     style: context.bodySmall?.copyWith(
                       color: AppColors.white,
                       height: 1.5,
@@ -142,7 +145,9 @@ class RewardDetailPage extends StatelessWidget {
                   ),
                   const Gap(Sizes.p12),
                   Text(
-                    'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+                     '1. Promo berlaku untuk pengguna terdaftar Bnext.\n'
+                    '2. Poin dan voucher hanya berlaku selama periode promo.\n'
+                    '3. Promo tidak dapat digabungkan dengan penawaran lain.',
                     style: context.bodySmall?.copyWith(
                       color: AppColors.white,
                       height: 1.5,

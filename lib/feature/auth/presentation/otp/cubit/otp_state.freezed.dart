@@ -48,27 +48,27 @@ mixin _$OtpState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,9 +171,9 @@ class _$InitialImpl extends _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) {
     return initial(this);
   }
@@ -183,9 +183,9 @@ class _$InitialImpl extends _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -195,9 +195,9 @@ class _$InitialImpl extends _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -319,9 +319,9 @@ class _$LoadingImpl extends _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -331,9 +331,9 @@ class _$LoadingImpl extends _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -343,9 +343,9 @@ class _$LoadingImpl extends _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -366,10 +366,10 @@ abstract class _Loading extends OtpState {
 }
 
 /// @nodoc
-abstract class _$$successImplCopyWith<$Res> {
-  factory _$$successImplCopyWith(
-          _$successImpl value, $Res Function(_$successImpl) then) =
-      __$$successImplCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserEntity user});
 
@@ -377,11 +377,11 @@ abstract class _$$successImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$successImplCopyWithImpl<$Res>
-    extends _$OtpStateCopyWithImpl<$Res, _$successImpl>
-    implements _$$successImplCopyWith<$Res> {
-  __$$successImplCopyWithImpl(
-      _$successImpl _value, $Res Function(_$successImpl) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$OtpStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -389,7 +389,7 @@ class __$$successImplCopyWithImpl<$Res>
   $Res call({
     Object? user = null,
   }) {
-    return _then(_$successImpl(
+    return _then(_$SuccessImpl(
       null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -408,8 +408,8 @@ class __$$successImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$successImpl extends _success {
-  const _$successImpl(this.user) : super._();
+class _$SuccessImpl extends _Success {
+  const _$SuccessImpl(this.user) : super._();
 
   @override
   final UserEntity user;
@@ -423,7 +423,7 @@ class _$successImpl extends _success {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$successImpl &&
+            other is _$SuccessImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -433,8 +433,8 @@ class _$successImpl extends _success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$successImplCopyWith<_$successImpl> get copyWith =>
-      __$$successImplCopyWithImpl<_$successImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -481,9 +481,9 @@ class _$successImpl extends _success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) {
     return success(this);
   }
@@ -493,9 +493,9 @@ class _$successImpl extends _success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
   }
@@ -505,9 +505,9 @@ class _$successImpl extends _success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -517,36 +517,36 @@ class _$successImpl extends _success {
   }
 }
 
-abstract class _success extends OtpState {
-  const factory _success(final UserEntity user) = _$successImpl;
-  const _success._() : super._();
+abstract class _Success extends OtpState {
+  const factory _Success(final UserEntity user) = _$SuccessImpl;
+  const _Success._() : super._();
 
   UserEntity get user;
   @JsonKey(ignore: true)
-  _$$successImplCopyWith<_$successImpl> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$successResendImplCopyWith<$Res> {
-  factory _$$successResendImplCopyWith(
-          _$successResendImpl value, $Res Function(_$successResendImpl) then) =
-      __$$successResendImplCopyWithImpl<$Res>;
+abstract class _$$SuccessSendOtpImplCopyWith<$Res> {
+  factory _$$SuccessSendOtpImplCopyWith(_$SuccessSendOtpImpl value,
+          $Res Function(_$SuccessSendOtpImpl) then) =
+      __$$SuccessSendOtpImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$successResendImplCopyWithImpl<$Res>
-    extends _$OtpStateCopyWithImpl<$Res, _$successResendImpl>
-    implements _$$successResendImplCopyWith<$Res> {
-  __$$successResendImplCopyWithImpl(
-      _$successResendImpl _value, $Res Function(_$successResendImpl) _then)
+class __$$SuccessSendOtpImplCopyWithImpl<$Res>
+    extends _$OtpStateCopyWithImpl<$Res, _$SuccessSendOtpImpl>
+    implements _$$SuccessSendOtpImplCopyWith<$Res> {
+  __$$SuccessSendOtpImplCopyWithImpl(
+      _$SuccessSendOtpImpl _value, $Res Function(_$SuccessSendOtpImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$successResendImpl extends _successResend {
-  const _$successResendImpl() : super._();
+class _$SuccessSendOtpImpl extends _SuccessSendOtp {
+  const _$SuccessSendOtpImpl() : super._();
 
   @override
   String toString() {
@@ -556,7 +556,7 @@ class _$successResendImpl extends _successResend {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$successResendImpl);
+        (other.runtimeType == runtimeType && other is _$SuccessSendOtpImpl);
   }
 
   @override
@@ -607,9 +607,9 @@ class _$successResendImpl extends _successResend {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) {
     return successSendOtp(this);
   }
@@ -619,9 +619,9 @@ class _$successResendImpl extends _successResend {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) {
     return successSendOtp?.call(this);
   }
@@ -631,9 +631,9 @@ class _$successResendImpl extends _successResend {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (successSendOtp != null) {
@@ -643,16 +643,16 @@ class _$successResendImpl extends _successResend {
   }
 }
 
-abstract class _successResend extends OtpState {
-  const factory _successResend() = _$successResendImpl;
-  const _successResend._() : super._();
+abstract class _SuccessSendOtp extends OtpState {
+  const factory _SuccessSendOtp() = _$SuccessSendOtpImpl;
+  const _SuccessSendOtp._() : super._();
 }
 
 /// @nodoc
-abstract class _$$errorImplCopyWith<$Res> {
-  factory _$$errorImplCopyWith(
-          _$errorImpl value, $Res Function(_$errorImpl) then) =
-      __$$errorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorObject error});
 
@@ -660,11 +660,11 @@ abstract class _$$errorImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$errorImplCopyWithImpl<$Res>
-    extends _$OtpStateCopyWithImpl<$Res, _$errorImpl>
-    implements _$$errorImplCopyWith<$Res> {
-  __$$errorImplCopyWithImpl(
-      _$errorImpl _value, $Res Function(_$errorImpl) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$OtpStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -672,7 +672,7 @@ class __$$errorImplCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$errorImpl(
+    return _then(_$ErrorImpl(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -691,8 +691,8 @@ class __$$errorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$errorImpl extends _error {
-  const _$errorImpl(this.error) : super._();
+class _$ErrorImpl extends _Error {
+  const _$ErrorImpl(this.error) : super._();
 
   @override
   final ErrorObject error;
@@ -706,7 +706,7 @@ class _$errorImpl extends _error {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$errorImpl &&
+            other is _$ErrorImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -716,8 +716,8 @@ class _$errorImpl extends _error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
-      __$$errorImplCopyWithImpl<_$errorImpl>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -764,9 +764,9 @@ class _$errorImpl extends _error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_success value) success,
-    required TResult Function(_successResend value) successSendOtp,
-    required TResult Function(_error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessSendOtp value) successSendOtp,
+    required TResult Function(_Error value) error,
   }) {
     return error(this);
   }
@@ -776,9 +776,9 @@ class _$errorImpl extends _error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_success value)? success,
-    TResult? Function(_successResend value)? successSendOtp,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessSendOtp value)? successSendOtp,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }
@@ -788,9 +788,9 @@ class _$errorImpl extends _error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_success value)? success,
-    TResult Function(_successResend value)? successSendOtp,
-    TResult Function(_error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessSendOtp value)? successSendOtp,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -800,12 +800,12 @@ class _$errorImpl extends _error {
   }
 }
 
-abstract class _error extends OtpState {
-  const factory _error(final ErrorObject error) = _$errorImpl;
-  const _error._() : super._();
+abstract class _Error extends OtpState {
+  const factory _Error(final ErrorObject error) = _$ErrorImpl;
+  const _Error._() : super._();
 
   ErrorObject get error;
   @JsonKey(ignore: true)
-  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -19,24 +19,25 @@ class VideoAppsPage extends StatefulWidget {
 
 class _VideoAppsPageState extends State<VideoAppsPage> {
   final List<Map<String, dynamic>> _subscriptionPackages = [
-    {
+   {
       'title': 'Platinum',
-      'price': '100.000',
+      'price': '80.000',
       'benefit':
-          'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+          'Akses penuh ke seluruh film dan serial, termasuk konten eksklusif Netflix Originals. Tonton dalam kualitas Ultra HD dan bisa digunakan hingga 4 perangkat sekaligus.',
     },
     {
       'title': 'Silver',
       'price': '100.000',
       'benefit':
-          'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+          'Nikmati streaming film dan serial populer dalam kualitas HD. Bisa digunakan di 1 perangkat dengan pilihan subtitle dan audio multi-bahasa.',
     },
     {
       'title': 'Gold',
-      'price': '100.000',
+      'price': '130.000',
       'benefit':
-          'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+          'Tonton semua konten Netflix dengan kualitas Full HD. Bisa digunakan hingga 2 perangkat secara bersamaan, cocok untuk pasangan atau keluarga kecil.',
     },
+
   ];
 
   @override
@@ -86,19 +87,23 @@ class _VideoAppsPageState extends State<VideoAppsPage> {
     );
   }
 
-  Widget _buildNetflixBanner() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Container(
-        height: 160,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(16),
+Widget _buildNetflixBanner() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    child: Container(
+      height: 160,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        image: DecorationImage(
+          image: AssetImage('assets/images/netflix-streaming-app.png'), // pastikan path ini benar
+          fit: BoxFit.cover,
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Widget _buildNetflixTitle() {
     return Padding(
@@ -115,7 +120,7 @@ class _VideoAppsPageState extends State<VideoAppsPage> {
           ),
           const Gap(Sizes.p4),
           Text(
-            'Lorem ipsum',
+            'Netflix Video Streaming',
             style: context.bodySmall?.copyWith(
               color: AppColors.white,
             ),
@@ -132,7 +137,7 @@ class _VideoAppsPageState extends State<VideoAppsPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Tentang Aplikasi',
+            'Tentang Aplikasi Netflix',
             style: context.titleSmall?.copyWith(
               color: AppColors.white,
               fontWeight: FontWeight.bold,
@@ -140,7 +145,7 @@ class _VideoAppsPageState extends State<VideoAppsPage> {
           ),
           const Gap(Sizes.p8),
           Text(
-            'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+            'Layanan streaming film dan serial TV on-demand.Tersedia di berbagai perangkat dengan konten berkualitas tinggi.',
             style: context.bodySmall?.copyWith(
               color: AppColors.white,
             ),
@@ -232,7 +237,9 @@ class _VideoAppsPageState extends State<VideoAppsPage> {
           ),
           const Gap(Sizes.p8),
           Text(
-            'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+            '1. Paket hanya untuk penggunaan pribadi, tidak untuk dibagikan secara komersial.\n'
+            '2. Konten hanya dapat diakses selama masa aktif langganan.\n'
+            '3. Dilarang menyebarluaskan, merekam, atau mendistribusikan ulang konten.',
             style: context.bodySmall?.copyWith(
               color: AppColors.white,
             ),
@@ -370,7 +377,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
         ),
         const Gap(Sizes.p8),
         Text(
-          'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
+          'Akses penuh ke seluruh film dan serial, termasuk konten eksklusif Netflix Originals. Tonton dalam kualitas Ultra HD dan bisa digunakan hingga 4 perangkat sekaligus.',
           style: context.bodySmall?.copyWith(
             color: AppColors.white,
           ),

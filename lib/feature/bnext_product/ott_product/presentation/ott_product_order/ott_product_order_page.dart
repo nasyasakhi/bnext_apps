@@ -30,68 +30,69 @@ class OttProductOrderPage extends StatelessWidget {
         title: 'Detail Ott Channels',
         enableBackButton: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 150,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
+      body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 150,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Image.network(
+                product.images.isNotEmpty
+                    ? 'http://172.16.4.105:4000/${product.images.first}'
+                    : 'https://via.placeholder.com/150',
+                fit: BoxFit.cover,
+              )
               ),
-              child: Image.network(
-              product.images.isNotEmpty
-                  ? 'http://172.16.4.105:4000/${product.images.first}'
-                  : 'https://via.placeholder.com/150',
-              fit: BoxFit.cover,
-            )
-            ),
-            const Gap(Sizes.p16),
-            Text(product.name,
-                style: context.titleSmall?.toWeight(FontWeight.bold)),
-            const Gap(Sizes.p4),
-            Text(product.name,
-                style: context.bodySmall?.toWeight(FontWeight.w500)),
-             const Gap(Sizes.p40),
-            Text('Tentang Aplikasi',
-                style: context.titleSmall?.toWeight(FontWeight.bold)),
-            const Gap(Sizes.p4),
-            Text(
-                product.description,
-                style: context.bodySmall?.toWeight(FontWeight.w500)),
-            const Gap(Sizes.p40),
-            Text('Tentang Aplikasi',
-                style: context.titleSmall?.toWeight(FontWeight.bold)),
-            const Gap(Sizes.p12),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(4, (index) => _paketItem(context)),
+              const Gap(Sizes.p16),
+              Text(product.name,
+                  style: context.titleSmall?.toWeight(FontWeight.bold)),
+              const Gap(Sizes.p4),
+              Text(product.name,
+                  style: context.bodySmall?.toWeight(FontWeight.w500)),
+               const Gap(Sizes.p40),
+              Text('Tentang Aplikasi',
+                  style: context.titleSmall?.toWeight(FontWeight.bold)),
+              const Gap(Sizes.p4),
+              Text(
+                  product.description,
+                  style: context.bodySmall?.toWeight(FontWeight.w500)),
+              const Gap(Sizes.p40),
+              Text('Tentang Aplikasi',
+                  style: context.titleSmall?.toWeight(FontWeight.bold)),
+              const Gap(Sizes.p12),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(4, (index) => _paketItem(context)),
+                ),
               ),
-            ),
-            const Gap(Sizes.p40),
-            Text('Syarat Dan Ketentuan',
-                style: context.titleSmall?.toWeight(FontWeight.bold)),
-            const Gap(Sizes.p4),
-            Text(
-                'Lorem ipsum dolor sit amet consectetur. Elementum egestas facilisi neque eget ornare. Urna viverra volutpat nisi felis sollicitudin.',
-                style: context.bodySmall?.toWeight(FontWeight.w500)),
-            const Spacer(),
-            Center(
-              child: PrimaryButton(
-                text: 'Beli Sekarang',
-                onPressed: () {
-                  _showVoucherModal(context);
-                },
-                width: MediaQuery.of(context).size.width * 0.8,
-              ),
-            )
-          ],
+              const Gap(Sizes.p40),
+              Text('Syarat Dan Ketentuan',
+                  style: context.titleSmall?.toWeight(FontWeight.bold)),
+              const Gap(Sizes.p4),
+              Text(
+                  product.stock,
+                  style: context.bodySmall?.toWeight(FontWeight.w500)),
+              const SizedBox(height: 32), // atau ukuran sesuai kebutuhan
+
+              Center(
+                child: PrimaryButton(
+                  text: 'Beli Sekarang',
+                  onPressed: () {
+                    _showVoucherModal(context);
+                  },
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+              )
+            ],
+          ),
         ),
-      ),
     );
   }
 

@@ -29,6 +29,8 @@ class DashboardPage extends StatefulWidget {
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
+
+
 class _DashboardPageState extends State<DashboardPage>
     with SingleTickerProviderStateMixin {
   UserEntity? user;
@@ -37,7 +39,6 @@ class _DashboardPageState extends State<DashboardPage>
   late Animation<double> _opacityTween;
 
   List sliders = [];
-
   @override
   void initState() {
     super.initState();
@@ -47,14 +48,19 @@ class _DashboardPageState extends State<DashboardPage>
       duration: Duration.zero,
     );
     _opacityTween =
-      Tween<double>(begin: 0, end: 1).animate(_opacityAnimationController);
-
+        Tween<double>(begin: 0, end: 1).animate(_opacityAnimationController);
   }
-
   @override
   Widget build(BuildContext context) {
     return _body();
   }
+  @override
+  void dispose() {
+    _opacityAnimationController.dispose();
+
+    super.dispose();
+  }
+
 
   Widget _body() {
     return CustomScaffold(
@@ -74,7 +80,6 @@ class _DashboardPageState extends State<DashboardPage>
       ),
     );
   }
-
     Widget _mainSection() {
       return CustomScrollViewWrapper(
           physic: const AlwaysScrollableScrollPhysics(),
@@ -84,9 +89,9 @@ class _DashboardPageState extends State<DashboardPage>
               child: _buildUserProfile(),
             ),
             const SliverGap(Sizes.p12),
-            const ReusableSliderWidget(category: 'slider'),
+            const ReusableSliderWidget(category: 'promo-banner'),
            const SliverGap(Sizes.p12),
-           const ReusableSliderPartnership(category: 'partnership'),
+           const ReusableSliderPartnership(category: 'partnership-banner'),
           const SliverGap(Sizes.p12),
           SliverToBoxAdapter(
             child: Padding(
@@ -197,7 +202,6 @@ class _DashboardPageState extends State<DashboardPage>
                   ], tittle: 'Game Channels'))),
         ]);
   }
-
   Widget _buildUserProfile() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -269,7 +273,6 @@ class _DashboardPageState extends State<DashboardPage>
       ),
     );
   }
-
   Widget _buildSpecialPackage() {
     return Column(
       children: [
@@ -281,12 +284,11 @@ class _DashboardPageState extends State<DashboardPage>
           ),
         ),
         const Gap(Sizes.p16),
-        const SliderProductWidget(category: 'product'),
+        const SliderProductWidget(category: 'product-banner'),
 
       ],
     );
   }
-
   bool scrollListener(ScrollNotification scrollInfo) {
     var scroll = false;
     if (scrollInfo.metrics.axis == Axis.vertical) {
